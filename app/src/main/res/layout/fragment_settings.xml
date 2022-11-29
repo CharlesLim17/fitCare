@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".settingsFragment">
+
+    <TextView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_action_bar"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="FitCare"
+        android:textColor="#FEFED3"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="34dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="10sp"
+        android:text="Hello user, welcome to \nyour profile"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/fitcare_line" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="34dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Your current Statistcs"
+        android:textColor="#303030"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@id/btnEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
+    <ImageView
+        android:id="@+id/btnEdit"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="34dp"
+        android:src="@drawable/edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/txtWeight"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_settings_weight"
+        android:elevation="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/txtHeight"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_settings_height"
+        android:elevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_settings_bmi"
+        android:elevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWeight" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="34dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Settings"
+        android:textColor="#303030"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/btnAbout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_setting_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:paddingLeft="62dp"
+        android:text="About"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/btnPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_setting_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:paddingLeft="62dp"
+        android:text="Privacy"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbout" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:elevation="12dp"
+        android:src="@drawable/info"
+        app:layout_constraintStart_toStartOf="@+id/btnAbout"
+        app:layout_constraintTop_toTopOf="@+id/btnAbout" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:elevation="12dp"
+        android:src="@drawable/privacy"
+        app:layout_constraintStart_toStartOf="@+id/btnPrivacy"
+        app:layout_constraintTop_toTopOf="@+id/btnPrivacy" />
+
+    <TextView
+        android:id="@+id/txtRetrieveWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="55 kgs"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtWeight"
+        app:layout_constraintStart_toStartOf="@+id/txtWeight"
+        app:layout_constraintTop_toTopOf="@+id/txtWeight" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif"
+        android:text="Your weight"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtWeight"
+        app:layout_constraintStart_toStartOf="@+id/txtWeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtRetrieveWeight" />
+
+    <TextView
+        android:id="@+id/txtRetrieveHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="172 cm"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtHeight"
+        app:layout_constraintStart_toStartOf="@+id/txtHeight"
+        app:layout_constraintTop_toTopOf="@+id/txtHeight" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif"
+        android:text="Your height"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtHeight"
+        app:layout_constraintStart_toStartOf="@+id/txtHeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtRetrieveHeight" />
+
+    <TextView
+        android:id="@+id/txtRetrieveBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="70dp"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="19.8"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/txtRetrieveBmiResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="16dp"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Normal Weight"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txtRetrieveBMI"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="2dp"
+        android:text="Your BMI"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/txtRetrieveBmiResult" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
