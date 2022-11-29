@@ -8,6 +8,7 @@
     android:background="@color/white">
 
     <TextView
+        android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@drawable/custom_action_bar"
@@ -19,5 +20,124 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:text="Exercise!"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100.34dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="40dp"
+        android:elevation="12dp"
+        android:src="@drawable/fitcare_logo"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingTop="80dp"
+        android:text="Meal Plan"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingTop="80dp"
+        android:text="Workout Tracker"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingTop="80dp"
+        android:text="Warmp-Up Stretches"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingTop="80dp"
+        android:text="Workout Reminders"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/custom_home_btn"
+        android:elevation="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="FIN"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
