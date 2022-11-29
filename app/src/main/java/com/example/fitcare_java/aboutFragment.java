@@ -8,12 +8,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class aboutFragment extends Fragment {
 
     //declaring Variables
-    TextView btnBack;
+    ImageView btnBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
