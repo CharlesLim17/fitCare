@@ -13,6 +13,20 @@
         android:theme="@style/Theme.FitCare_java"
         tools:targetApi="31">
         <activity
+            android:name=".privacyActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".aboutActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".indexActivity"
             android:exported="false">
             <meta-data

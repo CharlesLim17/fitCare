@@ -25,10 +25,11 @@ public class termsAndConditionsActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        //CheckBox Validation
+        //Setting Variables
         radioButton = findViewById(R.id.radioButton);
         button = findViewById(R.id.button);
 
+        //button onclick with validation
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
