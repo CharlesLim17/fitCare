@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/btnExercise"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="34dp"
@@ -47,12 +47,12 @@
         android:layout_marginTop="40dp"
         android:elevation="12dp"
         android:src="@drawable/fitcare_logo"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintEnd_toEndOf="@+id/btnExercise"
+        app:layout_constraintStart_toStartOf="@+id/btnExercise"
+        app:layout_constraintTop_toTopOf="@+id/btnExercise" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/btnMeal"
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginLeft="34dp"
@@ -66,10 +66,10 @@
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/btnTracker"
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginTop="20dp"
@@ -83,10 +83,10 @@
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/btnWarmup"
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginLeft="34dp"
@@ -100,10 +100,10 @@
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMeal" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/btnReminder"
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginTop="20dp"
@@ -117,27 +117,51 @@
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTracker" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="34dp"
-        android:background="@drawable/custom_home_btn"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="FIN"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        android:src="@drawable/meal"
+        app:layout_constraintEnd_toEndOf="@+id/btnMeal"
+        app:layout_constraintStart_toStartOf="@+id/btnMeal"
+        app:layout_constraintTop_toTopOf="@+id/btnMeal" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:elevation="12dp"
+        android:src="@drawable/checklist"
+        app:layout_constraintEnd_toEndOf="@+id/btnTracker"
+        app:layout_constraintStart_toStartOf="@+id/btnTracker"
+        app:layout_constraintTop_toTopOf="@+id/btnTracker" />
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/reminder"
+        app:layout_constraintEnd_toEndOf="@+id/btnReminder"
+        app:layout_constraintStart_toStartOf="@+id/btnReminder"
+        app:layout_constraintTop_toTopOf="@+id/btnReminder" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/warmup"
+        app:layout_constraintEnd_toEndOf="@+id/btnWarmup"
+        app:layout_constraintStart_toStartOf="@+id/btnWarmup"
+        app:layout_constraintTop_toTopOf="@+id/btnWarmup" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,14 @@
         android:title="Home"/>
 
     <item
+        android:id="@+id/fin"
+        android:icon="@drawable/mic_navbar"
+        android:title="FIN"/>
+
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"
         android:title="Settings"/>
+
 
 </menu>

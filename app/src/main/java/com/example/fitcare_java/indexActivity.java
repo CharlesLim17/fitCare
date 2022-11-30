@@ -36,6 +36,9 @@ public class indexActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new homeFragment());
                     break;
+                case R.id.fin:
+                    replaceFragment(new finFragment());
+                    break;
                 case R.id.settings:
                     replaceFragment(new settingsFragment());
                     break;
