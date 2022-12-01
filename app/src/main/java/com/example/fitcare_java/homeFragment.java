@@ -72,7 +72,6 @@ public class homeFragment extends Fragment {
             }
         });
 
-
         //Warmup onclick
         btnWarmup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +81,6 @@ public class homeFragment extends Fragment {
                 fm.replace(R.id.frameLayout, warmupFrag).commit();
             }
         });
-
 
         return view;
     }
