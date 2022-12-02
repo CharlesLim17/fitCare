@@ -57,7 +57,7 @@ public class userInput2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkFieldsSubmit()){
-                    Intent intent = new Intent(userInput2Activity.this, indexActivity.class);
+                    Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
                     startActivity(intent);
                 }
             }

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //splash screen
-        Intent iHome = new Intent(MainActivity.this, termsAndConditionsActivity.class);
+        Intent iHome = new Intent(MainActivity.this, userInput1Activity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override

@@ -34,7 +34,7 @@ public class termsAndConditionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (error()){
-                    Intent intent = new Intent(termsAndConditionsActivity.this, userInput1Activity.class);
+                    Intent intent = new Intent(termsAndConditionsActivity.this, indexActivity.class);
                     startActivity(intent);
                 }
             }
