@@ -2,6 +2,7 @@ package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,11 +22,13 @@ import java.util.Locale;
 
 public class settingsFragment extends Fragment {
 
+    TextView txtGreet;
     TextView btnAbout;
     TextView btnPrivacy;
     ImageView btnEdit;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,9 +36,12 @@ public class settingsFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_settings, container, false);
 
         //setting variables
+        txtGreet = view.findViewById(R.id.txtGreet);
         btnAbout = view.findViewById(R.id.btnAbout);
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
+
+        txtGreet.setText("Hello " + userInput1Activity.etFirstName.getText().toString());
 
         //Privacy onclick
         btnPrivacy.setOnClickListener(new View.OnClickListener() {
