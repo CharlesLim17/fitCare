@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btnMic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/fin"
@@ -91,23 +91,6 @@
         android:elevation="20dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:lineSpacingExtra="16sp"
-        android:text="...inputted command"
-        android:textColor="#595959"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

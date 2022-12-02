@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class homeFragment extends Fragment {
@@ -18,6 +19,7 @@ public class homeFragment extends Fragment {
     TextView btnTracker;
     TextView btnWarmup;
     TextView btnReminder;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
