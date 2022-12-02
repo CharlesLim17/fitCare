@@ -187,7 +187,6 @@
             android:text=" • Food 1: Eggs\n • Food 2: Rice\n • Food 3: Bread\n • Food 4: Peanutbutter"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -202,6 +201,20 @@
             android:src="@drawable/edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtAfternoon" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnMic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="34dp"
+            android:backgroundTint="#CFEAC3"
+            android:src="@drawable/mic_navbar"
+            android:tint="@color/ateneo_blue"
+            app:layout_constraintTop_toBottomOf="@id/txtEvening"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

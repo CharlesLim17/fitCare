@@ -1,167 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView12"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@drawable/custom_action_bar"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="FitCare"
-        android:textColor="#FEFED3"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/btnExercise"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="34dp"
-        android:background="@drawable/custom_home_btn"
-        android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:paddingTop="100dp"
-        android:text="Exercise!"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="100.34dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="40dp"
-        android:elevation="12dp"
-        android:src="@drawable/fitcare_logo"
-        app:layout_constraintEnd_toEndOf="@+id/btnExercise"
-        app:layout_constraintStart_toStartOf="@+id/btnExercise"
-        app:layout_constraintTop_toTopOf="@+id/btnExercise" />
-
-    <TextView
-        android:id="@+id/btnMeal"
-        android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_home_btn"
-        android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:paddingTop="80dp"
-        android:text="Meal Plan"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
-
-    <TextView
-        android:id="@+id/btnTracker"
-        android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="34dp"
-        android:background="@drawable/custom_home_btn"
-        android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:paddingTop="80dp"
-        android:text="Workout Tracker"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
-
-    <TextView
-        android:id="@+id/btnWarmup"
-        android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_home_btn"
-        android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:paddingTop="80dp"
-        android:text="Warmp-Up Stretches"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMeal" />
-
-    <TextView
-        android:id="@+id/btnReminder"
-        android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="34dp"
-        android:background="@drawable/custom_home_btn"
-        android:elevation="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:paddingTop="80dp"
-        android:text="Workout Reminders"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTracker" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:elevation="12dp"
-        android:src="@drawable/meal"
-        app:layout_constraintEnd_toEndOf="@+id/btnMeal"
-        app:layout_constraintStart_toStartOf="@+id/btnMeal"
-        app:layout_constraintTop_toTopOf="@+id/btnMeal" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:elevation="12dp"
-        android:src="@drawable/checklist"
-        app:layout_constraintEnd_toEndOf="@+id/btnTracker"
-        app:layout_constraintStart_toStartOf="@+id/btnTracker"
-        app:layout_constraintTop_toTopOf="@+id/btnTracker" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="12dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/reminder"
-        app:layout_constraintEnd_toEndOf="@+id/btnReminder"
-        app:layout_constraintStart_toStartOf="@+id/btnReminder"
-        app:layout_constraintTop_toTopOf="@+id/btnReminder" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="12dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/warmup"
-        app:layout_constraintEnd_toEndOf="@+id/btnWarmup"
-        app:layout_constraintStart_toStartOf="@+id/btnWarmup"
-        app:layout_constraintTop_toTopOf="@+id/btnWarmup" />
+        android:layout_height="wrap_content">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/custom_action_bar"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="FitCare"
+            android:textColor="#FEFED3"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnExercise"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_home_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingTop="100dp"
+            android:text="Exercise!"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100.34dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="40dp"
+            android:elevation="12dp"
+            android:src="@drawable/fitcare_logo"
+            app:layout_constraintEnd_toEndOf="@+id/btnExercise"
+            app:layout_constraintStart_toStartOf="@+id/btnExercise"
+            app:layout_constraintTop_toTopOf="@+id/btnExercise" />
+
+        <TextView
+            android:id="@+id/btnMeal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginLeft="34dp"
+            android:background="@drawable/custom_home_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingTop="100dp"
+            android:text="Meal Plan"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
+
+        <TextView
+            android:id="@+id/btnTracker"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_home_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingTop="100dp"
+            android:text="Workout Tracker"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMeal" />
+
+        <TextView
+            android:id="@+id/btnWarmup"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginLeft="34dp"
+            android:background="@drawable/custom_home_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingTop="80dp"
+            android:text="Warmp-Up Stretches"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnTracker" />
+
+        <TextView
+            android:id="@+id/btnReminder"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/custom_home_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingTop="80dp"
+            android:text="Workout Reminders"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnWarmup" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="100.34dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="40dp"
+            android:elevation="12dp"
+            android:src="@drawable/meal"
+            app:layout_constraintEnd_toEndOf="@+id/btnMeal"
+            app:layout_constraintStart_toStartOf="@+id/btnMeal"
+            app:layout_constraintTop_toTopOf="@+id/btnMeal" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="100.34dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="40dp"
+            android:elevation="12dp"
+            android:src="@drawable/checklist"
+            app:layout_constraintEnd_toEndOf="@+id/btnTracker"
+            app:layout_constraintStart_toStartOf="@+id/btnTracker"
+            app:layout_constraintTop_toTopOf="@+id/btnTracker" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="100.34dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="40dp"
+            android:elevation="12dp"
+            android:src="@drawable/reminder"
+            app:layout_constraintEnd_toEndOf="@+id/btnReminder"
+            app:layout_constraintStart_toStartOf="@+id/btnReminder"
+            app:layout_constraintTop_toTopOf="@+id/btnReminder" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="100.34dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="40dp"
+            android:elevation="12dp"
+            android:src="@drawable/warmup"
+            app:layout_constraintEnd_toEndOf="@+id/btnWarmup"
+            app:layout_constraintStart_toStartOf="@+id/btnWarmup"
+            app:layout_constraintTop_toTopOf="@+id/btnWarmup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

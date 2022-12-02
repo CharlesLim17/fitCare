@@ -1,21 +1,30 @@
 package com.example.fitcare_java;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class settingsFragment extends Fragment {
 
     TextView btnAbout;
     TextView btnPrivacy;
     ImageView btnEdit;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,7 +67,9 @@ public class settingsFragment extends Fragment {
             }
         });
 
+
         return view;
     }
+
 
 }

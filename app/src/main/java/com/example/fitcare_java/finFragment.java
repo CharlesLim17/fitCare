@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -24,7 +26,7 @@ import java.util.Locale;
 public class finFragment extends Fragment {
 
     //declaring variables
-    ImageView btnMic;
+    FloatingActionButton btnMic;
 
     @SuppressLint("MissingInflatedId")
     @Override
