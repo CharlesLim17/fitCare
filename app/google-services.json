@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "850557550967",
+    "project_id": "fitcare-46c99",
+    "storage_bucket": "fitcare-46c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850557550967:android:e34bf37ee8a77f25fce172",
+        "android_client_info": {
+          "package_name": "com.example.fitcare_java"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850557550967-eji722lm3o28j2eihqvnonosf7nik15u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA575_7NcpkgC0o4cjp1qhU6Iz72SVrwus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850557550967-eji722lm3o28j2eihqvnonosf7nik15u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
