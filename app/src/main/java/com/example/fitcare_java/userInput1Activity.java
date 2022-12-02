@@ -18,11 +18,12 @@ public class userInput1Activity extends AppCompatActivity {
     static EditText etFirstName;
     static EditText etLastName;
     static EditText etAge;
+    static AutoCompleteTextView ddlGender;
     Button button;
 
     //declaring variables for gender ddl
     final String[] gender = {"Male", "Female", "Prefer not to say"};
-    AutoCompleteTextView ddlGender;
+
     ArrayAdapter<String> adapterItems;
 
     @Override

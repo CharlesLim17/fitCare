@@ -4,6 +4,7 @@ public class User {
     private String firstName;
     private String lastName;
     private int age;
+    private String gender;
     private float curWeight;
     private float prevWeight;
     private int height;
@@ -65,10 +66,19 @@ public class User {
         this.goal = goal;
     }
 
-    public User(String firstName, String lastName, int age, float curWeight, float prevWeight, int height, float goal) {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public User(String firstName, String lastName, int age, String gender, float curWeight, float prevWeight, int height, float goal) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.gender = gender;
         this.curWeight = curWeight;
         this.prevWeight = prevWeight;
         this.height = height;

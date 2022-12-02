@@ -62,6 +62,7 @@ public class userInput2Activity extends AppCompatActivity {
                 User user = new User(userInput1Activity.etFirstName.getText().toString(),
                         userInput1Activity.etLastName.getText().toString(),
                         Integer.parseInt(userInput1Activity.etAge.getText().toString()),
+                        userInput1Activity.ddlGender.getText().toString(),
                         Float.parseFloat(etWeight.getText().toString()),
                         Float.parseFloat(etWeight.getText().toString()),
                         Integer.parseInt(etHeight.getText().toString()),
