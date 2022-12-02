@@ -15,13 +15,13 @@ import android.widget.Toast;
 public class userInput1Activity extends AppCompatActivity {
 
     //declaring variables for validation of fields
-    EditText etFirstName;
-    EditText etLastName;
-    EditText etAge;
+    static EditText etFirstName;
+    static EditText etLastName;
+    static EditText etAge;
     Button button;
 
     //declaring variables for gender ddl
-    String[] gender = {"Male", "Female", "Prefer not to say"};
+    final String[] gender = {"Male", "Female", "Prefer not to say"};
     AutoCompleteTextView ddlGender;
     ArrayAdapter<String> adapterItems;
 
@@ -56,18 +56,17 @@ public class userInput1Activity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (error()){
+
+                if (error()) {
                     Intent intent = new Intent(userInput1Activity.this, userInput2Activity.class);
                     startActivity(intent);
                 }
             }
         });
-
-
     }
 
-    //function for validation of field
-    private boolean error(){
+    // function for validation of field
+    private boolean error() {
         if (etFirstName.getText().toString().length() == 0){
             Toast.makeText(userInput1Activity.this, "Please input first name", Toast.LENGTH_LONG).show();
             return false;
