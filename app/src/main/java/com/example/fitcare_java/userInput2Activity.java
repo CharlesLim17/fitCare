@@ -2,6 +2,7 @@ package com.example.fitcare_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,11 +16,13 @@ public class userInput2Activity extends AppCompatActivity {
     //declaring variables to compute BMI
     EditText etWeight;
     EditText etHeight;
+    EditText etGoal;
     TextView txtBmiResult;
     String calculation, bmiResult;
     Button submit_button;
     Button calculate_button;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +36,17 @@ public class userInput2Activity extends AppCompatActivity {
         //Setting variables
         etWeight = findViewById(R.id.etWeight);
         etHeight = findViewById(R.id.etHeight);
+        etGoal = findViewById(R.id.etGoal);
         txtBmiResult = findViewById(R.id.txtBmiResult);
         calculate_button = findViewById(R.id.calculate_button);
         submit_button = findViewById(R.id.submit_button);
+
 
         //Button for Calculating BMI
         calculate_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (error()){
+                if (checkFieldsBmi()){
                     calculateBMI(view);
                 }
             }
@@ -51,7 +56,7 @@ public class userInput2Activity extends AppCompatActivity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (error()){
+                if (checkFieldsSubmit()){
                     Intent intent = new Intent(userInput2Activity.this, indexActivity.class);
                     startActivity(intent);
                 }
@@ -90,14 +95,32 @@ public class userInput2Activity extends AppCompatActivity {
         txtBmiResult.setText(calculation);
     }
 
-    //function for validation of field
-    private boolean error() {
+    //function for validation of field to calculate bmi
+    private boolean checkFieldsBmi() {
         if (etWeight.getText().toString().length() == 0){
             Toast.makeText(userInput2Activity.this, "Please input weight", Toast.LENGTH_LONG).show();
             return false;
         }
         else if (etHeight.getText().toString().length() == 0){
             Toast.makeText(userInput2Activity.this, "Please input height", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
+
+    //function for validation of field to go to next fragment
+    private boolean checkFieldsSubmit() {
+        if (etWeight.getText().toString().length() == 0){
+            Toast.makeText(userInput2Activity.this, "Please input weight", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etHeight.getText().toString().length() == 0){
+            Toast.makeText(userInput2Activity.this, "Please input height", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etGoal.getText().toString().length() == 0){
+            Toast.makeText(userInput2Activity.this, "Please input weight goal", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
