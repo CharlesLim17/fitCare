@@ -59,9 +59,13 @@ public class userInput2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                User user = new User(userInput1Activity.etFirstName.getText().toString(), userInput1Activity.etLastName.getText().toString(),
-                        Integer.parseInt(userInput1Activity.etAge.getText().toString()), Float.parseFloat(etWeight.getText().toString()
-                ), Float.parseFloat(etWeight.getText().toString()), Integer.parseInt(etHeight.getText().toString()), Float.parseFloat(etGoal.getText().toString()));
+                User user = new User(userInput1Activity.etFirstName.getText().toString(),
+                        userInput1Activity.etLastName.getText().toString(),
+                        Integer.parseInt(userInput1Activity.etAge.getText().toString()),
+                        Float.parseFloat(etWeight.getText().toString()),
+                        Float.parseFloat(etWeight.getText().toString()),
+                        Integer.parseInt(etHeight.getText().toString()),
+                        Float.parseFloat(etGoal.getText().toString()));
                 dao.add(user).addOnSuccessListener(suc -> Toast.makeText(userInput2Activity.this, "Welcome, " + userInput1Activity.etFirstName.getText().toString() + " " + userInput1Activity.etLastName.getText().toString(), Toast.LENGTH_SHORT).show()).addOnFailureListener(er -> Toast.makeText(userInput2Activity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show());
 
                 if (checkFieldsSubmit()){
