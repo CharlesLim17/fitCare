@@ -41,7 +41,7 @@ public class reminderEditFragment extends Fragment {
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
-        numPickerMin.setMinValue(59);
+        numPickerMin.setMaxValue(59);
 
         //setting am pm
         String[] time = {"am", "pm"};
