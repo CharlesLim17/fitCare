@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,9 @@ public class userInput2Activity extends AppCompatActivity {
     String calculation, bmiResult;
     Button submit_button;
     Button calculate_button;
+
+    //checking if user is logged in / or registered
+    public static String PREFS_NAME="MyPrefsFile";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,7 +62,7 @@ public class userInput2Activity extends AppCompatActivity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //insert to database
                 User user = new User(userInput1Activity.etFirstName.getText().toString(),
                         userInput1Activity.etLastName.getText().toString(),
                         Integer.parseInt(userInput1Activity.etAge.getText().toString()),
@@ -69,9 +73,19 @@ public class userInput2Activity extends AppCompatActivity {
                         Float.parseFloat(etGoal.getText().toString()));
                 dao.add(user).addOnSuccessListener(suc -> Toast.makeText(userInput2Activity.this, "Welcome, " + userInput1Activity.etFirstName.getText().toString() + " " + userInput1Activity.etLastName.getText().toString(), Toast.LENGTH_SHORT).show()).addOnFailureListener(er -> Toast.makeText(userInput2Activity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show());
 
+                //validation of fields
                 if (checkFieldsSubmit()){
+                    //Stay loggedin
+                    SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putBoolean("hasLoggedIn", true);
+                    editor.commit();
+
+                    //start new activity
                     Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

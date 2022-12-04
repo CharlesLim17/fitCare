@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class userInput1Activity extends AppCompatActivity {
 
     //declaring variables for validation of fields
@@ -23,8 +25,8 @@ public class userInput1Activity extends AppCompatActivity {
 
     //declaring variables for gender ddl
     final String[] gender = {"Male", "Female", "Prefer not to say"};
-
     ArrayAdapter<String> adapterItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class userInput1Activity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
 
         //Gender String
         ddlGender = findViewById(R.id.ddlGender);
@@ -64,6 +67,7 @@ public class userInput1Activity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     // function for validation of field
@@ -82,4 +86,6 @@ public class userInput1Activity extends AppCompatActivity {
         }
         return true;
     }
+
+
 }

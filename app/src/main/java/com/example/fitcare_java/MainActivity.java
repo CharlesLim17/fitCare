@@ -3,6 +3,7 @@ package com.example.fitcare_java;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -19,13 +20,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //splash screen
-        Intent iHome = new Intent(MainActivity.this, userInput1Activity.class);
+        Intent iRegister = new Intent(MainActivity.this, userInput1Activity.class);
+        Intent iHome = new Intent(MainActivity.this, indexActivity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
+                boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
 
-                startActivity(iHome);
+                if(hasLoggedIn){
+                    startActivity(iHome);
+                    finish();
+                }
+                else {
+                    startActivity(iRegister);
+                    finish();
+                }
             }
         }, 3200);
     }
