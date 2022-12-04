@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                //algo for staying logged in
                 SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
                 boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
 

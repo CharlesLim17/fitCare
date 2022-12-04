@@ -75,7 +75,7 @@ public class userInput2Activity extends AppCompatActivity {
 
                 //validation of fields
                 if (checkFieldsSubmit()){
-                    //Stay loggedin
+                    //Stay logged in
                     SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
