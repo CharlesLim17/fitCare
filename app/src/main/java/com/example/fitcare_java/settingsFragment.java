@@ -134,7 +134,7 @@ public class settingsFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        }); //end of function to retrieve data pota yung iba di ko alam eh AHAHHA
 
     }
 
