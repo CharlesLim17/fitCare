@@ -2,6 +2,7 @@ package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,8 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -30,7 +33,15 @@ public class mealPlanAddFragment extends Fragment {
     TextView btnAdd;
     ImageView btnEdit1, btnEdit2, btnEdit3, btnEdit4;
     FloatingActionButton btnMic;
+    AutoCompleteTextView ddlFoodCat;
 
+    //declaring variables for gender ddl
+    final String[] food = {"Morning", "Afternoon", "Evening"};
+
+    ArrayAdapter<String> adapterItems;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +56,12 @@ public class mealPlanAddFragment extends Fragment {
         btnEdit3 = view.findViewById(R.id.btnEdit3);
         btnEdit4 = view.findViewById(R.id.btnEdit4);
         btnMic = view.findViewById(R.id.btnMic);
+
+        //FoodCat String values
+        ddlFoodCat = view.findViewById(R.id.ddlFoodCat);
+        adapterItems = new ArrayAdapter<String>(this.requireContext(), R.layout.gender_list, food); //gender_list nakalagay pero design lang yan for list - ni reuse ko lang
+        ddlFoodCat.setAdapter(adapterItems);
+
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {

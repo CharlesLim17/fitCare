@@ -41,7 +41,7 @@ public class settingsFragment extends Fragment {
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
 
-        txtGreet.setText("Hello " + userInput1Activity.etFirstName.getText().toString());
+        txtGreet.setText("Hello " + userInput1Activity.etFirstName.getText().toString() +", welcome to your profile!");
 
         //Privacy onclick
         btnPrivacy.setOnClickListener(new View.OnClickListener() {
