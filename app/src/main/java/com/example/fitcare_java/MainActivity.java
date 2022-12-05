@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Intent iRegister = new Intent(MainActivity.this, userInput1Activity.class);
         Intent iHome = new Intent(MainActivity.this, indexActivity.class);
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

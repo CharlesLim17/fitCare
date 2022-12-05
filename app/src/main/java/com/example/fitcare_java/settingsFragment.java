@@ -50,6 +50,8 @@ public class settingsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_settings, container, false);
 
+        //retrieve data
+        readData();
 
         //setting variables
         txtGreet = view.findViewById(R.id.txtGreet);
@@ -59,9 +61,6 @@ public class settingsFragment extends Fragment {
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
 
-
-        //retrieve data
-        readData();
 
         //txtGreet.setText("Hello " + userInput1Activity.etFirstName.getText().toString() +", welcome to your profile!");
 
@@ -134,7 +133,7 @@ public class settingsFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        }); //end of function to retrieve data pota yung iba di ko alam eh AHAHHA
+        }); //end of function to retrieve data pota o
 
     }
 

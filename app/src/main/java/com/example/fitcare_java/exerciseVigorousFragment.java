@@ -4,6 +4,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -15,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -34,6 +37,16 @@ public class exerciseVigorousFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exercise_vigorous, container, false);
+
+        //video view
+        VideoView videoView = view.findViewById(R.id.videoView);
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.comp_workoutvigorous;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(this.requireContext());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
 
         //setting variables
         btnBack = view.findViewById(R.id.btnBack);
