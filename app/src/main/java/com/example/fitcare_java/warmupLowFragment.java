@@ -2,7 +2,9 @@ package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -14,8 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.NumberPicker;
-import android.widget.TextView;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,57 +25,40 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class reminderAddFragment extends Fragment {
+public class warmupLowFragment extends Fragment {
 
     //declaring variables
-    NumberPicker numPickerHour, numPickerMin, numPickerAm;
     ImageView btnBack;
-    TextView btnAdd;
     FloatingActionButton btnMic;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_reminder_add, container, false);
+        View view = inflater.inflate(R.layout.fragment_warmup_low, container, false);
+
+        //video view
+        VideoView videoView = view.findViewById(R.id.videoView);
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.comp_warmuplow;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(this.requireContext());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
 
         //setting variables
-        numPickerHour = view.findViewById(R.id.numPickerHour);
-        numPickerMin = view.findViewById(R.id.numPickerMin);
-        numPickerAm = view.findViewById(R.id.numPickerAm);
         btnBack = view.findViewById(R.id.btnBack);
-        btnAdd = view.findViewById(R.id.btnAdd);
         btnMic = view.findViewById(R.id.btnMic);
-
-        //setting numpicker for hour
-        numPickerHour.setMinValue(0);
-        numPickerHour.setMaxValue(12);
-
-        //setting numpicker for min
-        numPickerMin.setMinValue(0);
-        numPickerMin.setMaxValue(59);
-
-        //setting am pm
-        String[] time = {"am", "pm"};
-        numPickerAm.setDisplayedValues(time);
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment reminderFrag = new reminderFragment();
+                Fragment warmpupLevelFrag = new warmupLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
-            }
-        });
-
-        //add onclick
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment reminderFrag = new reminderFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
+                fm.replace(R.id.frameLayout, warmpupLevelFrag).commit();
             }
         });
 
@@ -98,7 +83,6 @@ public class reminderAddFragment extends Fragment {
         startActivityForResult(voice, 1);
     }
 
-    //to get result and opening inputted page
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

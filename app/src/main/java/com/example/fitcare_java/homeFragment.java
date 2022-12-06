@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class homeFragment extends Fragment {
@@ -78,7 +77,7 @@ public class homeFragment extends Fragment {
         btnWarmup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment warmupFrag = new warmupFragment();
+                Fragment warmupFrag = new warmupLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, warmupFrag).commit();
             }

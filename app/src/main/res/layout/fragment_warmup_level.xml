@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".warmupFragment"
+    tools:context=".warmupLevelFragment"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +34,7 @@
             android:layout_marginRight="34dp"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="10sp"
-            android:text="Warmup Stretches"
+            android:text="Warmup - Select Level"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -64,6 +64,60 @@
             app:layout_constraintStart_toStartOf="@+id/appBar"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/btnLow"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Low"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/btnModerate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Moderate"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLow" />
+
+        <TextView
+            android:id="@+id/btnVigorous"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Vigorous"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnModerate" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnMic"

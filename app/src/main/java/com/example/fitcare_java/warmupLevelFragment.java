@@ -2,6 +2,7 @@ package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,57 +23,66 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class reminderAddFragment extends Fragment {
+public class warmupLevelFragment extends Fragment {
 
-    //declaring variables
-    NumberPicker numPickerHour, numPickerMin, numPickerAm;
+   //declaring variables
+    TextView btnLow;
+    TextView btnModerate;
+    TextView btnVigorous;
     ImageView btnBack;
-    TextView btnAdd;
     FloatingActionButton btnMic;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_reminder_add, container, false);
+        View view = inflater.inflate(R.layout.fragment_warmup_level, container, false);
 
         //setting variables
-        numPickerHour = view.findViewById(R.id.numPickerHour);
-        numPickerMin = view.findViewById(R.id.numPickerMin);
-        numPickerAm = view.findViewById(R.id.numPickerAm);
         btnBack = view.findViewById(R.id.btnBack);
-        btnAdd = view.findViewById(R.id.btnAdd);
         btnMic = view.findViewById(R.id.btnMic);
-
-        //setting numpicker for hour
-        numPickerHour.setMinValue(0);
-        numPickerHour.setMaxValue(12);
-
-        //setting numpicker for min
-        numPickerMin.setMinValue(0);
-        numPickerMin.setMaxValue(59);
-
-        //setting am pm
-        String[] time = {"am", "pm"};
-        numPickerAm.setDisplayedValues(time);
+        btnLow = view.findViewById(R.id.btnLow);
+        btnModerate = view.findViewById(R.id.btnModerate);
+        btnVigorous = view.findViewById(R.id.btnVigorous);
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment reminderFrag = new reminderFragment();
+                Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
+                fm.replace(R.id.frameLayout, homeFrag).commit();
             }
         });
 
-        //add onclick
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        //low onclick
+        btnLow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment reminderFrag = new reminderFragment();
+                Fragment warmupLowFrag = new warmupLowFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
+                fm.replace(R.id.frameLayout, warmupLowFrag).commit();
+            }
+        });
+
+        //moderate onlcik
+        btnModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment warmupModerateFrag = new warmupModerateFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, warmupModerateFrag).commit();
+            }
+        });
+
+        //vigorous onclick
+        btnVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment warmupVigorousFrag = new warmupVigorousFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, warmupVigorousFrag).commit();
             }
         });
 
