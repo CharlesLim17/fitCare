@@ -2,6 +2,8 @@ package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
 
+import static com.example.fitcare_java.DAOUser.databaseReference;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,19 +31,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class settingsFragment extends Fragment {
 
-    //declaring variables
-    TextView txtGreet, txtRetrieveWeight, txtRetrieveHeight;
+    //Declaring variables
+    TextView txtGreet, txtRetrieveWeight, txtRetrieveHeight, txtRetrieveBMI, txtRetrieveBMIResult;
     TextView btnAbout;
     TextView btnPrivacy;
     ImageView btnEdit;
-
-    //firebase
-    DatabaseReference reference;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,19 +50,20 @@ public class settingsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_settings, container, false);
 
-        //retrieve data
-        readData();
 
-        //setting variables
+        // Setting variables
         txtGreet = view.findViewById(R.id.txtGreet);
         txtRetrieveWeight = view.findViewById(R.id.txtRetrieveWeight);
         txtRetrieveHeight = view.findViewById(R.id.txtRetrieveHeight);
+        txtRetrieveBMI = view.findViewById(R.id.txtRetrieveBMI);
+        txtRetrieveBMIResult = view.findViewById(R.id.txtRetrieveBmiResult);
         btnAbout = view.findViewById(R.id.btnAbout);
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
 
 
-        //txtGreet.setText("Hello " + userInput1Activity.etFirstName.getText().toString() +", welcome to your profile!");
+        // Retrieve Data and Display
+        readData();
 
         //Privacy onclick
         btnPrivacy.setOnClickListener(new View.OnClickListener() {
@@ -100,18 +101,43 @@ public class settingsFragment extends Fragment {
     //function to retrieve data
     private void readData() {
 
-        reference = FirebaseDatabase.getInstance().getReference().child("User");
-        reference.addChildEventListener(new ChildEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 String firstName = String.valueOf(snapshot.child("firstName").getValue());
-                String weight = String.valueOf(snapshot.child("curWeight").getValue());
-                String height = String.valueOf(snapshot.child("height").getValue());
+                float weight = Float.parseFloat(String.valueOf(snapshot.child("curWeight").getValue()));
+                float height = Float.parseFloat(String.valueOf(snapshot.child("height").getValue()));
 
                 txtGreet.setText("Hello " + firstName + ", welcome to your profile!");
-                txtRetrieveHeight.setText(height + " cm");
+                txtRetrieveHeight.setText((int)height + " cm");
                 txtRetrieveWeight.setText(weight + " kgs");
+
+                height = height/100;
+                float bmi = weight / (height * height);
+
+                if (bmi < 16) {
+                    txtRetrieveBMIResult.setText("Severely Underweight");
+                }
+                else if (bmi < 18.5) {
+                    txtRetrieveBMIResult.setText("Under Weight");
+                }
+                else if (bmi >= 18.5 && bmi <= 24.9) {
+                    txtRetrieveBMIResult.setText("Normal Weight");
+
+                }
+                else if (bmi >= 25 && bmi <= 29.9) {
+                    txtRetrieveBMIResult.setText("Overweight");
+                }
+                else {
+                    txtRetrieveBMIResult.setText("Obese");
+                }
+
+                @SuppressLint("DefaultLocale") String formattedString = String.format("%.02f", bmi);
+                txtRetrieveBMI.setText(formattedString + "");
+
             }
 
             @Override
@@ -133,7 +159,7 @@ public class settingsFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        }); //end of function to retrieve data pota o
+        });
 
     }
 

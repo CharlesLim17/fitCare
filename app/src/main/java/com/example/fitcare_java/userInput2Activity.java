@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class userInput2Activity extends AppCompatActivity {
 
     //declaring variables to compute BMI
-    EditText etWeight;
-    EditText etHeight;
+    static EditText etWeight;
+    static EditText etHeight;
     EditText etGoal;
     TextView txtBmiResult;
     String calculation, bmiResult;
@@ -45,13 +45,14 @@ public class userInput2Activity extends AppCompatActivity {
         calculate_button = findViewById(R.id.calculate_button);
         submit_button = findViewById(R.id.submit_button);
 
+        // instantiate DAOuser class
         DAOUser dao = new DAOUser();
 
         //Button for Calculating BMI
         calculate_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Instantiate User class
                 if (checkFieldsBmi()){
                     calculateBMI(view);
                 }
@@ -117,7 +118,8 @@ public class userInput2Activity extends AppCompatActivity {
             bmiResult = "Obese";
         }
 
-        calculation = bmi + "\n" + bmiResult;
+        String formattedString = String.format("%.02f", bmi);
+        calculation = formattedString + "\n" + bmiResult;
 
         txtBmiResult.setText(calculation);
     }
