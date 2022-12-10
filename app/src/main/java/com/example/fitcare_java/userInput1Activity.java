@@ -37,7 +37,6 @@ public class userInput1Activity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-
         //Gender String
         ddlGender = findViewById(R.id.ddlGender);
         adapterItems = new ArrayAdapter<String>(this, R.layout.gender_list, gender);
@@ -81,6 +80,10 @@ public class userInput1Activity extends AppCompatActivity {
         }
         else if (etAge.getText().toString().length() == 0){
             Toast.makeText(userInput1Activity.this, "Please input age", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (ddlGender.getText().toString().length() == 0){
+            Toast.makeText(userInput1Activity.this, "Please Gender", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
