@@ -45,7 +45,7 @@ public class userInput2Activity extends AppCompatActivity {
         calculate_button = findViewById(R.id.calculate_button);
         submit_button = findViewById(R.id.submit_button);
 
-        // instantiate DAOuser class
+        // Instantiate DAOUser class
         DAOUser dao = new DAOUser();
 
         //Button for Calculating BMI
@@ -63,19 +63,21 @@ public class userInput2Activity extends AppCompatActivity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //insert to database
-                User user = new User(userInput1Activity.etFirstName.getText().toString(),
-                        userInput1Activity.etLastName.getText().toString(),
-                        Integer.parseInt(userInput1Activity.etAge.getText().toString()),
-                        userInput1Activity.ddlGender.getText().toString(),
-                        Float.parseFloat(etWeight.getText().toString()),
-                        Float.parseFloat(etWeight.getText().toString()),
-                        Integer.parseInt(etHeight.getText().toString()),
-                        Float.parseFloat(etGoal.getText().toString()));
-                dao.add(user).addOnSuccessListener(suc -> Toast.makeText(userInput2Activity.this, "Welcome, " + userInput1Activity.etFirstName.getText().toString() + " " + userInput1Activity.etLastName.getText().toString(), Toast.LENGTH_SHORT).show()).addOnFailureListener(er -> Toast.makeText(userInput2Activity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show());
 
                 //validation of fields
                 if (checkFieldsSubmit()){
+
+                    //insert to database
+                    User user = new User(userInput1Activity.etFirstName.getText().toString(),
+                            userInput1Activity.etLastName.getText().toString(),
+                            Integer.parseInt(userInput1Activity.etAge.getText().toString()),
+                            userInput1Activity.ddlGender.getText().toString(),
+                            Float.parseFloat(etWeight.getText().toString()),
+                            Float.parseFloat(etWeight.getText().toString()),
+                            Integer.parseInt(etHeight.getText().toString()),
+                            Float.parseFloat(etGoal.getText().toString()));
+                    dao.add(user).addOnSuccessListener(suc -> Toast.makeText(userInput2Activity.this, "Welcome, " + userInput1Activity.etFirstName.getText().toString() + " " + userInput1Activity.etLastName.getText().toString(), Toast.LENGTH_SHORT).show()).addOnFailureListener(er -> Toast.makeText(userInput2Activity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show());
+
                     //Stay logged in
                     SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -136,7 +138,6 @@ public class userInput2Activity extends AppCompatActivity {
         }
         return true;
     }
-
 
     //function for validation of field to go to next fragment
     private boolean checkFieldsSubmit() {
