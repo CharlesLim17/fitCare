@@ -1,5 +1,6 @@
 package com.example.fitcare_java;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,6 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class userInput2Activity extends AppCompatActivity {
 
     //declaring variables to compute BMI
@@ -23,8 +32,17 @@ public class userInput2Activity extends AppCompatActivity {
     Button submit_button;
     Button calculate_button;
 
+    //holder for inputs
+    String email, password, firstName, lastName, gender;
+    int age, height;
+    float  curWeight, prevWeight, goal;
+
+    //firebase
+    FirebaseAuth auth;
+    DatabaseReference databaseReference;
+
     //checking if user is logged in / or registered
-    public static String PREFS_NAME="MyPrefsFile";
+    //public static String PREFS_NAME="MyPrefsFile";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,6 +55,11 @@ public class userInput2Activity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
+        //firebase instance
+        auth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+
+
         //Setting variables
         etWeight = findViewById(R.id.etWeight);
         etHeight = findViewById(R.id.etHeight);
@@ -45,8 +68,10 @@ public class userInput2Activity extends AppCompatActivity {
         calculate_button = findViewById(R.id.calculate_button);
         submit_button = findViewById(R.id.submit_button);
 
+
+
         // instantiate DAOuser class
-        DAOUser dao = new DAOUser();
+        //DAOUser dao = new DAOUser();
 
         //Button for Calculating BMI
         calculate_button.setOnClickListener(new View.OnClickListener() {
@@ -63,31 +88,34 @@ public class userInput2Activity extends AppCompatActivity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //insert to database
-                User user = new User(userInput1Activity.etFirstName.getText().toString(),
-                        userInput1Activity.etLastName.getText().toString(),
-                        Integer.parseInt(userInput1Activity.etAge.getText().toString()),
-                        userInput1Activity.ddlGender.getText().toString(),
-                        Float.parseFloat(etWeight.getText().toString()),
-                        Float.parseFloat(etWeight.getText().toString()),
-                        Integer.parseInt(etHeight.getText().toString()),
-                        Float.parseFloat(etGoal.getText().toString()));
-                dao.add(user).addOnSuccessListener(suc -> Toast.makeText(userInput2Activity.this, "Welcome, " + userInput1Activity.etFirstName.getText().toString() + " " + userInput1Activity.etLastName.getText().toString(), Toast.LENGTH_SHORT).show()).addOnFailureListener(er -> Toast.makeText(userInput2Activity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show());
+
+                //trimming inputs
+                email = userInput0Activity.etEmail.getText().toString();
+                password = userInput0Activity.etPassword.getText().toString();
+                firstName = userInput1Activity.etFirstName.getText().toString();
+                lastName = userInput1Activity.etLastName.getText().toString();
+                age = Integer.parseInt(userInput1Activity.etAge.getText().toString());
+                gender = userInput1Activity.ddlGender.getText().toString();
+                curWeight = Float.parseFloat(etWeight.getText().toString());
+                prevWeight = Float.parseFloat(etWeight.getText().toString());
+                height = Integer.parseInt(etHeight.getText().toString());
+                goal = Float.parseFloat(etGoal.getText().toString());
 
                 //validation of fields
                 if (checkFieldsSubmit()){
                     //Stay logged in
-                    SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                    editor.putBoolean("hasLoggedIn", true);
-                    editor.commit();
+                    //SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
+                    //SharedPreferences.Editor editor = sharedPreferences.edit();
+                    //editor.putBoolean("hasLoggedIn", true);
+                    //editor.commit();
 
                     //start new activity
                     Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
                     startActivity(intent);
                     finish();
                 }
+
+                signUp();
             }
         });
     }
@@ -153,5 +181,29 @@ public class userInput2Activity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    //sign up
+    private void signUp() {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+                    String userAuth = FirebaseAuth.getInstance().getUid();
+                    User user = new User(email, password, firstName, lastName, age, gender, curWeight, prevWeight, height, goal);
+                    databaseReference.child(userAuth).setValue(user);
+                    Toast.makeText(userInput2Activity.this, "Welcome to Fitcare", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(userInput2Activity.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(userInput2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

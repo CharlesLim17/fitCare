@@ -3,6 +3,8 @@ package com.example.fitcare_java;
 public class User {
 
     // declaration of variables for database
+    private String email;
+    private String password;
     private String firstName;
     private String lastName;
     private int age;
@@ -17,7 +19,9 @@ public class User {
     }
 
     // constructor / passing the input values to the declared variables
-    public User(String firstName, String lastName, int age, String gender, float curWeight, float prevWeight, int height, float goal) {
+    public User(String email, String password, String firstName, String lastName, int age, String gender, float curWeight, float prevWeight, int height, float goal) {
+        this.email = email;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -29,6 +33,22 @@ public class User {
     }
 
     //accessors and mutators
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getFirstName() {
         return firstName;
     }

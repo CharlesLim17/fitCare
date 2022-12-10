@@ -20,26 +20,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //splash screen
-        Intent iRegister = new Intent(MainActivity.this, userInput1Activity.class);
+        Intent iRegister = new Intent(MainActivity.this, userInput0Activity.class);
         Intent iHome = new Intent(MainActivity.this, indexActivity.class);
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 //algo for staying logged in
-                SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
-                boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
+                //SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
+                //boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
 
-                if(hasLoggedIn){
-                    startActivity(iHome);
-                    finish();
-                }
-                else {
+                //if(hasLoggedIn){
+                    //startActivity(iHome);
+                    //finish();
+
+                //else {
                     startActivity(iRegister);
                     finish();
-                }
-            }
+                //}
+           }
         }, 3200);
     }
 }

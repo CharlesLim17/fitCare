@@ -50,7 +50,7 @@ public class userInput1Activity extends AppCompatActivity {
             }
         });
 
-        //Validation of Fields
+        //Setting Variables
         etFirstName = findViewById(R.id.etFirstName);
         etLastName = findViewById(R.id.etLastName);
         etAge = findViewById(R.id.etAge);
