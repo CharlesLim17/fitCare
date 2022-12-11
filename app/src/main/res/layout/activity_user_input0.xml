@@ -22,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -69,41 +70,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <!--<TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginTop="26dp"
-        android:text="Phone"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <EditText
-        android:id="@+id/etPhone"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="34dp"
-        android:background="@drawable/custom_edittxt"
-        android:elevation="10dp"
-        android:ems="10"
-        android:hint="Enter your phone number"
-        android:inputType="phone"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />-->
-
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
@@ -130,6 +96,7 @@
         android:elevation="10dp"
         android:ems="10"
         android:hint="Enter your password"
+        app:passwordToggleEnabled="true"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -139,7 +106,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_marginLeft="34dp"
@@ -166,13 +133,14 @@
         android:ems="10"
         android:hint="Re-enter your password"
         android:inputType="textPassword"
+        app:passwordToggleEnabled="true"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />-->
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"

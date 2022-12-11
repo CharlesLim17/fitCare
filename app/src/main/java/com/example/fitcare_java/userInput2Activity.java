@@ -69,10 +69,6 @@ public class userInput2Activity extends AppCompatActivity {
         submit_button = findViewById(R.id.submit_button);
 
 
-
-        // instantiate DAOuser class
-        //DAOUser dao = new DAOUser();
-
         //Button for Calculating BMI
         calculate_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +85,7 @@ public class userInput2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //trimming inputs
+                //convert to string
                 email = userInput0Activity.etEmail.getText().toString();
                 password = userInput0Activity.etPassword.getText().toString();
                 firstName = userInput1Activity.etFirstName.getText().toString();
@@ -109,13 +105,13 @@ public class userInput2Activity extends AppCompatActivity {
                     //editor.putBoolean("hasLoggedIn", true);
                     //editor.commit();
 
+                    signUp();
+
                     //start new activity
                     Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
                     startActivity(intent);
                     finish();
                 }
-
-                signUp();
             }
         });
     }

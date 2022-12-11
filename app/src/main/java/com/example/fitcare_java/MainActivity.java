@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         //splash screen
         Intent iRegister = new Intent(MainActivity.this, userInput0Activity.class);
         Intent iHome = new Intent(MainActivity.this, indexActivity.class);
+        Intent iLogin = new Intent(MainActivity.this, loginActivity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -33,10 +34,12 @@ public class MainActivity extends AppCompatActivity {
                 //if(hasLoggedIn){
                     //startActivity(iHome);
                     //finish();
+                startActivity(iLogin);
+                finish();
 
                 //else {
-                    startActivity(iRegister);
-                    finish();
+                    //startActivity(iRegister);
+                    //finish();
                 //}
            }
         }, 3200);

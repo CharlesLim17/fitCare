@@ -23,7 +23,7 @@ public class userInput0Activity extends AppCompatActivity {
     static EditText etEmail;
     //static EditText etPhone;
     static EditText etPassword;
-    //static EditText etConPass;
+    EditText etConPass;
     Button button;
 
     //private FirebaseAuth auth;
@@ -47,6 +47,7 @@ public class userInput0Activity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         button = findViewById(R.id.button);
+        etConPass = findViewById(R.id.etConPass);
 
         //get current user
         //auth = FirebaseAuth.getInstance();
@@ -73,6 +74,10 @@ public class userInput0Activity extends AppCompatActivity {
         }
         else if (etPassword.getText().toString().length() == 0){
             Toast.makeText(userInput0Activity.this, "Please enter password", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (!etConPass.getText().toString().equals(etPassword.getText().toString())) {
+            Toast.makeText(userInput0Activity.this, "Password does not match", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
