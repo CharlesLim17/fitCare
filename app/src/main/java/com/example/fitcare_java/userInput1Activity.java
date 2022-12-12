@@ -26,7 +26,6 @@ public class userInput1Activity extends AppCompatActivity {
     final String[] gender = {"Male", "Female", "Prefer not to say"};
     ArrayAdapter<String> adapterItems;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +87,4 @@ public class userInput1Activity extends AppCompatActivity {
         }
         return true;
     }
-
-
 }

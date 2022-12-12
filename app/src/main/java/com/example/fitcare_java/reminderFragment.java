@@ -18,7 +18,9 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 
@@ -26,7 +28,7 @@ public class reminderFragment extends Fragment {
 
     //declaring variables
     ImageView btnAdd, btnBack;
-    TextView btnEdit1, btnEdit2, btnEdit3;
+    TextView btnEdit1, btnEdit2, btnEdit3, dateDisplay;
     FloatingActionButton btnMic;
 
     @Override
@@ -35,13 +37,21 @@ public class reminderFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reminder, container, false);
 
+        //display date
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
         //setting variables
+        dateDisplay = view.findViewById(R.id.dateDisplay);
         btnBack = view.findViewById(R.id.btnBack);
         btnAdd = view.findViewById(R.id.btnAdd);
         btnEdit1 = view.findViewById(R.id.btnEdit1);
         btnEdit2 = view.findViewById(R.id.btnEdit2);
         btnEdit3 = view.findViewById(R.id.btnEdit3);
         btnMic = view.findViewById(R.id.btnMic);
+
+        dateDisplay.setText(currentDate);
+
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -158,5 +168,4 @@ public class reminderFragment extends Fragment {
             }
         }
     }
-
 }

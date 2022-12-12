@@ -4,6 +4,7 @@ import com.google.android.gms.tasks.Task;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 public class DAOUser {
     static DatabaseReference databaseReference;
 
@@ -18,3 +19,5 @@ public class DAOUser {
         return databaseReference.push().setValue(user);
     }
 }
+
+

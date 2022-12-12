@@ -65,49 +65,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_icon" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="34dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Task to complete"
-            android:textColor="#303030"
-            android:lineSpacingExtra="6dp"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView2" />
-
         <ImageView
             android:id="@+id/btnAdd"
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="34dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-        <TextView
-            android:id="@+id/btnEdit1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_time"
-            android:gravity="center_vertical"
-            android:paddingStart="14dp"
-            android:fontFamily="sans-serif"
-            android:text="Task Name 1"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
             android:id="@+id/time"
@@ -123,24 +89,6 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/btnEdit2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_time"
-            android:gravity="center_vertical"
-            android:paddingStart="14dp"
-            android:fontFamily="sans-serif"
-            android:text="Task Name 2"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEdit1" />
 
         <TextView
             android:id="@+id/time1"
@@ -159,20 +107,75 @@
         <TextView
             android:id="@+id/btnEdit3"
             android:layout_width="match_parent"
-            android:layout_marginTop="2dp"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/custom_time"
+            android:fontFamily="sans-serif"
             android:gravity="center_vertical"
             android:paddingStart="14dp"
-            android:fontFamily="sans-serif"
             android:text="Task Name 3"
             android:textColor="#303030"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnEdit2" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="34dp"
+            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="6dp"
+            android:text="Task to complete"
+            android:textColor="#303030"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
+        <TextView
+            android:id="@+id/btnEdit1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_time"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:paddingStart="14dp"
+            android:text="Task Name 1"
+            android:textColor="#303030"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/btnEdit2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_time"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:paddingStart="14dp"
+            android:text="Task Name 2"
+            android:textColor="#303030"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEdit1" />
 
         <TextView
             android:id="@+id/time2"
@@ -199,6 +202,23 @@
             android:tint="@color/ateneo_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/dateDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="40dp"
+            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="10sp"
+            android:text="Date"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
