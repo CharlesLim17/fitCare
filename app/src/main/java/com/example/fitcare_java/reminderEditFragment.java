@@ -28,6 +28,7 @@ public class reminderEditFragment extends Fragment {
 
     //declaring variables
     NumberPicker numPickerHour, numPickerMin, numPickerAm;
+    TextView txtDisplayTimeEdit;
     ImageView btnBack;
     TextView btnUpdate;
     FloatingActionButton btnMic;
@@ -43,6 +44,7 @@ public class reminderEditFragment extends Fragment {
         numPickerHour = view.findViewById(R.id.numPickerHour);
         numPickerMin = view.findViewById(R.id.numPickerMin);
         numPickerAm = view.findViewById(R.id.numPickerAm);
+        txtDisplayTimeEdit = view.findViewById(R.id.txtDisplayTimeEdit);
         btnBack = view.findViewById(R.id.btnBack);
         btnUpdate = view.findViewById(R.id.btnUpdate);
         btnMic = view.findViewById(R.id.btnMic);
@@ -56,8 +58,39 @@ public class reminderEditFragment extends Fragment {
         numPickerMin.setMaxValue(59);
 
         //setting am pm
-        String[] time = {"am", "pm"};
-        numPickerAm.setDisplayedValues(time);
+        NumPicker.initNumPicker();
+        numPickerAm.setMaxValue(NumPicker.getNumPickerList().size() - 1);
+        numPickerAm.setMinValue(0);
+        numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
+
+        //storing hour/min/am_pm values to respective variables
+        final int[] hour = new int[1];
+        final int[] min = new int[1];
+        final int[] am_pm = new int[1];
+
+        numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", i1, (int) min[0], NumPicker.getNumPickerList().get(am_pm[0]).getName()));
+                hour[0] = i1;
+            }
+        });
+
+        numPickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", (int) hour[0], i1, NumPicker.getNumPickerList().get(am_pm[0]).getName()));
+                min[0] = i1;
+            }
+        });
+
+        numPickerAm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", (int) hour[0], (int) min[0], NumPicker.getNumPickerList().get(i1).getName()));
+                am_pm[0] = i1;
+            }
+        });
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {

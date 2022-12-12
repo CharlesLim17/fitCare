@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtDisplayTimeAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -114,33 +114,38 @@
         app:layout_constraintTop_toBottomOf="@+id/etTask" />
 
     <LinearLayout
-        android:gravity="center"
         android:id="@+id/TimeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplayTimeAdd">
 
         <NumberPicker
             android:id="@+id/numPickerHour"
-            android:layout_margin="10dp"
+            android:theme="@style/AppTheme.Picker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
 
         <NumberPicker
             android:id="@+id/numPickerMin"
-            android:layout_margin="10dp"
+            android:theme="@style/AppTheme.Picker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
 
         <NumberPicker
             android:id="@+id/numPickerAm"
-            android:layout_margin="10dp"
+            android:theme="@style/AppTheme.Picker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
 
     </LinearLayout>
 
