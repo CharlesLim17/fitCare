@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".indexActivity"
+    android:id="@+id/container"
     android:background="@color/white">
 
     <FrameLayout
@@ -15,6 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#6EA571"
+        android:src="@drawable/mic_fab"
+        android:tint="@color/ateneo_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
     
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBar"

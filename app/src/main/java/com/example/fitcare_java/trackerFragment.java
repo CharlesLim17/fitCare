@@ -35,7 +35,6 @@ public class trackerFragment extends Fragment {
 
     //declaring variables
     ImageView btnBack, btnEdit;
-    FloatingActionButton btnMic;
     TextView txtRetrieveCurWeight, txtRetrievePrevWeight, txtRetrieveGoal, txtRetrieveVS, txtRetrieveToAchieveGoal;
 
     //firebase
@@ -54,7 +53,6 @@ public class trackerFragment extends Fragment {
         //setting variables
         btnBack = view.findViewById(R.id.btnBack);
         btnEdit = view.findViewById(R.id.btnEdit);
-        btnMic = view.findViewById(R.id.btnMic);
         txtRetrieveCurWeight = view.findViewById(R.id.txtRetrieveCurWeight);
         txtRetrievePrevWeight = view.findViewById(R.id.txtRetrievePrevWeight);
         txtRetrieveGoal = view.findViewById(R.id.txtRetrieveGoal);
@@ -90,14 +88,6 @@ public class trackerFragment extends Fragment {
             }
         });
 
-        //mic onclick
-        btnMic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                voiceautomation();
-            }
-        });
-
         return view;
     }
 
@@ -113,36 +103,36 @@ public class trackerFragment extends Fragment {
                     float prevWeight = user.prevWeight;
                     float goal = user.goal;
 
-                    txtRetrieveCurWeight.setText(curWeight + "kgs");
-                    txtRetrievePrevWeight.setText(prevWeight + "kgs");
-                    txtRetrieveGoal.setText(goal + "kgs");
+                    txtRetrieveCurWeight.setText(curWeight + " kgs");
+                    txtRetrievePrevWeight.setText(prevWeight + " kgs");
+                    txtRetrieveGoal.setText(goal + " kgs");
 
                     //Current weight vs Previous Weight
                     float curVSprev;
                     String descVS;
                     if (curWeight > prevWeight) {
                         curVSprev = curWeight - prevWeight;
-                        descVS = "- ";
+                        descVS = "-";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
-                        txtRetrieveVS.setText(descVS + formattedString1 + "kgs");
+                        txtRetrieveVS.setText(descVS + formattedString1 + " kgs");
                     }
                     else if (curWeight < prevWeight){
                         curVSprev = prevWeight - curWeight;
-                        descVS = "+ ";
+                        descVS = "+";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
-                        txtRetrieveVS.setText(descVS + formattedString1 + "kgs");
+                        txtRetrieveVS.setText(descVS + formattedString1 + " kgs");
                     }
                     else{
                         curVSprev = curWeight - prevWeight;
-                        descVS = "= ";
+                        descVS = "=";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
-                        txtRetrieveVS.setText(descVS + formattedString1 + "kgs");
+                        txtRetrieveVS.setText(descVS + formattedString1 + " kgs");
                     }
 
                     //To achieve Goal
@@ -152,14 +142,14 @@ public class trackerFragment extends Fragment {
 
                         //retrieve 2 decimal places for to achieve goal
                         @SuppressLint("DefaultLocale") String formattedString2 = String.format("%.02f", toAchieveGoal);
-                        txtRetrieveToAchieveGoal.setText("You need to gain "+formattedString2 + "kgs");
+                        txtRetrieveToAchieveGoal.setText("You need to gain "+formattedString2 + " kgs");
                     }
                     else if(goal < curWeight){
                         toAchieveGoal = curWeight - goal;
 
                         //retrieve 2 decimal places for to achieve goal
                         @SuppressLint("DefaultLocale") String formattedString2 = String.format("%.02f", toAchieveGoal);
-                        txtRetrieveToAchieveGoal.setText("You need to lose " + formattedString2 + "kgs");
+                        txtRetrieveToAchieveGoal.setText("You need to lose " + formattedString2 + " kgs");
                     }
                     else {
                         txtRetrieveToAchieveGoal.setText("Congratulations! You achieved your weight goal!");
@@ -173,61 +163,6 @@ public class trackerFragment extends Fragment {
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    //function for opening mic
-    private void voiceautomation() {
-        Intent voice = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        voice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        voice.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        voice.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak...");
-
-        startActivityForResult(voice, 1);
-    }
-
-    //to get result and opening inputted page
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            ArrayList<String> arrayList=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            //voice command to navigate to exercise page
-            if (arrayList.get(0).toString().equals("go to exercise") || arrayList.get(0).toString().equals("open exercise")) {
-                Fragment exerciseLevelFrag = new exerciseLevelFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag).commit();
-            }
-            //voice command to navigate to settings
-            if (arrayList.get(0).toString().equals("go to settings") || arrayList.get(0).toString().equals("open settings")) {
-                Fragment settingsFrag = new settingsFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, settingsFrag).commit();
-            }
-            //voice command to navigate to meal plan
-            if (arrayList.get(0).toString().equals("go to meal plan") || arrayList.get(0).toString().equals("open meal plan")) {
-                Fragment mealPlanFrag = new mealPlanFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanFrag).commit();
-            }
-            //voice command to navigate to tracker page
-            if (arrayList.get(0).toString().equals("go to workout tracker") || arrayList.get(0).toString().equals("open workout tracker") || arrayList.get(0).toString().equals("go to tracker") || arrayList.get(0).toString().equals("open tracker")) {
-                Fragment trackerFrag = new trackerFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
-            }
-            //voice command to navigate to stretches page
-            if (arrayList.get(0).toString().equals("go to workout stretches") || arrayList.get(0).toString().equals("open workout stretches") || arrayList.get(0).toString().equals("go to stretches") || arrayList.get(0).toString().equals("open stretches")) {
-                Fragment warmupFrag = new warmupLevelFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupFrag).commit();
-            }
-            //voice command to navigate to reminders page
-            if (arrayList.get(0).toString().equals("go to workout reminders") || arrayList.get(0).toString().equals("open workout reminders") || arrayList.get(0).toString().equals("go to reminders") || arrayList.get(0).toString().equals("open reminders")) {
-                Fragment remindersFrag = new reminderFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, remindersFrag).commit();
-            }
-        }
     }
 
 }

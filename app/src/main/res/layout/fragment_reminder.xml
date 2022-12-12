@@ -191,25 +191,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnEdit2" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnMic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="34dp"
-            android:layout_marginBottom="34dp"
-            android:backgroundTint="#CFEAC3"
-            android:src="@drawable/mic_navbar"
-            android:tint="@color/ateneo_blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <TextView
             android:id="@+id/dateDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="34dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="34dp"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="10sp"
             android:text="Date"
