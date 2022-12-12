@@ -3,16 +3,16 @@ package com.example.fitcare_java;
 public class User {
 
     // declaration of variables for database
-    private String email;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String gender;
-    private float curWeight;
-    private float prevWeight;
-    private int height;
-    private float goal;
+    public String email;
+    public String password;
+    public String firstName;
+    public String lastName;
+    public int age;
+    public String gender;
+    public float curWeight;
+    public float prevWeight;
+    public int height;
+    public float goal;
 
     public User() {
 

@@ -91,7 +91,6 @@ public class loginActivity extends AppCompatActivity {
                 if (checkFields()){
                     logIn();
                 }
-
             }
         });
 
@@ -104,6 +103,8 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    Toast.makeText(loginActivity.this, "Welcome to Fitcare", Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(loginActivity.this, indexActivity.class);
                     startActivity(intent);
                     finish();

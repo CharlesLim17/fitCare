@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -99,18 +98,7 @@ public class userInput2Activity extends AppCompatActivity {
 
                 //validation of fields
                 if (checkFieldsSubmit()){
-                    //Stay logged in
-                    //SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
-                    //SharedPreferences.Editor editor = sharedPreferences.edit();
-                    //editor.putBoolean("hasLoggedIn", true);
-                    //editor.commit();
-
                     signUp();
-
-                    //start new activity
-                    Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
-                    startActivity(intent);
-                    finish();
                 }
             }
         });
@@ -189,7 +177,12 @@ public class userInput2Activity extends AppCompatActivity {
                     String userAuth = FirebaseAuth.getInstance().getUid();
                     User user = new User(email, password, firstName, lastName, age, gender, curWeight, prevWeight, height, goal);
                     databaseReference.child(userAuth).setValue(user);
-                    Toast.makeText(userInput2Activity.this, "Welcome to Fitcare", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(userInput2Activity.this, "Please accept the terms and agreement then login", Toast.LENGTH_SHORT).show();
+
+                    //start new activity
+                    Intent intent = new Intent(userInput2Activity.this, termsAndConditionsActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(userInput2Activity.this, "Something Wrong", Toast.LENGTH_SHORT).show();

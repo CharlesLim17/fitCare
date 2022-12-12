@@ -63,7 +63,7 @@
             app:layout_constraintHorizontal_bias="0.069"
             app:layout_constraintStart_toStartOf="@+id/appBar"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back" />
+            app:srcCompat="@drawable/back_icon" />
 
         <FrameLayout
             android:id="@+id/videoFrame"
