@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,11 +37,12 @@ import java.util.Locale;
 public class reminderAddFragment extends Fragment {
 
     //declaring variables
-    private NotificationManagerCompat notificationManagerCompat;
     NumberPicker numPickerHour, numPickerMin, numPickerAm;
     TextView txtDisplayTimeAdd;
     ImageView btnBack;
     TextView btnAdd;
+
+    private NotificationHelper notificationHelper;
 
     //storing hour/min/am_pm values to respective variables
     final static int[] hour = new int[1];
@@ -52,7 +56,7 @@ public class reminderAddFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reminder_add, container, false);
 
-        notificationManagerCompat = NotificationManagerCompat.from(getActivity());
+        notificationHelper = new NotificationHelper(getActivity());
 
         //setting variables
         numPickerHour = view.findViewById(R.id.numPickerHour);
@@ -114,7 +118,7 @@ public class reminderAddFragment extends Fragment {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendOnChannel1();
+                sendOnChannel1("Sample", "Notification");
                 Fragment reminderFrag = new reminderFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, reminderFrag).commit();
@@ -123,16 +127,9 @@ public class reminderAddFragment extends Fragment {
         return view;
     }
 
-    public void sendOnChannel1() {
-        Notification notification = new NotificationCompat.Builder(getActivity(), channel1ID)
-                .setSmallIcon(R.drawable.ic_notif)
-                .setContentTitle("title")
-                .setContentText("message")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                .build();
+    public void sendOnChannel1(String title, String message) {
+        NotificationCompat.Builder notificationCompatBuilder = notificationHelper.getChannel1Notification(title,message);
+        notificationHelper.getManager().notify(1, notificationCompatBuilder.build());
 
-        notificationManagerCompat.notify(1,notification);
     }
-
 }

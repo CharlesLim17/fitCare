@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".NotificationHelper"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -69,5 +68,6 @@
                 android:value="" />
         </activity>
     </application>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
 </manifest>
