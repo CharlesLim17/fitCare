@@ -32,6 +32,11 @@ public class reminderEditFragment extends Fragment {
     ImageView btnBack;
     TextView btnUpdate;
 
+    //storing hour/min/am_pm values to respective variables
+    final static int[] hour = new int[1];
+    final static int[] min = new int[1];
+    final static int[] am_pm = new int[1];
+
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,11 +65,6 @@ public class reminderEditFragment extends Fragment {
         numPickerAm.setMaxValue(NumPicker.getNumPickerList().size() - 1);
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
-
-        //storing hour/min/am_pm values to respective variables
-        final int[] hour = new int[1];
-        final int[] min = new int[1];
-        final int[] am_pm = new int[1];
 
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override

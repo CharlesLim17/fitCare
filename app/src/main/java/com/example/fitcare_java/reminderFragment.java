@@ -1,7 +1,11 @@
 package com.example.fitcare_java;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.ALARM_SERVICE;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -30,6 +34,8 @@ public class reminderFragment extends Fragment {
     ImageView btnAdd, btnBack;
     TextView btnEdit1, btnEdit2, btnEdit3, dateDisplay;
 
+    Context context;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +55,6 @@ public class reminderFragment extends Fragment {
         btnEdit3 = view.findViewById(R.id.btnEdit3);
 
         dateDisplay.setText(currentDate);
-
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -103,5 +108,4 @@ public class reminderFragment extends Fragment {
 
         return view;
     }
-
 }
