@@ -35,7 +35,7 @@ public class trackerFragment extends Fragment {
 
     //declaring variables
     ImageView btnBack, btnEdit;
-    TextView txtRetrieveCurWeight, txtRetrievePrevWeight, txtRetrieveGoal, txtRetrieveVS, txtRetrieveToAchieveGoal;
+    TextView btnHistory, txtRetrieveCurWeight, txtRetrievePrevWeight, txtRetrieveGoal, txtRetrieveVS, txtRetrieveToAchieveGoal, txtRetrieveBmi;
 
     //firebase
     FirebaseUser user;
@@ -53,9 +53,11 @@ public class trackerFragment extends Fragment {
         //setting variables
         btnBack = view.findViewById(R.id.btnBack);
         btnEdit = view.findViewById(R.id.btnEdit);
+        btnHistory = view.findViewById(R.id.btnHistory);
         txtRetrieveCurWeight = view.findViewById(R.id.txtRetrieveCurWeight);
         txtRetrievePrevWeight = view.findViewById(R.id.txtRetrievePrevWeight);
         txtRetrieveGoal = view.findViewById(R.id.txtRetrieveGoal);
+        txtRetrieveBmi = view.findViewById(R.id.txtRetrieveBmi);
         txtRetrieveVS = view.findViewById(R.id.txtRetrieveVS);
         txtRetrieveToAchieveGoal = view.findViewById(R.id.txtRetrieveToAchieveGoal);
 
@@ -88,6 +90,16 @@ public class trackerFragment extends Fragment {
             }
         });
 
+        //history onclick
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment trackerWorkoutHistoryFrag = new trackerWorkoutHistoryFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag).commit();
+            }
+        });
+
         return view;
     }
 
@@ -99,6 +111,7 @@ public class trackerFragment extends Fragment {
                 User user = snapshot.getValue(User.class);
 
                 if (user !=null) {
+                    float height = user.height;
                     float curWeight = user.curWeight;
                     float prevWeight = user.prevWeight;
                     float goal = user.goal;
@@ -112,7 +125,7 @@ public class trackerFragment extends Fragment {
                     String descVS;
                     if (curWeight > prevWeight) {
                         curVSprev = curWeight - prevWeight;
-                        descVS = "-";
+                        descVS = "You gained ";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
@@ -120,7 +133,7 @@ public class trackerFragment extends Fragment {
                     }
                     else if (curWeight < prevWeight){
                         curVSprev = prevWeight - curWeight;
-                        descVS = "+";
+                        descVS = "You lost ";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
@@ -128,7 +141,7 @@ public class trackerFragment extends Fragment {
                     }
                     else{
                         curVSprev = curWeight - prevWeight;
-                        descVS = "=";
+                        descVS = "No difference in weight ";
 
                         //retrieve 2 decimal places for curVsPrev
                         @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
@@ -152,8 +165,15 @@ public class trackerFragment extends Fragment {
                         txtRetrieveToAchieveGoal.setText("You need to lose " + formattedString2 + " kgs");
                     }
                     else {
-                        txtRetrieveToAchieveGoal.setText("Congratulations! You achieved your weight goal!");
+                        txtRetrieveToAchieveGoal.setText("You achieved your goal!");
                     }
+
+                    //Display Bmi
+                    height = height/100;
+                    float bmi = curWeight / (height * height);
+
+                    @SuppressLint("DefaultLocale") String formattedString = String.format("%.02f", bmi);
+                    txtRetrieveBmi.setText(formattedString + "");
 
                 }
             }

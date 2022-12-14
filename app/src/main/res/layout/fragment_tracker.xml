@@ -206,15 +206,54 @@
             app:layout_constraintTop_toBottomOf="@+id/txtRetrieveGoal" />
 
         <TextView
-            android:id="@+id/txtHolderVS"
+            android:id="@+id/txtHolderBmi"
             android:layout_width="150dp"
             android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_tracker_bmi"
+            android:elevation="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHolderPrevWeight" />
+
+        <TextView
+            android:id="@+id/txtRetrieveBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtHolderBmi"
+            app:layout_constraintStart_toStartOf="@+id/txtHolderBmi"
+            app:layout_constraintTop_toTopOf="@+id/txtHolderBmi" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif"
+            android:text="Your BMI"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtHolderBmi"
+            app:layout_constraintStart_toStartOf="@+id/txtHolderBmi"
+            app:layout_constraintTop_toBottomOf="@+id/txtRetrieveBmi" />
+
+        <TextView
+            android:id="@+id/txtHolderVS"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="34dp"
             android:layout_marginEnd="34dp"
             android:layout_marginTop="26dp"
             android:background="@drawable/custom_tracker_vs"
             android:elevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHolderPrevWeight" />
+            app:layout_constraintTop_toBottomOf="@+id/txtHolderGoal" />
 
         <TextView
             android:id="@+id/txtRetrieveVS"
@@ -248,14 +287,14 @@
             android:id="@+id/txtHolderAchieveGoal"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginLeft="34dp"
             android:layout_marginTop="26dp"
+            android:layout_marginLeft="34dp"
             android:layout_marginRight="34dp"
             android:background="@drawable/custom_settings_bmi"
             android:elevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHolderGoal" />
+            app:layout_constraintTop_toBottomOf="@+id/txtHolderVS" />
 
         <TextView
             android:id="@+id/txtRetrieveToAchieveGoal"
@@ -264,6 +303,8 @@
             android:layout_marginTop="28dp"
             android:elevation="12dp"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
             android:text=""
             android:textColor="#000000"
             android:textSize="20sp"
@@ -301,6 +342,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtHolderAchieveGoal" />
+
+        <TextView
+            android:id="@+id/btnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingLeft="62dp"
+            android:text="Workout history"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:elevation="12dp"
+            android:src="@drawable/history"
+            app:layout_constraintStart_toStartOf="@+id/btnHistory"
+            app:layout_constraintTop_toTopOf="@+id/btnHistory" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
