@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class userInput2Activity extends AppCompatActivity {
     String calculation, bmiResult;
     Button submit_button;
     Button calculate_button;
+    ImageView btnBack;
 
     //holder for inputs
     String email, password, firstName, lastName, gender;
@@ -66,7 +68,17 @@ public class userInput2Activity extends AppCompatActivity {
         txtBmiResult = findViewById(R.id.txtBmiResult);
         calculate_button = findViewById(R.id.calculate_button);
         submit_button = findViewById(R.id.submit_button);
+        btnBack = findViewById(R.id.btnBack);
 
+        //btn back onclick
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(userInput2Activity.this, userInput1Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //Button for Calculating BMI
         calculate_button.setOnClickListener(new View.OnClickListener() {

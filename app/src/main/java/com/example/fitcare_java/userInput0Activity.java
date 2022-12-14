@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.fitcare_java.databinding.ActivityIndexBinding;
@@ -25,6 +26,7 @@ public class userInput0Activity extends AppCompatActivity {
     static EditText etPassword;
     EditText etConPass;
     Button button;
+    ImageView btnBack;
 
     //private FirebaseAuth auth;
     //private DatabaseReference databaseReference;
@@ -47,6 +49,7 @@ public class userInput0Activity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         button = findViewById(R.id.button);
+        btnBack = findViewById(R.id.btnBack);
         etConPass = findViewById(R.id.etConPass);
 
         //get current user
@@ -61,6 +64,16 @@ public class userInput0Activity extends AppCompatActivity {
                     Intent intent = new Intent(userInput0Activity.this, userInput1Activity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        //btn back onclick
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(userInput0Activity.this, loginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

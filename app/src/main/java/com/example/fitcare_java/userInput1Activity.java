@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -21,6 +22,7 @@ public class userInput1Activity extends AppCompatActivity {
     static EditText etAge;
     static AutoCompleteTextView ddlGender;
     Button button;
+    ImageView btnBack;
 
     //declaring variables for gender ddl
     final String[] gender = {"Male", "Female", "Prefer not to say"};
@@ -53,6 +55,7 @@ public class userInput1Activity extends AppCompatActivity {
         etLastName = findViewById(R.id.etLastName);
         etAge = findViewById(R.id.etAge);
         button = findViewById(R.id.button);
+        btnBack = findViewById(R.id.btnBack);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +65,16 @@ public class userInput1Activity extends AppCompatActivity {
                     Intent intent = new Intent(userInput1Activity.this, userInput2Activity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        //btn back onclick
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(userInput1Activity.this, userInput0Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
