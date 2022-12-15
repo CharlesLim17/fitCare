@@ -3,18 +3,46 @@ package com.example.fitcare_java;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+
 public class trackerWorkoutHistoryFragment extends Fragment {
 
     //declaring variables
     ImageView btnBack;
+
+    //Recycler view
+    RecyclerView recyclerView;
+    ArrayList<WatchedHistory> list;
+    VideoAdapter adapter;
+
+    //firebase
+    StorageReference storageReference;
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    String uid;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -25,6 +53,23 @@ public class trackerWorkoutHistoryFragment extends Fragment {
 
         //setting variables
         btnBack = view.findViewById(R.id.btnBack);
+        recyclerView = view.findViewById(R.id.recycleview);
+
+        //firebase
+        storageReference = FirebaseStorage.getInstance().getReference();
+        auth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
+        uid = user.getUid();
+
+        //setup recyclerview
+        list = new ArrayList<>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new VideoAdapter(getActivity(), list);
+        recyclerView.setAdapter(adapter);
+
+        //retrieve history
+        readWatchedHistory();
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -37,5 +82,26 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         });
 
         return view;
+    }
+
+    //funtion to retrieve data
+    private void readWatchedHistory() {
+        databaseReference.child(uid).child("watchedVideos").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                    WatchedHistory watchedHistory = dataSnapshot.getValue(WatchedHistory.class);
+                    list.add(watchedHistory);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

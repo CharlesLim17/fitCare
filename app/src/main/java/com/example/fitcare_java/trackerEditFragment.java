@@ -89,13 +89,16 @@ public class trackerEditFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //get text to string
-                newCurWeight = Float.parseFloat(etNewWeight.getText().toString().trim());
-                newGoal = Float.parseFloat(etNewGoal.getText().toString().trim());
-                newPrevWeight = Float.parseFloat(etNewPrevWeight.getText().toString().trim());
+                //check fields
+                if (error()){
+                    //get text to string
+                    newCurWeight = Float.parseFloat(etNewWeight.getText().toString().trim());
+                    newGoal = Float.parseFloat(etNewGoal.getText().toString().trim());
+                    newPrevWeight = Float.parseFloat(etNewPrevWeight.getText().toString().trim());
 
-                updateData(newCurWeight, newGoal, newPrevWeight);
-
+                    //update data
+                    updateData(newCurWeight, newGoal, newPrevWeight);
+                }
             }
         });
 
@@ -132,6 +135,7 @@ public class trackerEditFragment extends Fragment {
 
     }
 
+    //read data
     private void readData(){
         databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -156,6 +160,23 @@ public class trackerEditFragment extends Fragment {
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    //check fields
+    private boolean error() {
+        if (etNewWeight.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please enter new weight", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etNewPrevWeight.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please enter previous weight", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etNewGoal.getText().toString().length() == 0) {
+            Toast.makeText(getActivity(), "Please enter new goal", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
 }
