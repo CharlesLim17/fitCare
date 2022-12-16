@@ -117,21 +117,11 @@ public class exerciseVigorousFragment extends Fragment {
         upload.put("title", title);
         upload.put("date", dateToday);
         upload.put("time", currentTime);
-        databaseReference.child(uid).child("watchedVideos").push().setValue(upload).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getActivity(), "Video is added to your watched history", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "Video was not added to your watched history", Toast.LENGTH_SHORT).show();
-                }
+        databaseReference.child(uid).child("watchedVideos").push().setValue(upload);
 
-                Fragment exerciseLevelFrag = new exerciseLevelFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
-            }
-        });
+        Fragment exerciseLevelFrag = new exerciseLevelFragment();
+        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+        fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
     }
 
 }

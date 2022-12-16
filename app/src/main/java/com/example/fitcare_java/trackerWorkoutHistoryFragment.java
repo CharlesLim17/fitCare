@@ -82,7 +82,7 @@ public class trackerWorkoutHistoryFragment extends Fragment {
 
                 Fragment trackerWorkoutHistoryFrag = new trackerWorkoutHistoryFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag, null).addToBackStack(null).commit();
+                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag).commit();
             }
         });
 

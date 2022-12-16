@@ -9,8 +9,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.text.style.ForegroundColorSpan;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +25,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +35,9 @@ public class loginActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btnLogin;
     String email, password;
+
+    //password visibility
+    boolean passwordVisible;
 
     //firebase
     FirebaseAuth auth;
@@ -71,6 +76,7 @@ public class loginActivity extends AppCompatActivity {
         //setting spanned string
         btnSignUp.setText(spannable);
 
+
         //register on click
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +98,35 @@ public class loginActivity extends AppCompatActivity {
                 if (checkFields()){
                     logIn();
                 }
+            }
+        });
+
+        //password visibility
+        etPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                final int right=2;
+
+                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
+                    if(motionEvent.getRawX()>=etPassword.getRight()-etPassword.getCompoundDrawables()[right].getBounds().width()){
+                        int selection=etPassword.getSelectionEnd();
+                        if(passwordVisible){
+                            //set drawable image here
+                            etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.password_visibility, 0);
+                            etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passwordVisible = false;
+                        }
+                        else{
+                            etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.password_visibility_on, 0);
+                            etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passwordVisible = true;
+                        }
+                        etPassword.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
             }
         });
 

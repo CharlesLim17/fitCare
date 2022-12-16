@@ -49,6 +49,7 @@ public class exerciseLowFragment extends Fragment {
     FirebaseUser user;
     String uid;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,7 +85,6 @@ public class exerciseLowFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         uid = user.getUid();
 
-
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +95,6 @@ public class exerciseLowFragment extends Fragment {
                 title = txtTitle.getText().toString().trim();
 
                 videoUpload();
-
             }
         });
 
@@ -111,21 +110,11 @@ public class exerciseLowFragment extends Fragment {
         upload.put("title", title);
         upload.put("date", dateToday);
         upload.put("time", currentTime);
-        databaseReference.child(uid).child("watchedVideos").push().setValue(upload).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getActivity(), "Video is added to your watched history", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "Video was not added to your watched history", Toast.LENGTH_SHORT).show();
-                }
+        databaseReference.child(uid).child("watchedVideos").push().setValue(upload);
 
-                Fragment exerciseLevelFrag = new exerciseLevelFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
-            }
-        });
+        Fragment exerciseLevelFrag = new exerciseLevelFragment();
+        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+        fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
+
     }
-
 }
