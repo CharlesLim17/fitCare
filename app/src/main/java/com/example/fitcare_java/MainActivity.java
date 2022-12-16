@@ -7,7 +7,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
+
+    //firebase
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,29 +25,26 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
+        //firebase instance
+        auth = FirebaseAuth.getInstance();
+
         //splash screen
-        Intent iRegister = new Intent(MainActivity.this, userInput0Activity.class);
         Intent iHome = new Intent(MainActivity.this, indexActivity.class);
         Intent iLogin = new Intent(MainActivity.this, loginActivity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //algo for staying logged in
-                //SharedPreferences sharedPreferences = getSharedPreferences(userInput2Activity.PREFS_NAME, 0);
-                //boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
 
-                //if(hasLoggedIn){
-                    //startActivity(iHome);
-                    //finish();
-                startActivity(iLogin);
-                finish();
-
-                //else {
-                    //startActivity(iRegister);
-                    //finish();
-                //}
+                if (auth.getCurrentUser() != null){
+                   startActivity(iHome);
+                   finish();
+                }
+                else{
+                    startActivity(iLogin);
+                    finish();
+                }
            }
-        }, 3200);
+        }, 2800);
     }
 }
