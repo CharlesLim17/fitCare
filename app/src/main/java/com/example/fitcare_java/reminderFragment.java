@@ -12,6 +12,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -33,8 +35,11 @@ public class reminderFragment extends Fragment {
     //declaring variables
     ImageView btnAdd, btnBack;
     TextView btnEdit1, btnEdit2, btnEdit3, dateDisplay;
+    RecyclerView alarmRecyclerView;
+    AlarmAdapter alarmAdapter;
+    ArrayList<AlarmHistory> alarms;
 
-    Context context;
+    private AlarmHistory alarmHistory;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,14 +52,25 @@ public class reminderFragment extends Fragment {
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
         //setting variables
+        alarmRecyclerView = view.findViewById(R.id.alarmRecyclerView);
         dateDisplay = view.findViewById(R.id.dateDisplay);
         btnBack = view.findViewById(R.id.btnBack);
         btnAdd = view.findViewById(R.id.btnAdd);
-        btnEdit1 = view.findViewById(R.id.btnEdit1);
-        btnEdit2 = view.findViewById(R.id.btnEdit2);
-        btnEdit3 = view.findViewById(R.id.btnEdit3);
+        //btnEdit1 = view.findViewById(R.id.btnEdit1);
+        //btnEdit2 = view.findViewById(R.id.btnEdit2);
+        //btnEdit3 = view.findViewById(R.id.btnEdit3);
 
+        // displaying date
         dateDisplay.setText(currentDate);
+
+        // display multiple alarms
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        alarmRecyclerView.setLayoutManager(linearLayoutManager);
+        alarms = new ArrayList<>();
+        alarmAdapter = new AlarmAdapter(getActivity(), alarms);
+        alarmHistory();
+        alarmRecyclerView.setAdapter(alarmAdapter);
+
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -76,36 +92,42 @@ public class reminderFragment extends Fragment {
             }
         });
 
-        //edit1 onclick
-        btnEdit1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment reminderEditFrag = new reminderEditFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-            }
-        });
-
-        //edit2 onlick
-        btnEdit2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment reminderEditFrag = new reminderEditFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-            }
-        });
-
-        //edit3 onclick
-        btnEdit3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment reminderEditFrag = new reminderEditFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-            }
-        });
+//        //edit1 onclick
+//        btnEdit1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Fragment reminderEditFrag = new reminderEditFragment();
+//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+//            }
+//        });
+//
+//        //edit2 onlick
+//        btnEdit2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Fragment reminderEditFrag = new reminderEditFragment();
+//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+//            }
+//        });
+//
+//        //edit3 onclick
+//        btnEdit3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Fragment reminderEditFrag = new reminderEditFragment();
+//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+//            }
+//        });
 
         return view;
+    }
+
+    private void alarmHistory() {
+        alarmHistory = new AlarmHistory(reminderAddFragment.getTitle(), reminderAddFragment.getMessage());
+        alarms.add(alarmHistory);
+        alarmAdapter.notifyItemInserted(alarms.size()-1);
     }
 }

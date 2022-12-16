@@ -76,54 +76,6 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="34dp"
-            android:gravity="center_vertical"
-            android:fontFamily="sans-serif"
-            android:text="4:00am"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/time1"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="34dp"
-            android:gravity="center_vertical"
-            android:fontFamily="sans-serif"
-            android:text="5:00am"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEdit1" />
-
-        <TextView
-            android:id="@+id/btnEdit3"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_time"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
-            android:paddingStart="14dp"
-            android:text="Task Name 3"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEdit2" />
-
-        <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,57 +93,6 @@
             app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
         <TextView
-            android:id="@+id/btnEdit1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_time"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
-            android:paddingStart="14dp"
-            android:text="Task Name 1"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/btnEdit2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_time"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
-            android:paddingStart="14dp"
-            android:text="Task Name 2"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEdit1" />
-
-        <TextView
-            android:id="@+id/time2"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="34dp"
-            android:gravity="center_vertical"
-            android:fontFamily="sans-serif"
-            android:text="6:00am"
-            android:textColor="#303030"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEdit2" />
-
-        <TextView
             android:id="@+id/dateDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -207,6 +108,16 @@
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/alarmRecyclerView"
+            android:layout_width="351dp"
+            android:layout_height="399dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintVertical_bias="0.417" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

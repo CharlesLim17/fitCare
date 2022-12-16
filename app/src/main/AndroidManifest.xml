@@ -67,7 +67,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <receiver android:name=".AlertReceiver"/>
     </application>
     <uses-permission android:name="android.permission.VIBRATE"/>
-
 </manifest>

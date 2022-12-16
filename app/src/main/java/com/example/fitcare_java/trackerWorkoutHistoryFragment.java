@@ -21,8 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -38,7 +36,6 @@ public class trackerWorkoutHistoryFragment extends Fragment {
     VideoAdapter adapter;
 
     //firebase
-    StorageReference storageReference;
     DatabaseReference databaseReference;
     FirebaseAuth auth;
     FirebaseUser user;
@@ -58,7 +55,6 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         btnDelete = view.findViewById(R.id.btnDelete);
 
         //firebase
-        storageReference = FirebaseStorage.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
