@@ -370,7 +370,7 @@
             android:layout_height="52dp"
             android:layout_marginStart="20dp"
             android:elevation="12dp"
-            android:src="@drawable/history"
+            android:src="@drawable/history_icon"
             app:layout_constraintStart_toStartOf="@+id/btnHistory"
             app:layout_constraintTop_toTopOf="@+id/btnHistory" />
 

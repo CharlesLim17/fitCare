@@ -55,6 +55,16 @@
             app:srcCompat="@drawable/fitcare_line" />
 
         <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:src="@drawable/delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar" />
+
+        <ImageView
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,6 +95,8 @@
             </androidx.recyclerview.widget.RecyclerView>
 
         </RelativeLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

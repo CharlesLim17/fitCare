@@ -30,6 +30,7 @@ public class trackerWorkoutHistoryFragment extends Fragment {
 
     //declaring variables
     ImageView btnBack;
+    ImageView btnDelete;
 
     //Recycler view
     RecyclerView recyclerView;
@@ -54,6 +55,7 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         //setting variables
         btnBack = view.findViewById(R.id.btnBack);
         recyclerView = view.findViewById(R.id.recycleview);
+        btnDelete = view.findViewById(R.id.btnDelete);
 
         //firebase
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -71,6 +73,19 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         //retrieve history
         readWatchedHistory();
 
+        //delete onclick
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                deleteHistory();
+
+                Fragment trackerWorkoutHistoryFrag = new trackerWorkoutHistoryFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag).commit();
+            }
+        });
+
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +97,11 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         });
 
         return view;
+    }
+
+    //function to delete all in history
+    private void deleteHistory() {
+        databaseReference.child(uid).child("watchedVideos").removeValue();
     }
 
     //funtion to retrieve data
