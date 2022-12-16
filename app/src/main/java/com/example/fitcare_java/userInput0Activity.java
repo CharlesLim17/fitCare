@@ -96,4 +96,12 @@ public class userInput0Activity extends AppCompatActivity {
         return true;
     }
 
+    //to use the built in back button of android
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(userInput0Activity.this, loginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

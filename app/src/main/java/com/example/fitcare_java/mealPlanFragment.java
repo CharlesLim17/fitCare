@@ -46,7 +46,7 @@ public class mealPlanFragment extends Fragment {
             public void onClick(View view) {
                 Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, homeFrag).commit();
+                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -56,7 +56,7 @@ public class mealPlanFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanAddFrag = new mealPlanAddFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -66,7 +66,7 @@ public class mealPlanFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanAddFrag = new mealPlanAddFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -77,7 +77,7 @@ public class mealPlanFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanAddFrag = new mealPlanAddFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
 

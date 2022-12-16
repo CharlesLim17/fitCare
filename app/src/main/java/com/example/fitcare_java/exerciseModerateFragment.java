@@ -124,7 +124,7 @@ public class exerciseModerateFragment extends Fragment {
 
                 Fragment exerciseLevelFrag = new exerciseLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
             }
         });
     }

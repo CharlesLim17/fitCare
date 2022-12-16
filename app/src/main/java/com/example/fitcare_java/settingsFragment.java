@@ -70,7 +70,7 @@ public class settingsFragment extends Fragment {
             public void onClick(View view) {
                 Fragment privacyFrag = new privacyFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, privacyFrag).commit();
+                fm.replace(R.id.frameLayout, privacyFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -80,7 +80,7 @@ public class settingsFragment extends Fragment {
             public void onClick(View view) {
                 Fragment aboutFrag = new aboutFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, aboutFrag).commit();
+                fm.replace(R.id.frameLayout, aboutFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -145,6 +145,7 @@ public class settingsFragment extends Fragment {
                 auth.signOut();
                 Intent intent = new Intent(context, loginActivity.class);
                 startActivity(intent);
+                context.finish();
             }
         });
     }

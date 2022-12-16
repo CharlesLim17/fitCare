@@ -80,7 +80,7 @@ public class trackerEditFragment extends Fragment {
             public void onClick(View view) {
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
+                fm.replace(R.id.frameLayout, trackerFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -129,7 +129,7 @@ public class trackerEditFragment extends Fragment {
 
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
+                fm.replace(R.id.frameLayout, trackerFrag, null).addToBackStack(null).commit();
             }
         });
 

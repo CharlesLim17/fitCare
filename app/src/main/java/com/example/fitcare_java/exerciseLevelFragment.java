@@ -47,7 +47,7 @@ public class exerciseLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, homeFrag).commit();
+                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -57,7 +57,7 @@ public class exerciseLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment exerciseLowFrag = new exerciseLowFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLowFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseLowFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -67,7 +67,7 @@ public class exerciseLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment exerciseModerateFrag = new exerciseModerateFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseModerateFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseModerateFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -77,7 +77,7 @@ public class exerciseLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment exerciseVigorousFrag = new exerciseVigorousFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseVigorousFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseVigorousFrag, null).addToBackStack(null).commit();
             }
         });
 

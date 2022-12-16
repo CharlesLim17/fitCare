@@ -39,7 +39,7 @@ public class homeFragment extends Fragment {
             public void onClick(View view) {
                 Fragment exerciseLevelFrag = new exerciseLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -49,7 +49,7 @@ public class homeFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanFrag = new mealPlanFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -59,7 +59,7 @@ public class homeFragment extends Fragment {
             public void onClick(View view) {
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
+                fm.replace(R.id.frameLayout, trackerFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -69,7 +69,7 @@ public class homeFragment extends Fragment {
             public void onClick(View view) {
                 Fragment reminderFrag = new reminderFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
+                fm.replace(R.id.frameLayout, reminderFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -79,7 +79,7 @@ public class homeFragment extends Fragment {
             public void onClick(View view) {
                 Fragment warmupFrag = new warmupLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupFrag).commit();
+                fm.replace(R.id.frameLayout, warmupFrag, null).addToBackStack(null).commit();
             }
         });
 

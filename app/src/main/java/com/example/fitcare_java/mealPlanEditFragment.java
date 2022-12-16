@@ -58,7 +58,7 @@ public class mealPlanEditFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanAddFrag = new mealPlanAddFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -70,7 +70,7 @@ public class mealPlanEditFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanAddFrag = new mealPlanAddFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
 

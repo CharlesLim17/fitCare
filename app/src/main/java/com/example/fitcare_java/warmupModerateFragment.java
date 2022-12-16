@@ -55,7 +55,7 @@ public class warmupModerateFragment extends Fragment {
             public void onClick(View view) {
                 Fragment warmpupLevelFrag = new warmupLevelFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmpupLevelFrag).commit();
+                fm.replace(R.id.frameLayout, warmpupLevelFrag, null).addToBackStack(null).commit();
             }
         });
 

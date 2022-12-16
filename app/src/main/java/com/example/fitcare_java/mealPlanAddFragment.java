@@ -66,7 +66,7 @@ public class mealPlanAddFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanFrag = new mealPlanFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -78,7 +78,7 @@ public class mealPlanAddFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanEditFrag = new mealPlanEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanEditFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanEditFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -87,7 +87,7 @@ public class mealPlanAddFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanEditFrag = new mealPlanEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanEditFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanEditFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -96,7 +96,7 @@ public class mealPlanAddFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanEditFrag = new mealPlanEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanEditFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanEditFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -105,7 +105,7 @@ public class mealPlanAddFragment extends Fragment {
             public void onClick(View view) {
                 Fragment mealPlanEditFrag = new mealPlanEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanEditFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanEditFrag, null).addToBackStack(null).commit();
             }
         });
 

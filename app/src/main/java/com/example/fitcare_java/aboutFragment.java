@@ -42,11 +42,13 @@ public class aboutFragment extends Fragment {
             public void onClick(View view) {
                 Fragment settingsFrag = new settingsFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, settingsFrag).commit();
+                fm.replace(R.id.frameLayout, settingsFrag, null).addToBackStack(null).commit();
             }
         });
+
 
         return view;
     }
 
-    }
+
+}

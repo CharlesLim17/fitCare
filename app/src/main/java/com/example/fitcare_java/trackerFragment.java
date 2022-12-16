@@ -76,7 +76,7 @@ public class trackerFragment extends Fragment {
             public void onClick(View view) {
                 Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, homeFrag).commit();
+                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -86,7 +86,7 @@ public class trackerFragment extends Fragment {
             public void onClick(View view) {
                 Fragment trackerEditFrag = new trackerEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerEditFrag).commit();
+                fm.replace(R.id.frameLayout, trackerEditFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -96,7 +96,7 @@ public class trackerFragment extends Fragment {
             public void onClick(View view) {
                 Fragment trackerWorkoutHistoryFrag = new trackerWorkoutHistoryFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag).commit();
+                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag, null).addToBackStack(null).commit();
             }
         });
 

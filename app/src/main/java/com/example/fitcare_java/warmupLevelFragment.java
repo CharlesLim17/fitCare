@@ -50,7 +50,7 @@ public class warmupLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, homeFrag).commit();
+                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -60,7 +60,7 @@ public class warmupLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment warmupLowFrag = new warmupLowFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupLowFrag).commit();
+                fm.replace(R.id.frameLayout, warmupLowFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -70,7 +70,7 @@ public class warmupLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment warmupModerateFrag = new warmupModerateFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupModerateFrag).commit();
+                fm.replace(R.id.frameLayout, warmupModerateFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -80,7 +80,7 @@ public class warmupLevelFragment extends Fragment {
             public void onClick(View view) {
                 Fragment warmupVigorousFrag = new warmupVigorousFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupVigorousFrag).commit();
+                fm.replace(R.id.frameLayout, warmupVigorousFrag, null).addToBackStack(null).commit();
             }
         });
 

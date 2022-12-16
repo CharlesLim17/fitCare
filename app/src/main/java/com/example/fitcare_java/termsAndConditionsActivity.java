@@ -50,4 +50,12 @@ public class termsAndConditionsActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    //to use the built in back button of android
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(termsAndConditionsActivity.this, userInput2Activity.class);
+        startActivity(intent);
+        finish();
+    }
 }

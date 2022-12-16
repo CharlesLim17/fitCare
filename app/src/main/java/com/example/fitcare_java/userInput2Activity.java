@@ -207,4 +207,12 @@ public class userInput2Activity extends AppCompatActivity {
             }
         });
     }
+
+    //to use the built in back button of android
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(userInput2Activity.this, userInput1Activity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -82,7 +82,7 @@ public class trackerWorkoutHistoryFragment extends Fragment {
 
                 Fragment trackerWorkoutHistoryFrag = new trackerWorkoutHistoryFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag).commit();
+                fm.replace(R.id.frameLayout, trackerWorkoutHistoryFrag, null).addToBackStack(null).commit();
             }
         });
 
@@ -92,7 +92,7 @@ public class trackerWorkoutHistoryFragment extends Fragment {
             public void onClick(View view) {
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
+                fm.replace(R.id.frameLayout, trackerFrag, null).addToBackStack(null).commit();
             }
         });
 
