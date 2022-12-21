@@ -5,7 +5,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.core.app.NotificationCompat;
@@ -34,7 +33,7 @@ public class reminderAddFragment extends Fragment {
     private ImageView btnBack;
     private TextView btnAdd;
     static String title, message;
-    private String taskName, time;
+    private static String taskName, time;
 
     //declaring NotificationHelper class
     private NotificationHelper notificationHelper;
