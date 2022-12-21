@@ -34,6 +34,7 @@ public class reminderAddFragment extends Fragment {
     private ImageView btnBack;
     private TextView btnAdd;
     static String title, message;
+    private String taskName, time;
 
     //declaring NotificationHelper class
     private NotificationHelper notificationHelper;
@@ -158,6 +159,8 @@ public class reminderAddFragment extends Fragment {
         String message = "Task: " + taskName + " at " + time;
 
         setTitle(title);
+        setTaskName(taskName);
+        setTime(time);
         setMessage(message);
     }
 
@@ -186,5 +189,21 @@ public class reminderAddFragment extends Fragment {
 
     public static String getMessage() {
         return message;
+    }
+
+    public static String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public static String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -126,7 +126,7 @@ public class reminderFragment extends Fragment {
     }
 
     private void alarmHistory() {
-        alarmHistory = new AlarmHistory(reminderAddFragment.getTitle(), reminderAddFragment.getMessage());
+        alarmHistory = new AlarmHistory(reminderAddFragment.getTaskName(), reminderAddFragment.getTime());
         alarms.add(alarmHistory);
         alarmAdapter.notifyItemInserted(alarms.size()-1);
     }
