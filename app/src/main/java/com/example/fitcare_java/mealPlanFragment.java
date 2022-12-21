@@ -1,87 +1,122 @@
 package com.example.fitcare_java;
 
-import static android.app.Activity.RESULT_OK;
-
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class mealPlanFragment extends Fragment {
+public class mealPlanFragment extends Fragment implements CalendarAdapter.OnItemListener {
 
-    //declaring variables
-    ImageView btnBack;
-    ImageView btnEditMorning;
-    ImageView btnEditAfternoon;
-    ImageView btnEditEvening;
+    private TextView monthYearText, NextMonth, PreviousMonth;
+    private RecyclerView calenderRecyclerView;
+    private LocalDate selectedDate;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_meal_plan, container, false);
 
-        //setting variable
-        btnBack = view.findViewById(R.id.btnBack);
-        btnEditMorning = view.findViewById(R.id.btnEditMorning);
-        btnEditAfternoon = view.findViewById(R.id.btnEditAfternoon);
-        btnEditEvening = view.findViewById(R.id.btnEditEvening);
+        //setting variables
+        calenderRecyclerView = view.findViewById(R.id.calendarRecyclerView);
+        NextMonth = view.findViewById(R.id.NextMonth);
+        PreviousMonth = view.findViewById(R.id.PreviousMonth);
 
-        //back onclick
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        //initialize widgets
+        monthYearText = view.findViewById(R.id.monthYearTV);
+        selectedDate = LocalDate.now();
+
+        //set month
+        setMonthView();
+
+        //nextmonth onclick
+        NextMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment homeFrag = new homeFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
+                nextMonthAction(view);
             }
         });
 
-        //edit morning onclick
-        btnEditMorning.setOnClickListener(new View.OnClickListener() {
+        //previousmonth onclick
+        PreviousMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment mealPlanAddFrag = new mealPlanAddFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
-            }
-        });
-
-        //edit afternoon onclick
-        btnEditAfternoon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment mealPlanAddFrag = new mealPlanAddFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
-            }
-        });
-
-
-        //edit evening onlcick
-        btnEditEvening.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment mealPlanAddFrag = new mealPlanAddFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
+                previousMonthAction(view);
             }
         });
 
         return view;
     }
 
+    private void setMonthView()
+    {
+        monthYearText.setText(monthYearFromDate(selectedDate));
+        ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), 7);
+        calenderRecyclerView.setLayoutManager(layoutManager);
+        calenderRecyclerView.setAdapter(calendarAdapter);
+    }
+
+    private ArrayList<String> daysInMonthArray(LocalDate date) {
+        ArrayList<String> daysInMonthArray = new ArrayList<>();
+        YearMonth yearMonth = YearMonth.from(date);
+
+        int daysInMonth = yearMonth.lengthOfMonth();
+        LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
+
+        int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
+
+        for(int i = 1; i <= 42; i++)
+        {
+            if(i <= dayOfWeek || i > daysInMonth + dayOfWeek)
+            {
+                daysInMonthArray.add("");
+            }
+            else
+            {
+                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+            }
+        }
+        return  daysInMonthArray;
+
+    }
+
+    private String monthYearFromDate(LocalDate date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+        return date.format(formatter);
+    }
+
+    public void previousMonthAction(View view){
+        selectedDate = selectedDate.minusMonths(1);
+        setMonthView();
+    }
+
+    public void nextMonthAction(View view){
+        selectedDate = selectedDate.plusMonths(1);
+        setMonthView();
+    }
+
+    @Override
+    public void onItemClick(int position, String dayText) {
+        if(dayText.equals("")){
+            String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
+            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+        }
+    }
 }

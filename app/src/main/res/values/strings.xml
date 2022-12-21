@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">fitCare_java</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forwardmonth"><![CDATA[->]]></string>
+    <string name="backmonth"><![CDATA[<-]]></string>
 </resources>
