@@ -89,8 +89,6 @@ public class exerciseLowFragment extends Fragment {
                 videoUpload();
             }
         });
-
-
         return view;
     }
 

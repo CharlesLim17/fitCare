@@ -4,6 +4,10 @@ public class AlarmHistory {
     String taskName;
     String time;
 
+    public AlarmHistory(){
+
+    }
+
     public AlarmHistory(String taskName, String time) {
         this.taskName = taskName;
         this.time = time;

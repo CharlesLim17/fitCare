@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,6 +24,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -38,6 +46,12 @@ public class reminderFragment extends Fragment {
     RecyclerView alarmRecyclerView;
     AlarmAdapter alarmAdapter;
     ArrayList<AlarmHistory> alarms;
+
+    //firebase
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    String uid;
 
     private AlarmHistory alarmHistory;
 
@@ -60,17 +74,22 @@ public class reminderFragment extends Fragment {
         //btnEdit2 = view.findViewById(R.id.btnEdit2);
         //btnEdit3 = view.findViewById(R.id.btnEdit3);
 
+        //firebase
+        auth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
+        uid = user.getUid();
+
         // displaying date
         dateDisplay.setText(currentDate);
 
         // display multiple alarms
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        alarmRecyclerView.setLayoutManager(linearLayoutManager);
         alarms = new ArrayList<>();
+        alarmRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         alarmAdapter = new AlarmAdapter(getActivity(), alarms);
-        alarmHistory();
         alarmRecyclerView.setAdapter(alarmAdapter);
 
+        readAlarmHistory();
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -125,9 +144,24 @@ public class reminderFragment extends Fragment {
         return view;
     }
 
-    private void alarmHistory() {
-        alarmHistory = new AlarmHistory(reminderAddFragment.getTaskName(), reminderAddFragment.getTime());
-        alarms.add(alarmHistory);
-        alarmAdapter.notifyItemInserted(alarms.size()-1);
+    private void readAlarmHistory() {
+        databaseReference.child(uid).child("alarms").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    AlarmHistory alarmHistory = dataSnapshot.getValue(AlarmHistory.class);
+                    alarms.add(alarmHistory);
+                }
+                alarmAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//        alarmHistory = new AlarmHistory(reminderAddFragment.getTaskName(), reminderAddFragment.getTime());
+//        alarms.add(alarmHistory);
     }
 }

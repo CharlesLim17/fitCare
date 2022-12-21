@@ -20,8 +20,14 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 
 public class reminderAddFragment extends Fragment {
@@ -34,6 +40,12 @@ public class reminderAddFragment extends Fragment {
     private TextView btnAdd;
     static String title, message;
     private static String taskName, time;
+
+    //firebase
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    String uid;
 
     //declaring NotificationHelper class
     private NotificationHelper notificationHelper;
@@ -61,6 +73,12 @@ public class reminderAddFragment extends Fragment {
         etTaskName = view.findViewById(R.id.etTaskName);
         btnBack = view.findViewById(R.id.btnBack);
         btnAdd = view.findViewById(R.id.btnAdd);
+
+        //firebase
+        auth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
+        uid = user.getUid();
 
         //setting numpicker for hour
         numPickerHour.setMinValue(0);
@@ -118,6 +136,7 @@ public class reminderAddFragment extends Fragment {
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, reminderFrag).commit();
                 setAlarmTime(hour[0], min[0]);
+                taskAlarmUpload();
             }
         });
         return view;
@@ -127,7 +146,6 @@ public class reminderAddFragment extends Fragment {
     public void sendOnChannel1(String title, String message) {
         NotificationCompat.Builder notificationCompatBuilder = notificationHelper.getChannel1Notification(title,message);
         notificationHelper.getManager().notify(1, notificationCompatBuilder.build());
-
     }
 
     // setting alarm time
@@ -150,17 +168,22 @@ public class reminderAddFragment extends Fragment {
         Toast.makeText(getActivity(), "" + timeText, Toast.LENGTH_SHORT).show();
     }
 
-    // alarm Notification title and Message
+    // alarm Notification Title and Message
     private void setAlarmTitleMessage(Calendar cal) {
-        String title = "Workout Reminder";
-        String taskName = etTaskName.getText().toString();
         String time = DateFormat.getTimeInstance(DateFormat.SHORT).format(cal.getTime());
-        String message = "Task: " + taskName + " at " + time;
+
+        //for notification
+        String title = "Workout Reminder";
+        String message = "Task: " + etTaskName.getText().toString() + " at " + time;
+
+        //for displaying in Workout Reminder
+        String taskName = "Task: " + etTaskName.getText().toString();
 
         setTitle(title);
+        setMessage(message);
+
         setTaskName(taskName);
         setTime(time);
-        setMessage(message);
     }
 
     // starting alarm
@@ -171,6 +194,15 @@ public class reminderAddFragment extends Fragment {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_MUTABLE);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+    }
+
+    //to upload task reminder
+    private void taskAlarmUpload() {
+        HashMap upload = new HashMap();
+
+        upload.put("taskName", taskName);
+        upload.put("time", time);
+        databaseReference.child(uid).child("alarms").push().setValue(upload);
     }
 
     // setter and getter method for notification title and message
