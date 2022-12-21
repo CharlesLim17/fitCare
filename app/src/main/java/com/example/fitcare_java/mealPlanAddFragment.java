@@ -1,16 +1,11 @@
 package com.example.fitcare_java;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 
 public class mealPlanAddFragment extends Fragment {
@@ -64,7 +54,7 @@ public class mealPlanAddFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment mealPlanFrag = new mealPlanFragment();
+                Fragment mealPlanFrag = new mealPlanDayFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, mealPlanFrag, null).addToBackStack(null).commit();
             }
