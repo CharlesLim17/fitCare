@@ -65,27 +65,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_icon" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:layout_marginLeft="34dp"
-            android:layout_marginRight="34dp"
-            android:text="Name of Food"
-            android:textColor="#303030"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <EditText
             android:id="@+id/etFoodName"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginLeft="34dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="34dp"
             android:background="@drawable/custom_edittxt"
             android:elevation="10dp"
@@ -99,25 +85,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.318"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="34dp"
-            android:layout_marginRight="34dp"
-            android:background="@drawable/custom_setting_btn"
-            android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Add Food"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Placeholderddl" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
@@ -126,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
             android:layout_marginRight="34dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="26dp"
             android:hint="Select Category"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -144,130 +112,52 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Added Food"
-            android:textColor="#303030"
-            android:fontFamily="sans-serif-medium"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="36dp"
+            android:text="Select Date:"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.105"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
+            app:layout_constraintTop_toBottomOf="@+id/Placeholderddl" />
+
+        <Button
+            android:id="@+id/btnDatePicker"
+            style="?android:spinnerStyle"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginLeft="20dp"
+            android:text="Jan 01 2020"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/Placeholderddl" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/btnAdd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="20dp"
-            android:text=" • Food 1: Eggs"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Add Food"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <ImageView
-            android:id="@+id/btnEdit1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/edit"
-            android:textColor="@color/black"
-            android:paddingStart="20dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="34dp"
-            android:text=" • Food 2: Bread"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-        <ImageView
-            android:id="@+id/btnEdit2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/edit"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:paddingStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="34dp"
-            android:text=" • Food 3: Rice"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-        <ImageView
-            android:id="@+id/btnEdit3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/edit"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:paddingStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="34dp"
-            android:text=" • Food 4: Peanutbutter"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            app:layout_constraintTop_toBottomOf="@+id/btnDatePicker" />
 
-        <ImageView
-            android:id="@+id/btnEdit4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="34dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/edit"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:paddingStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

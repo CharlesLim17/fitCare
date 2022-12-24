@@ -142,7 +142,7 @@ public class indexActivity extends AppCompatActivity {
 
             //voice command to navigate to meal plan
             if (arrayList.get(0).toString().equals("go to meal plan") || arrayList.get(0).toString().equals("open meal plan")) {
-                Fragment mealPlanFrag = new mealPlanDayFragment();
+                Fragment mealPlanFrag = new mealPlanFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, mealPlanFrag).commit();
             }

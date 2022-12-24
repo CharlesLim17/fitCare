@@ -11,33 +11,12 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:background="#629365"
-        android:paddingLeft="50dp"
-        android:paddingTop="30dp"
-        android:paddingRight="50dp"
-        android:paddingBottom="75dp"
+        android:background="#0A3C43"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fitcare_logo" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginRight="34dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="FitCare"
-        android:textColor="#FEFED3"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/fitcare_orig" />
 
     <TextView
         android:id="@+id/textView5"
@@ -134,7 +113,7 @@
         android:layout_marginLeft="34dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="34dp"
-        android:background="#629365"
+        android:background="#0A3C43"
         android:fontFamily="sans-serif"
         android:text="Login"
         android:textAllCaps="false"
