@@ -50,8 +50,8 @@ public class reminderAddFragment extends Fragment {
     private NotificationHelper notificationHelper;
 
     //storing hour/min/am_pm values to respective variables
-    static int hour;
-    static int min;
+    static int hour = Calendar.getInstance().get(Calendar.HOUR);
+    static int min = Calendar.getInstance().get(Calendar.MINUTE);
     static int am_pm;
 
     @SuppressLint("MissingInflatedId")
@@ -82,10 +82,12 @@ public class reminderAddFragment extends Fragment {
         //setting numpicker for hour
         numPickerHour.setMinValue(0);
         numPickerHour.setMaxValue(12);
+        numPickerHour.setValue(Calendar.getInstance().get(Calendar.HOUR));
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
+        numPickerMin.setValue(Calendar.getInstance().get(Calendar.MINUTE));
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -131,11 +133,13 @@ public class reminderAddFragment extends Fragment {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment reminderFrag = new reminderFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, reminderFrag).commit();
-                setAlarmTime(hour, min);
-                taskAlarmUpload();
+                if (checkInputAlarmFields()) {
+                    Fragment reminderFrag = new reminderFragment();
+                    FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                    fm.replace(R.id.frameLayout, reminderFrag).commit();
+                    setAlarmTime(hour, min);
+                    taskAlarmUpload();
+                }
             }
         });
         return view;
@@ -189,7 +193,6 @@ public class reminderAddFragment extends Fragment {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_MUTABLE);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
-
     }
 
     //to upload task reminder
@@ -199,6 +202,22 @@ public class reminderAddFragment extends Fragment {
         upload.put("taskName", taskName);
         upload.put("time", time);
         databaseReference.child(uid).child("alarms").push().setValue(upload);
+    }
+
+    // check for null fields
+    private boolean checkInputAlarmFields() {
+        if (etTaskName.getText().length() == 0) {
+            Toast.makeText(getActivity(), "Please Enter a Workout Task", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if(hour == 0 && min == 0) {
+            Toast.makeText(getActivity(), "Please Set an Alarm time for you Workout", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if(am_pm == 0) {
+            Toast.makeText(getActivity(), "Please Set the Alarm for AM or PM", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     // setter and getter method for notification title and message
