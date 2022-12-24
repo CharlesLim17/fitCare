@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper{
 
-    public static final String channel1ID = "channel1ID";
+    public static final String channel1ID = "Workout Reminder Channel";
     private NotificationManager notificationManager;
 
     public NotificationHelper(Context base) {
@@ -24,7 +24,7 @@ public class NotificationHelper extends ContextWrapper{
     public void createNotificationChannels() {
         NotificationChannel channel1 = new NotificationChannel(
                 channel1ID,
-                "Channel 1",
+                "Workout Reminder",
                 NotificationManager.IMPORTANCE_HIGH
         );
         channel1.enableLights(true);
@@ -48,5 +48,6 @@ public class NotificationHelper extends ContextWrapper{
                 .setSmallIcon(R.drawable.ic_notif)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE);
+
     }
 }

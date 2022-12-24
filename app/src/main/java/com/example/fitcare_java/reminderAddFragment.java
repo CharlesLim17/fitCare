@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -51,9 +50,9 @@ public class reminderAddFragment extends Fragment {
     private NotificationHelper notificationHelper;
 
     //storing hour/min/am_pm values to respective variables
-    final static int[] hour = new int[1];
-    final static int[] min = new int[1];
-    final static int[] am_pm = new int[1];
+    static int hour;
+    static int min;
+    static int am_pm;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -97,24 +96,24 @@ public class reminderAddFragment extends Fragment {
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", i1, (int) min[0], NumPicker.getNumPickerList().get(am_pm[0]).getName()));
-                hour[0] = i1;
+                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", i1, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+                hour = i1;
             }
         });
 
         numPickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", (int) hour[0], i1, NumPicker.getNumPickerList().get(am_pm[0]).getName()));
-                min[0] = i1;
+                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, i1, NumPicker.getNumPickerList().get(am_pm).getName()));
+                min = i1;
             }
         });
 
         numPickerAm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", (int) hour[0], (int) min[0], NumPicker.getNumPickerList().get(i1).getName()));
-                am_pm[0] = i1;
+                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, (int) min, NumPicker.getNumPickerList().get(i1).getName()));
+                am_pm = i1;
             }
         });
 
@@ -135,17 +134,11 @@ public class reminderAddFragment extends Fragment {
                 Fragment reminderFrag = new reminderFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, reminderFrag).commit();
-                setAlarmTime(hour[0], min[0]);
+                setAlarmTime(hour, min);
                 taskAlarmUpload();
             }
         });
         return view;
-    }
-
-    // method for NotificationHelper
-    public void sendOnChannel1(String title, String message) {
-        NotificationCompat.Builder notificationCompatBuilder = notificationHelper.getChannel1Notification(title,message);
-        notificationHelper.getManager().notify(1, notificationCompatBuilder.build());
     }
 
     // setting alarm time
@@ -154,7 +147,7 @@ public class reminderAddFragment extends Fragment {
         calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm[0]).getId());
+        calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
         toastTimeText(calendar);
         setAlarmTitleMessage(calendar);
@@ -190,10 +183,13 @@ public class reminderAddFragment extends Fragment {
     private void startAlarm(Calendar cal) {
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
+        intent.putExtra("TITLE", title);
+        intent.putExtra("MESSAGE", message);
         final int id = (int) System.currentTimeMillis();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_MUTABLE);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+
     }
 
     //to upload task reminder
