@@ -4,25 +4,20 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -30,23 +25,20 @@ import java.util.HashMap;
 public class mealPlanAddFragment extends Fragment {
 
     //declaring variables
-    ImageView btnBack;
-    TextView btnAdd;
-    Button btnDatePicker;
-    AutoCompleteTextView ddlFoodCat;
+    private EditText etFoodNameMorning1, etFoodNameMorning2, etFoodNameMorning3, etFoodNameAfternoon1, etFoodNameAfternoon2, etFoodNameAfternoon3, etFoodNameEvening1, etFoodNameEvening2, etFoodNameEvening3;
+    private Button btnDatePicker;
 
     //date picker dialog
     private DatePickerDialog datePickerDialog;
-
-    //declaring variables for gender ddl
-    final String[] food = {"Morning", "Afternoon", "Evening"};
-    ArrayAdapter<String> adapterItems;
 
     //firebase
     DatabaseReference databaseReference;
     FirebaseAuth auth;
     FirebaseUser user;
     String uid;
+
+    //input holders
+    String foodDate, foodNameMorning1, foodNameMorning2, foodNameMorning3, foodNameAfternoon1, foodNameAfternoon2, foodNameAfternoon3, foodNameEvening1, foodNameEvening2, foodNameEvening3;
 
 
     @SuppressLint("MissingInflatedId")
@@ -57,18 +49,22 @@ public class mealPlanAddFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_meal_plan_add, container, false);
 
         //setting variables
-        btnBack = view.findViewById(R.id.btnBack);
-        btnAdd = view.findViewById(R.id.btnAdd);
+        etFoodNameMorning1 = view.findViewById(R.id.etFoodNameMorning1);
+        etFoodNameMorning2 = view.findViewById(R.id.etFoodNameMorning2);
+        etFoodNameMorning3 = view.findViewById(R.id.etFoodNameMorning3);
+        etFoodNameAfternoon1 = view.findViewById(R.id.etFoodNameAfternoon1);
+        etFoodNameAfternoon2 = view.findViewById(R.id.etFoodNameAfternoon2);
+        etFoodNameAfternoon3 = view.findViewById(R.id.etFoodNameAfternoon3);
+        etFoodNameEvening1 = view.findViewById(R.id.etFoodNameEvening1);
+        etFoodNameEvening2 = view.findViewById(R.id.etFoodNameEvening2);
+        etFoodNameEvening3 = view.findViewById(R.id.etFoodNameEvening3);
+        ImageView btnBack = view.findViewById(R.id.btnBack);
+        TextView btnAdd = view.findViewById(R.id.btnAdd);
         btnDatePicker = view.findViewById(R.id.btnDatePicker);
 
         //initialize date picker
         initDatePicker();
         btnDatePicker.setText(getTodaysDate());
-
-        //FoodCat String values
-        ddlFoodCat = view.findViewById(R.id.ddlFoodCat);
-        adapterItems = new ArrayAdapter<String>(this.requireContext(), R.layout.gender_list, food); //gender_list nakalagay pero design lang yan for list - ni reuse ko lang
-        ddlFoodCat.setAdapter(adapterItems);
 
         //firebase
         auth = FirebaseAuth.getInstance();
@@ -99,10 +95,21 @@ public class mealPlanAddFragment extends Fragment {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                foodDate = btnDatePicker.getText().toString().trim();
+                foodNameMorning1 = etFoodNameMorning1.getText().toString().trim();
+                foodNameMorning2 = etFoodNameMorning2.getText().toString().trim();
+                foodNameMorning3 = etFoodNameMorning3.getText().toString().trim();
+                foodNameAfternoon1 = etFoodNameAfternoon1.getText().toString().trim();
+                foodNameAfternoon2 = etFoodNameAfternoon2.getText().toString().trim();
+                foodNameAfternoon3 = etFoodNameAfternoon3.getText().toString().trim();
+                foodNameEvening1 = etFoodNameEvening1.getText().toString().trim();
+                foodNameEvening2 = etFoodNameEvening2.getText().toString().trim();
+                foodNameEvening3 = etFoodNameEvening3.getText().toString().trim();
+
                 addFood();
             }
         });
-
 
 
         return view;
@@ -185,11 +192,19 @@ public class mealPlanAddFragment extends Fragment {
 
     //to upload video
     private void addFood() {
-        HashMap upload = new HashMap();
+        HashMap<String, String> upload = new HashMap<>();
 
-//        upload.put("title", title);
-//        upload.put("date", dateToday);
-//        upload.put("time", currentTime);
+        upload.put("foodDate", foodDate);
+        upload.put("foodNameMorning1", foodNameMorning1);
+        upload.put("foodNameMorning2", foodNameMorning2);
+        upload.put("foodNameMorning3", foodNameMorning3);
+        upload.put("foodNameAfternoon1", foodNameAfternoon1);
+        upload.put("foodNameAfternoon2", foodNameAfternoon2);
+        upload.put("foodNameAfternoon3", foodNameAfternoon3);
+        upload.put("foodNameEvening1", foodNameEvening1);
+        upload.put("foodNameEvening2", foodNameEvening2);
+        upload.put("foodNameEvening3", foodNameEvening3);
+
         databaseReference.child(uid).child("mealPlan").push().setValue(upload);
 
         Fragment mealPlanFrag = new mealPlanFragment();

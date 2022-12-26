@@ -65,18 +65,61 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_icon" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:text="Select Date:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <Button
+            android:id="@+id/btnDatePicker"
+            style="?android:spinnerStyle"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="14dp"
+            android:text="Jan 01 2020"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Morning"
+            android:textColor="#303030"
+            android:lineSpacingExtra="6dp"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
+
 
         <EditText
-            android:id="@+id/etFoodName"
+            android:id="@+id/etFoodNameMorning1"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginLeft="34dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:layout_marginRight="34dp"
             android:background="@drawable/custom_edittxt"
             android:elevation="10dp"
             android:ems="10"
-            android:hint="Enter food name"
+            android:hint="Enter food name (Morning)"
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/black"
@@ -85,66 +128,217 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.318"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:id="@+id/Placeholderddl"
+        <EditText
+            android:id="@+id/etFoodNameMorning2"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Morning)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameMorning1" />
+
+        <EditText
+            android:id="@+id/etFoodNameMorning3"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Morning)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameMorning2" />
+
+
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="34dp"
-            android:layout_marginTop="26dp"
-            android:hint="Select Category"
-            android:textColorHint="@color/black"
+            android:fontFamily="sans-serif-medium"
+            android:text="Afternoon"
+            android:textColor="#303030"
+            android:lineSpacingExtra="6dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFoodName">
+            app:layout_constraintTop_toBottomOf="@id/etFoodNameMorning3" />
 
-            <AutoCompleteTextView
-                android:id="@+id/ddlFoodCat"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:background="@drawable/custom_edittxt"
-                android:inputType="none"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/etFoodNameAfternoon1"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Afternoon)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <EditText
+            android:id="@+id/etFoodNameAfternoon2"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Afternoon)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameAfternoon1" />
+
+        <EditText
+            android:id="@+id/etFoodNameAfternoon3"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Afternoon)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameAfternoon2" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
-            android:layout_marginTop="36dp"
-            android:text="Select Date:"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Placeholderddl" />
-
-        <Button
-            android:id="@+id/btnDatePicker"
-            style="?android:spinnerStyle"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="34dp"
-            android:layout_marginLeft="20dp"
-            android:text="Jan 01 2020"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Evening"
+            android:textColor="#303030"
+            android:lineSpacingExtra="6dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/Placeholderddl" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etFoodNameAfternoon3" />
+
+        <EditText
+            android:id="@+id/etFoodNameEvening1"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Evening)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <EditText
+            android:id="@+id/etFoodNameEvening2"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Evening)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameEvening1" />
+
+        <EditText
+            android:id="@+id/etFoodNameEvening3"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/custom_edittxt"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="Enter food name (Evening)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.318"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameEvening2" />
 
         <TextView
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="34dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="34dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/custom_setting_btn"
             android:elevation="12dp"
             android:fontFamily="sans-serif-medium"
@@ -152,11 +346,10 @@
             android:text="Add Food"
             android:textColor="@color/black"
             android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnDatePicker" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/etFoodNameEvening3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
