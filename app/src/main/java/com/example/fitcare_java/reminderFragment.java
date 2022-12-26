@@ -110,7 +110,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
                     AlarmHistory alarmHistory = dataSnapshot.getValue(AlarmHistory.class);
                     alarms.add(alarmHistory);
                 }
-                alarmAdapter.notifyDataSetChanged();
+                    alarmAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -135,14 +135,19 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                try{
+                    alarms.remove(position);
+                    alarmAdapter.notifyItemRemoved(position);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
                 databaseReference.child(uid).child("alarms").orderByChild(String.valueOf(position)).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                            alarms.remove(position);
                             dataSnapshot.getRef().removeValue();
                         }
-                        alarmAdapter.notifyItemRemoved(position);
                         alarmAdapter.notifyDataSetChanged();
                     }
                     @Override

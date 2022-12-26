@@ -53,6 +53,7 @@ public class reminderAddFragment extends Fragment {
     static int hour = Calendar.getInstance().get(Calendar.HOUR);
     static int min = Calendar.getInstance().get(Calendar.MINUTE);
     static int am_pm;
+    final int id = (int) System.currentTimeMillis();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -191,7 +192,6 @@ public class reminderAddFragment extends Fragment {
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
-        final int id = (int) System.currentTimeMillis();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_MUTABLE);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
