@@ -15,17 +15,19 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
 
     Context context;
     ArrayList<AlarmHistory> alarms;
+    private final RecyclerViewInterface recyclerViewInterface;
 
-    public AlarmAdapter(Context context, ArrayList<AlarmHistory> alarms) {
+    public AlarmAdapter(Context context, ArrayList<AlarmHistory> alarms, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.alarms = alarms;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
     @Override
     public AlarmAdapter.AlarmViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.alarm_item,parent,false);
-        return new AlarmViewHolder(view);
+        return new AlarmViewHolder(view, recyclerViewInterface);
     }
 
     @Override
@@ -41,14 +43,41 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         return alarms.size();
     }
 
-    public class AlarmViewHolder extends RecyclerView.ViewHolder{
+    public static class AlarmViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtRetrieveTaskName, txtRetrieveTime;
-        public AlarmViewHolder(@NonNull View itemView) {
+        public AlarmViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             txtRetrieveTaskName = itemView.findViewById(R.id.txtRetrieveTaskName);
             txtRetrieveTime = itemView.findViewById(R.id.txtRetrieveTime);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    if (recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemLongClick(pos);
+                        }
+                    }
+                    return true;
+                }
+            });
         }
     }
 }

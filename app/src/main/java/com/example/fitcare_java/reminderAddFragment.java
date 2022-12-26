@@ -95,6 +95,8 @@ public class reminderAddFragment extends Fragment {
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
 
+        txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
@@ -211,10 +213,6 @@ public class reminderAddFragment extends Fragment {
             return false;
         } else if(hour == 0 && min == 0) {
             Toast.makeText(getActivity(), "Please Set an Alarm time for you Workout", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if(am_pm == 0) {
-            Toast.makeText(getActivity(), "Please Set the Alarm for AM or PM", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

@@ -9,7 +9,6 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.installations.time.SystemClock;
 
 public class AlertReceiver extends BroadcastReceiver {
-    reminderAddFragment reminderAdd;
     String title, message;
 
     @Override
