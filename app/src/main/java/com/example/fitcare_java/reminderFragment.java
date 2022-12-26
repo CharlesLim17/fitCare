@@ -1,29 +1,24 @@
 package com.example.fitcare_java;
 
-import static android.app.Activity.RESULT_OK;
-import static android.content.Context.ALARM_SERVICE;
+import static android.content.ContentValues.TAG;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.speech.RecognizerIntent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,16 +30,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Locale;
 
 
-public class reminderFragment extends Fragment {
+public class reminderFragment extends Fragment  implements RecyclerViewInterface{
 
     //declaring variables
     ImageView btnAdd, btnBack;
-    TextView btnEdit1, btnEdit2, btnEdit3, dateDisplay;
+    TextView dateDisplay;
     RecyclerView alarmRecyclerView;
     AlarmAdapter alarmAdapter;
     ArrayList<AlarmHistory> alarms;
@@ -54,8 +46,6 @@ public class reminderFragment extends Fragment {
     FirebaseAuth auth;
     FirebaseUser user;
     String uid;
-
-    private AlarmHistory alarmHistory;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,9 +62,6 @@ public class reminderFragment extends Fragment {
         dateDisplay = view.findViewById(R.id.dateDisplay);
         btnBack = view.findViewById(R.id.btnBack);
         btnAdd = view.findViewById(R.id.btnAdd);
-        //btnEdit1 = view.findViewById(R.id.btnEdit1);
-        //btnEdit2 = view.findViewById(R.id.btnEdit2);
-        //btnEdit3 = view.findViewById(R.id.btnEdit3);
 
         //firebase
         auth = FirebaseAuth.getInstance();
@@ -88,7 +75,7 @@ public class reminderFragment extends Fragment {
         // display multiple alarms
         alarms = new ArrayList<>();
         alarmRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        alarmAdapter = new AlarmAdapter(getActivity(), alarms);
+        alarmAdapter = new AlarmAdapter(getActivity(), alarms, this);
         alarmRecyclerView.setAdapter(alarmAdapter);
 
         readAlarmHistory();
@@ -112,37 +99,6 @@ public class reminderFragment extends Fragment {
                 fm.replace(R.id.frameLayout, reminderAddFrag).commit();
             }
         });
-
-//        //edit1 onclick
-//        btnEdit1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Fragment reminderEditFrag = new reminderEditFragment();
-//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-//            }
-//        });
-//
-//        //edit2 onlick
-//        btnEdit2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Fragment reminderEditFrag = new reminderEditFragment();
-//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-//            }
-//        });
-//
-//        //edit3 onclick
-//        btnEdit3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Fragment reminderEditFrag = new reminderEditFragment();
-//                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-//                fm.replace(R.id.frameLayout, reminderEditFrag).commit();
-//            }
-//        });
-
         return view;
     }
 
@@ -151,19 +107,63 @@ public class reminderFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-
                     AlarmHistory alarmHistory = dataSnapshot.getValue(AlarmHistory.class);
                     alarms.add(alarmHistory);
                 }
-                alarmAdapter.notifyDataSetChanged();
+                    alarmAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.e(TAG, "onCancelled", error.toException());
             }
         });
-//        alarmHistory = new AlarmHistory(reminderAddFragment.getTaskName(), reminderAddFragment.getTime());
-//        alarms.add(alarmHistory);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+//        Fragment reminderEditFrag = new reminderEditFragment();
+//        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+//        fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+    }
+
+    @Override
+    public void onItemLongClick(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Workout Reminder");
+        builder.setMessage("Are you sure you want to remove selected Alarm?");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                try{
+                    alarms.remove(position);
+                    alarmAdapter.notifyItemRemoved(position);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                databaseReference.child(uid).child("alarms").orderByChild(String.valueOf(position)).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            dataSnapshot.getRef().removeValue();
+                        }
+                        alarmAdapter.notifyDataSetChanged();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e(TAG, "onCancelled", error.toException());
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // do nothing
+            }
+        });
+        builder.setIcon(R.drawable.ic_remove_dialog);
+        builder.show();
     }
 }

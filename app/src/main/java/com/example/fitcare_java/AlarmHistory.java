@@ -1,6 +1,6 @@
 package com.example.fitcare_java;
 
-public class AlarmHistory {
+public class AlarmHistory implements Comparable<AlarmHistory> {
     String taskName;
     String time;
 
@@ -27,5 +27,10 @@ public class AlarmHistory {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public int compareTo(AlarmHistory alarmHistory) {
+        return 0;
     }
 }
