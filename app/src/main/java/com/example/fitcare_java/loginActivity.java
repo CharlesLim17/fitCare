@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.method.HideReturnsTransformationMethod;
@@ -42,6 +43,9 @@ public class loginActivity extends AppCompatActivity {
     //firebase
     FirebaseAuth auth;
     DatabaseReference databaseReference;
+
+    //initiate loading dialog
+    private final LoadingDialog loadingDialog = new LoadingDialog(loginActivity.this);
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -91,6 +95,8 @@ public class loginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                loadingDialog.startLoadingDialog();
                 //converting to string and storing in variables
                 email = etEmail.getText().toString();
                 password = etPassword.getText().toString();
@@ -141,6 +147,7 @@ public class loginActivity extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(loginActivity.this, "Welcome to Fitcare", Toast.LENGTH_LONG).show();
 
+                    loadingDialog.dismissDialog();
                     Intent intent = new Intent(loginActivity.this, indexActivity.class);
                     startActivity(intent);
                     finish();

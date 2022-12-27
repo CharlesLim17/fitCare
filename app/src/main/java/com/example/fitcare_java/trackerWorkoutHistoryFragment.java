@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +54,21 @@ public class trackerWorkoutHistoryFragment extends Fragment {
         btnBack = view.findViewById(R.id.btnBack);
         recyclerView = view.findViewById(R.id.recycleview);
         btnDelete = view.findViewById(R.id.btnDelete);
+
+        //initiate loading dialog
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+
+        //Start Loading Dialog
+        loadingDialog.startLoadingDialog();
+
+        //End Load Dialog
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2500);
 
         //firebase
         auth = FirebaseAuth.getInstance();

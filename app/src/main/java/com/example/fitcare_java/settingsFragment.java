@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,21 @@ public class settingsFragment extends Fragment {
         btnAbout = view.findViewById(R.id.btnAbout);
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         context = getActivity();
+
+        //initiate loading dialog
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+
+        //Start Loading Dialog
+        loadingDialog.startLoadingDialog();
+
+        //End Load Dialog
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2500);
 
         //firebase instance
         auth = FirebaseAuth.getInstance();
@@ -125,6 +142,7 @@ public class settingsFragment extends Fragment {
 
                     @SuppressLint("DefaultLocale") String formattedString = String.format("%.02f", bmi);
                     txtRetrieveBMI.setText(formattedString + "");
+
                 }
             }
 

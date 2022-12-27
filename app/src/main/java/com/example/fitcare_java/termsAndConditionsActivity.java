@@ -34,8 +34,10 @@ public class termsAndConditionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (error()){
+                    Toast.makeText(termsAndConditionsActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(termsAndConditionsActivity.this, loginActivity.class);
                     startActivity(intent);
+
                 }
             }
         });

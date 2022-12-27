@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,21 @@ public class trackerFragment extends Fragment {
         txtRetrieveBmi = view.findViewById(R.id.txtRetrieveBmi);
         txtRetrieveVS = view.findViewById(R.id.txtRetrieveVS);
         txtRetrieveToAchieveGoal = view.findViewById(R.id.txtRetrieveToAchieveGoal);
+
+        //initiate loading dialog
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+
+        //Start Loading Dialog
+        loadingDialog.startLoadingDialog();
+
+        //End Load Dialog
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2500);
 
         //firebase instance
         auth = FirebaseAuth.getInstance();

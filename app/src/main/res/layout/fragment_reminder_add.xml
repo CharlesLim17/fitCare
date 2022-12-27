@@ -161,7 +161,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Add Task"
-        android:textColor="@color/black"
+        android:textColor="#FEFED3"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
