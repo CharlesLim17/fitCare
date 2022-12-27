@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeFragment"
-    android:background="@color/white"
+    android:background="#EFEFEF"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/custom_action_bar"
@@ -27,160 +26,172 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/btnExercise"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/exerciseHolder"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="100dp"
-            android:background="@drawable/custom_home_btn"
-            android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Exercise!"
-            android:textColor="#FEFED3"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="130dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:elevation="12dp"
-            android:src="@drawable/home_exercise_icon"
-            app:layout_constraintHorizontal_bias="0.09"
-            app:layout_constraintStart_toStartOf="@+id/btnExercise"
-            app:layout_constraintTop_toTopOf="@+id/btnExercise" />
-
-        <TextView
-            android:id="@+id/btnMeal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="100dp"
-            android:background="@drawable/custom_home_btn"
+            android:layout_marginRight="16dp"
             android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Meal Plan"
-            android:textColor="#FEFED3"
-            android:textSize="21sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnTracker" />
+            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:cardCornerRadius="12dp">
 
-        <TextView
-            android:id="@+id/btnTracker"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/bg_exercise"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/btnExercise"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Exercise!"
+                android:textColor="@color/white"
+                android:textSize="28sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/warmupHolder"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="100dp"
-            android:background="@drawable/custom_home_btn"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Workout \nTracker"
-            android:lineSpacingExtra="6dp"
-            android:textColor="#FEFED3"
-            android:textSize="20.8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnWarmup" />
+            app:layout_constraintTop_toBottomOf="@id/exerciseHolder"
+            app:cardCornerRadius="12dp">
 
-        <TextView
-            android:id="@+id/btnWarmup"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/bg_warmup"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/btnWarmup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Warmp-Up\nStretches"
+                android:lineSpacingExtra="6dp"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/trackerHolder"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/custom_home_btn"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:paddingLeft="100dp"
-            android:text="Warmp-Up\nStretches"
-            android:lineSpacingExtra="6dp"
-            android:textColor="#FEFED3"
-            android:textSize="20.8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnExercise" />
+            app:layout_constraintTop_toBottomOf="@id/warmupHolder"
+            app:cardCornerRadius="12dp">
 
-        <TextView
-            android:id="@+id/btnReminder"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/bg_tracker"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/btnTracker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Workout \nTracker"
+                android:lineSpacingExtra="6dp"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/reminderHolder"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/custom_home_btn"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:elevation="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:paddingLeft="100dp"
-            android:text="Workout\nReminders"
-            android:textColor="#FEFED3"
-            android:textSize="20.8sp"
-            android:lineSpacingExtra="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trackerHolder"
+            app:cardCornerRadius="12dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/bg_reminder"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/btnReminder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Workout\nReminders"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:lineSpacingExtra="6dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mealPlanHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
+            android:elevation="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reminderHolder"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnMeal" />
+            app:cardCornerRadius="12dp">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="130dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="16dp"
-            android:elevation="12dp"
-            android:src="@drawable/home_mealplan_icon"
-            app:layout_constraintStart_toStartOf="@+id/btnMeal"
-            app:layout_constraintTop_toTopOf="@+id/btnMeal" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/bg_mealplan"
+                android:scaleType="centerCrop"/>
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="16dp"
-            android:elevation="12dp"
-            android:src="@drawable/home_tracker_icon"
-            app:layout_constraintStart_toStartOf="@+id/btnTracker"
-            app:layout_constraintTop_toTopOf="@+id/btnTracker" />
+            <TextView
+                android:id="@+id/btnMeal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Meal Plan"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="130dp"
-            android:layout_height="110dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:elevation="12dp"
-            android:src="@drawable/home_reminders_icon"
-            app:layout_constraintStart_toStartOf="@+id/btnReminder"
-            app:layout_constraintTop_toTopOf="@+id/btnReminder" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="16dp"
-            android:elevation="12dp"
-            android:src="@drawable/home_stretches_icon"
-            app:layout_constraintStart_toStartOf="@+id/btnWarmup"
-            app:layout_constraintTop_toTopOf="@+id/btnWarmup" />
-
+        </androidx.cardview.widget.CardView>
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

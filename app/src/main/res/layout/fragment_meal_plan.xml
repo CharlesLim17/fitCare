@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mealPlanFragment"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="#EFEFEF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,38 +23,35 @@
             android:textColor="#FEFED3"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_marginTop="20dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_white" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="34dp"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="10sp"
             android:text="Meal Plan"
-            android:textColor="#000000"
+            android:textColor="@color/ateneo_blue"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appBar" />
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="@+id/appBar"
-            app:layout_constraintHorizontal_bias="0.069"
-            app:layout_constraintStart_toStartOf="@+id/appBar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back_icon" />
 
         <ImageView
             android:id="@+id/btnAdd"
@@ -61,17 +59,17 @@
             android:layout_height="32dp"
             android:src="@drawable/add"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="34dp"
+            android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar" />
+            app:layout_constraintTop_toBottomOf="@id/appBar" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_edittxt"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -79,7 +77,6 @@
             app:searchHintIcon="@null"
             app:queryHint="Search..."
             android:focusable="false"
-            app:closeIcon="@drawable/search"
             app:searchIcon="@drawable/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +85,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp"
-            android:layout_marginRight="34dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

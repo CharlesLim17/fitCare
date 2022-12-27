@@ -72,6 +72,7 @@ public class mealPlanFragment extends Fragment {
 
         readMealHistory();
 
+        //search on change text
         etSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -84,19 +85,6 @@ public class mealPlanFragment extends Fragment {
                 return false;
             }
         });
-//        //search
-//        etSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                searchMeal(s);
-//                return true;
-//            }
-//        });
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {

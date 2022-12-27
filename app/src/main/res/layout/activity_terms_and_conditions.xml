@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".termsAndConditionsActivity"
-    android:background="@color/white">
+    android:background="#EFEFEF">
 
     <TextView
         android:id="@+id/textView2"
