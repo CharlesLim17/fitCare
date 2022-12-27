@@ -46,7 +46,7 @@
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="10sp"
             android:text="Meal Plan"
-            android:textColor="@color/ateneo_blue"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,18 +86,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
             android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSearch"
-            android:background="@color/white">
+            app:layout_constraintTop_toBottomOf="@+id/etSearch">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleViewMeal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recycleViewMeal"
-                android:background="@color/white">
+                android:background="#EFEFEF">
 
             </androidx.recyclerview.widget.RecyclerView>
 
