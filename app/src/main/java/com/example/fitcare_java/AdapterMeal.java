@@ -50,6 +50,11 @@ public class AdapterMeal extends RecyclerView.Adapter<AdapterMeal.MealViewHolder
         return meals.size();
     }
 
+    public void searchDataMeal(ArrayList<HistoryMeal> searchMeals){
+        meals = searchMeals;
+        notifyDataSetChanged();
+    }
+
     public class MealViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtFoodDate, txtFoodNameMorning1, txtFoodNameMorning2, txtFoodNameMorning3, txtFoodNameAfternoon1, txtFoodNameAfternoon2,

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,6 +40,9 @@ public class mealPlanFragment extends Fragment {
     ArrayList<HistoryMeal> meals;
     AdapterMeal adapter;
 
+    //
+    androidx.appcompat.widget.SearchView etSearch;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,8 +54,9 @@ public class mealPlanFragment extends Fragment {
         //declaring and setting variable
         ImageView btnBack = view.findViewById(R.id.btnBack);
         ImageView btnAdd = view.findViewById(R.id.btnAdd);
-        EditText etSearch = view.findViewById(R.id.etSearch);
+        etSearch = view.findViewById(R.id.etSearch);
         recycleViewMeal = view.findViewById(R.id.recycleViewMeal);
+        etSearch.clearFocus();
 
         //firebase
         auth = FirebaseAuth.getInstance();
@@ -66,6 +71,32 @@ public class mealPlanFragment extends Fragment {
         recycleViewMeal.setAdapter(adapter);
 
         readMealHistory();
+
+        etSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchMeal(newText);
+                return false;
+            }
+        });
+//        //search
+//        etSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                searchMeal(s);
+//                return true;
+//            }
+//        });
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -112,4 +143,20 @@ public class mealPlanFragment extends Fragment {
         });
     }
 
+    //function to search meal history
+    private void searchMeal(String text){
+        ArrayList<HistoryMeal> searchMeals = new ArrayList<>();
+        for (HistoryMeal historyMeal: meals){
+            if (historyMeal.getFoodDate().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameMorning1().toLowerCase().contains(text.toLowerCase())
+            || historyMeal.getFoodNameMorning2().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameMorning3().toLowerCase().contains(text.toLowerCase())
+            || historyMeal.getFoodNameAfternoon1().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameAfternoon2().toLowerCase().contains(text.toLowerCase())
+            || historyMeal.getFoodNameAfternoon3().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameEvening1().toLowerCase().contains(text.toLowerCase())
+            || historyMeal.getFoodNameEvening2().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameEvening3().toLowerCase().contains(text.toLowerCase())){
+
+                searchMeals.add(historyMeal);
+            }
+
+            adapter.searchDataMeal(searchMeals);
+        }
+    }
 }

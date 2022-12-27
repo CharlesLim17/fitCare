@@ -60,12 +60,12 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/add"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="34dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
-        <EditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -73,20 +73,17 @@
             android:layout_marginRight="32dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/custom_edittxt"
-            android:drawableRight="@drawable/search"
-            android:elevation="10dp"
-            android:ems="10"
-            android:hint="Search"
-            android:inputType="text"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="18sp"
+            app:iconifiedByDefault="false"
+            app:searchHintIcon="@null"
+            app:queryHint="Search..."
+            android:focusable="false"
+            app:closeIcon="@drawable/search"
+            app:searchIcon="@drawable/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:passwordToggleEnabled="true" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <RelativeLayout
             android:layout_width="match_parent"
