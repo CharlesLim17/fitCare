@@ -14,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -107,7 +109,9 @@ public class mealPlanAddFragment extends Fragment {
                 foodNameEvening2 = etFoodNameEvening2.getText().toString().trim();
                 foodNameEvening3 = etFoodNameEvening3.getText().toString().trim();
 
-                addFood();
+                if (error()){
+                    addFood();
+                }
             }
         });
 
@@ -190,7 +194,7 @@ public class mealPlanAddFragment extends Fragment {
     }
 
 
-    //to upload video
+    //to upload food
     private void addFood() {
         HashMap<String, String> upload = new HashMap<>();
 
@@ -210,7 +214,47 @@ public class mealPlanAddFragment extends Fragment {
         Fragment mealPlanFrag = new mealPlanFragment();
         FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
         fm.replace(R.id.frameLayout, mealPlanFrag, null).addToBackStack(null).commit();
+    }
 
+    // function for validation of field
+    private boolean error() {
+        if (etFoodNameMorning1.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameMorning2.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameMorning3.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameAfternoon1.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameAfternoon2.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameAfternoon3.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameEvening1.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameEvening2.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etFoodNameEvening3.getText().toString().length() == 0){
+            Toast.makeText(getActivity(), "Please input food", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
 }

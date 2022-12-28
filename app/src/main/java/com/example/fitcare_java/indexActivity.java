@@ -95,105 +95,105 @@ public class indexActivity extends AppCompatActivity {
             if (arrayList.get(0).toString().equals("go to exercise") || arrayList.get(0).toString().equals("open exercise")) {
                 Fragment exerciseLevelFrag = new exerciseLevelFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLevelFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to exercise low
             if (arrayList.get(0).toString().equals("go to exercise low") || arrayList.get(0).toString().equals("open exercise low") || arrayList.get(0).toString().equals("open low exercise") || arrayList.get(0).toString().equals("go to low exercise")) {
                 Fragment exerciseLowFrag = new exerciseLowFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLowFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseLowFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to exercise moderate
             if (arrayList.get(0).toString().equals("go to exercise moderate") || arrayList.get(0).toString().equals("open exercise moderate") || arrayList.get(0).toString().equals("open moderate exercise") || arrayList.get(0).toString().equals("go to moderate exercise")) {
                 Fragment exerciseModerateFrag = new exerciseModerateFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseModerateFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseModerateFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to exercise vigorous
             if (arrayList.get(0).toString().equals("go to exercise vigorous") || arrayList.get(0).toString().equals("open exercise vigorous") || arrayList.get(0).toString().equals("open vigorous exercise") || arrayList.get(0).toString().equals("go to vigorous exercise")) {
                 Fragment exerciseVigorousFrag = new exerciseVigorousFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseVigorousFrag).commit();
+                fm.replace(R.id.frameLayout, exerciseVigorousFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to settings
             if (arrayList.get(0).toString().equals("go to settings") || arrayList.get(0).toString().equals("open settings")) {
                 Fragment settingsFrag = new settingsFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, settingsFrag).commit();
+                fm.replace(R.id.frameLayout, settingsFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to about
             if (arrayList.get(0).toString().equals("go to about") || arrayList.get(0).toString().equals("open about")) {
                 Fragment aboutFrag = new aboutFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, aboutFrag).commit();
+                fm.replace(R.id.frameLayout, aboutFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to privacy
             if (arrayList.get(0).toString().equals("go to privacy") || arrayList.get(0).toString().equals("open privacy")) {
                 Fragment privacyFrag = new privacyFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, privacyFrag).commit();
+                fm.replace(R.id.frameLayout, privacyFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to meal plan
             if (arrayList.get(0).toString().equals("go to meal plan") || arrayList.get(0).toString().equals("open meal plan") || arrayList.get(0).toString().equals("go to meal") || arrayList.get(0).toString().equals("open meal")) {
                 Fragment mealPlanFrag = new mealPlanFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, mealPlanFrag).commit();
+                fm.replace(R.id.frameLayout, mealPlanFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to tracker page
             if (arrayList.get(0).toString().equals("go to workout tracker") || arrayList.get(0).toString().equals("open workout tracker") || arrayList.get(0).toString().equals("go to tracker") || arrayList.get(0).toString().equals("open tracker")) {
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerFrag).commit();
+                fm.replace(R.id.frameLayout, trackerFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to tracker history
             if (arrayList.get(0).toString().equals("go to workout history") || arrayList.get(0).toString().equals("open workout history") || arrayList.get(0).toString().equals("go to tracker history") || arrayList.get(0).toString().equals("open tracker history")) {
                 Fragment trackerHistoryFrag = new trackerWorkoutHistoryFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, trackerHistoryFrag).commit();
+                fm.replace(R.id.frameLayout, trackerHistoryFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to stretches page
             if (arrayList.get(0).toString().equals("go to workout stretches") || arrayList.get(0).toString().equals("open workout stretches") || arrayList.get(0).toString().equals("go to stretches") || arrayList.get(0).toString().equals("open stretches") || arrayList.get(0).toString().equals("go to warmup stretches") || arrayList.get(0).toString().equals("open warmup stretches") || arrayList.get(0).toString().equals("go to warmup") || arrayList.get(0).toString().equals("open warmup")) {
                 Fragment warmupFrag = new warmupLevelFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupFrag).commit();
+                fm.replace(R.id.frameLayout, warmupFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to stretches low
             if (arrayList.get(0).toString().equals("go to workout stretches low") || arrayList.get(0).toString().equals("open workout stretches low") || arrayList.get(0).toString().equals("go to stretches low") || arrayList.get(0).toString().equals("open stretches low") || arrayList.get(0).toString().equals("go to warmup stretches low") || arrayList.get(0).toString().equals("open warmup stretches low") || arrayList.get(0).toString().equals("go to warmup low") || arrayList.get(0).toString().equals("open warmup low")) {
                 Fragment warmupLowFrag = new warmupLowFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupLowFrag).commit();
+                fm.replace(R.id.frameLayout, warmupLowFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to stretches moderate
             if (arrayList.get(0).toString().equals("go to workout stretches moderate") || arrayList.get(0).toString().equals("open workout stretches moderate") || arrayList.get(0).toString().equals("go to stretches moderate") || arrayList.get(0).toString().equals("open stretches moderate") || arrayList.get(0).toString().equals("go to warmup stretches moderate") || arrayList.get(0).toString().equals("open warmup stretches moderate") || arrayList.get(0).toString().equals("go to warmup moderate") || arrayList.get(0).toString().equals("open warmup moderate")) {
                 Fragment warmupModerateFrag = new warmupModerateFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupModerateFrag).commit();
+                fm.replace(R.id.frameLayout, warmupModerateFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to stretches vigorous
             if (arrayList.get(0).toString().equals("go to workout stretches vigorous") || arrayList.get(0).toString().equals("open workout stretches vigorous") || arrayList.get(0).toString().equals("go to stretches vigorous") || arrayList.get(0).toString().equals("open stretches vigorous") || arrayList.get(0).toString().equals("go to warmup stretches vigorous") || arrayList.get(0).toString().equals("open warmup stretches vigorous") || arrayList.get(0).toString().equals("go to warmup vigorous") || arrayList.get(0).toString().equals("open warmup vigorous")) {
                 Fragment warmupVigorousFrag = new warmupVigorousFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupVigorousFrag).commit();
+                fm.replace(R.id.frameLayout, warmupVigorousFrag, null).addToBackStack(null).commit();
             }
 
             //voice command to navigate to reminders page
             if (arrayList.get(0).toString().equals("go to workout reminders") || arrayList.get(0).toString().equals("open workout reminders") || arrayList.get(0).toString().equals("go to reminders") || arrayList.get(0).toString().equals("open reminders")) {
                 Fragment remindersFrag = new reminderFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, remindersFrag).commit();
+                fm.replace(R.id.frameLayout, remindersFrag, null).addToBackStack(null).commit();
             }
 
         }
