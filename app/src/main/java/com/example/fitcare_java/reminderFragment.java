@@ -2,12 +2,18 @@ package com.example.fitcare_java;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -122,9 +129,9 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
 
     @Override
     public void onItemClick(int position) {
-//        Fragment reminderEditFrag = new reminderEditFragment();
-//        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-//        fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+        Fragment reminderEditFrag = new reminderEditFragment();
+        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+        fm.replace(R.id.frameLayout, reminderEditFrag).commit();
     }
 
     @Override
@@ -135,14 +142,15 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                try{
-                    alarms.remove(position);
-                    alarmAdapter.notifyItemRemoved(position);
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
+                String taskName = alarms.get(position).getTaskName();
+                alarms.remove(position);
+                alarmAdapter.notifyItemRemoved(position);
 
-                databaseReference.child(uid).child("alarms").orderByChild(String.valueOf(position)).addListenerForSingleValueEvent(new ValueEventListener() {
+//                reminderAddFragment reminderAddFrag = (reminderAddFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.reminder_add);
+//                reminderAddFrag.cancelAlarm();
+
+            databaseReference.child(uid).child("alarms").orderByChild("taskName").equalTo(taskName).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -155,6 +163,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
                         Log.e(TAG, "onCancelled", error.toException());
                     }
                 });
+                Toast.makeText(getActivity(), "Alarm Removed", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
