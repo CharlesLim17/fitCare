@@ -5,9 +5,11 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -49,6 +51,7 @@ public class reminderAddFragment extends Fragment {
     //declaring NotificationHelper class
     private NotificationHelper notificationHelper;
     private AlarmManager alarmManager = null;
+    private FragmentActivity reminderAddFrag = null;
 
     //storing hour/min/am_pm values to respective variables
     static int hour = Calendar.getInstance().get(Calendar.HOUR);
@@ -196,19 +199,8 @@ public class reminderAddFragment extends Fragment {
         intent.putExtra("MESSAGE", message);
         id = (int) System.currentTimeMillis();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
     }
-
-//    public void cancelAlarm() {
-//        Intent intent = new Intent(getActivity(), AlertReceiver.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        if (alarmManager == null) {
-//            alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-//        }
-//        alarmManager.cancel(pendingIntent);
-//    }
 
     //to upload task reminder
     private void taskAlarmUpload() {
@@ -232,8 +224,16 @@ public class reminderAddFragment extends Fragment {
         }
         return true;
     }
+    
+    // check and get alarm manager
+    public AlarmManager getAlarmManager() {
+        if (alarmManager == null) {
+            alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        }
+        return alarmManager;
+    }
 
-    // setter and getter method for notification title and message
+    // setter and getter method for notification title, message, and time
     public static void setTitle(String title) {
         reminderAddFragment.title = title;
     }

@@ -109,6 +109,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         return view;
     }
 
+    // retrieve alarms
     private void readAlarmHistory() {
         databaseReference.child(uid).child("alarms").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -134,6 +135,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         fm.replace(R.id.frameLayout, reminderEditFrag).commit();
     }
 
+    // delete data in recyclerview and in database
     @Override
     public void onItemLongClick(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -143,11 +145,11 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String taskName = alarms.get(position).getTaskName();
+                int id = alarms.get(position).getId();
+
                 alarms.remove(position);
                 alarmAdapter.notifyItemRemoved(position);
-
-//                reminderAddFragment reminderAddFrag = (reminderAddFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.reminder_add);
-//                reminderAddFrag.cancelAlarm();
+                cancelAlarm(id);
 
             databaseReference.child(uid).child("alarms").orderByChild("taskName").equalTo(taskName).addListenerForSingleValueEvent(new ValueEventListener() {
                     @SuppressLint("NotifyDataSetChanged")
@@ -174,5 +176,18 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         });
         builder.setIcon(R.drawable.ic_remove_dialog);
         builder.show();
+    }
+
+    // canceling alarm
+    public void cancelAlarm(int id) {
+        reminderAddFragment reminderAddFrag = (reminderAddFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.reminder_add);
+
+        Intent intent = new Intent(getActivity(), AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        if(reminderAddFrag != null) {
+            reminderAddFrag.getAlarmManager().cancel(pendingIntent);
+        }
+        pendingIntent.cancel();
     }
 }
