@@ -94,9 +94,9 @@
             app:layout_constraintStart_toEndOf="@+id/textView22"
             app:layout_constraintTop_toBottomOf="@+id/txtRetrieveDate" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <!--<androidx.cardview.widget.CardView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
@@ -111,7 +111,7 @@
                 android:src="@drawable/go"
                 android:background="@color/ateneo_blue"/>
 
-        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

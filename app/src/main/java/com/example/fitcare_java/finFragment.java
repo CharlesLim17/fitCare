@@ -252,6 +252,270 @@ public class finFragment extends Fragment {
             }
         });
 
+        //==========================================================================================
+
+        //declaring and setting tracker variables
+        ImageButton btnGoToWorkoutTracker = view.findViewById(R.id.btnGoToWorkoutTracker);
+        ImageButton btnOpenWorkoutTracker = view.findViewById(R.id.btnOpenWorkoutTracker);
+        ImageButton btnGoToTracker = view.findViewById(R.id.btnGoToTracker);
+        ImageButton btnOpenTracker = view.findViewById(R.id.btnOpenTracker);
+        ImageButton btnGoToWorkoutHistory = view.findViewById(R.id.btnGoToWorkoutHistory);
+        ImageButton btnOpenWorkoutHistory = view.findViewById(R.id.btnOpenWorkoutHistory);
+        ImageButton btnGoToTrackerHistory = view.findViewById(R.id.btnGoToTrackerHistory);
+        ImageButton btnOpenTrackerHistory = view.findViewById(R.id.btnOpenTrackerHistory);
+
+        TextView txtGoToWorkoutTracker = view.findViewById(R.id.txtGoToWorkoutTracker);
+        TextView txtOpenWorkoutTracker = view.findViewById(R.id.txtOpenWorkoutTracker);
+        TextView txtGoToTracker = view.findViewById(R.id.txtGoToTracker);
+        TextView txtOpenTracker = view.findViewById(R.id.txtOpenTracker);
+        TextView txtGoToWorkoutHistory = view.findViewById(R.id.txtGoToWorkoutHistory);
+        TextView txtOpenWorkoutHistory = view.findViewById(R.id.txtOpenWorkoutHistory);
+        TextView txtGoToTrackerHistory = view.findViewById(R.id.txtGoToTrackerHistory);
+        TextView txtOpenTrackerHistory = view.findViewById(R.id.txtOpenTrackerHistory);
+
+        //tracker page onclick
+        btnGoToWorkoutTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutTracker = txtGoToWorkoutTracker.getText().toString();
+                t1.speak(txtHolderGoToWorkoutTracker, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutTracker = txtOpenWorkoutTracker.getText().toString();
+                t1.speak(txtHolderOpenWorkoutTracker, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToTracker = txtGoToTracker.getText().toString();
+                t1.speak(txtHolderGoToTracker, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenTracker = txtOpenTracker.getText().toString();
+                t1.speak(txtHolderOpenTracker, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //tracker history page onclick
+        btnGoToWorkoutHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutHistory = txtGoToWorkoutHistory.getText().toString();
+                t1.speak(txtHolderGoToWorkoutHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutHistory = txtOpenWorkoutHistory.getText().toString();
+                t1.speak(txtHolderOpenWorkoutHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToTrackerHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToTrackerHistory = txtGoToTrackerHistory.getText().toString();
+                t1.speak(txtHolderGoToTrackerHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenTrackerHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenTrackerHistory = txtOpenTrackerHistory.getText().toString();
+                t1.speak(txtHolderOpenTrackerHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //==========================================================================================
+
+        //declaring and setting variables for meal plan
+        ImageButton btnGoToMealPlan = view.findViewById(R.id.btnGoToMealPlan);
+        ImageButton btnOpenMealPlan = view.findViewById(R.id.btnOpenMealPlan);
+        ImageButton btnGoToMeal = view.findViewById(R.id.btnGoToMeal);
+        ImageButton btnOpenMeal = view.findViewById(R.id.btnOpenMeal);
+
+        TextView txtGoToMealPlan = view.findViewById(R.id.txtGoToMealPlan);
+        TextView txtOpenMealPlan = view.findViewById(R.id.txtOpenMealPlan);
+        TextView txtGoToMeal = view.findViewById(R.id.txtGoToMeal);
+        TextView txtOpenMeal = view.findViewById(R.id.txtOpenMeal);
+
+        //meal plan pages onclick
+        btnGoToMealPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToMealPlan = txtGoToMealPlan.getText().toString();
+                t1.speak(txtHolderGoToMealPlan, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenMealPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenMealPlan = txtOpenMealPlan.getText().toString();
+                t1.speak(txtHolderOpenMealPlan, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToMeal = txtGoToMeal.getText().toString();
+                t1.speak(txtHolderGoToMeal, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenMeal = txtOpenMeal.getText().toString();
+                t1.speak(txtHolderOpenMeal, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //==========================================================================================
+
+        //declaring and setting variables for workout reminders
+        ImageButton btnGoToWorkoutReminders = view.findViewById(R.id.btnGoToWorkoutReminders);
+        ImageButton btnOpenWorkoutReminders = view.findViewById(R.id.btnOpenWorkoutReminders);
+        ImageButton btnGoToReminders = view.findViewById(R.id.btnGoToReminders);
+        ImageButton btnOpenReminders = view.findViewById(R.id.btnOpenReminders);
+
+        TextView txtGoToWorkoutReminders = view.findViewById(R.id.txtGoToWorkoutReminders);
+        TextView txtOpenWorkoutReminders = view.findViewById(R.id.txtOpenWorkoutReminders);
+        TextView txtGoToReminders = view.findViewById(R.id.txtGoToReminders);
+        TextView txtOpenReminders = view.findViewById(R.id.txtOpenReminders);
+
+        //reminder pages onclick
+        btnGoToWorkoutReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutReminders = txtGoToWorkoutReminders.getText().toString();
+                t1.speak(txtHolderGoToWorkoutReminders, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutReminders = txtOpenWorkoutReminders.getText().toString();
+                t1.speak(txtHolderOpenWorkoutReminders, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToReminders = txtGoToReminders.getText().toString();
+                t1.speak(txtHolderGoToReminders, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenReminders = txtOpenReminders.getText().toString();
+                t1.speak(txtHolderOpenReminders, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //==========================================================================================
+
+        //declaring and setting warmup stretches variables
+        ImageButton btnGoToWorkoutStretches = view.findViewById(R.id.btnGoToWorkoutStretches);
+        ImageButton btnOpenWorkoutStretches = view.findViewById(R.id.btnOpenWorkoutStretches);
+        ImageButton btnGoToStretches = view.findViewById(R.id.btnGoToStretches);
+        ImageButton btnOpenStretches = view.findViewById(R.id.btnOpenStretches);
+        ImageButton btnGoToWarmupStretches = view.findViewById(R.id.btnGoToWarmupStretches);
+        ImageButton btnOpenWarmupStretches = view.findViewById(R.id.btnOpenWarmupStretches);
+        ImageButton btnGoToWarmup = view.findViewById(R.id.btnGoToWarmup);
+        ImageButton btnOpenWarmup = view.findViewById(R.id.btnOpenWarmup);
+
+        TextView txtGoToWorkoutStretches = view.findViewById(R.id.txtGoToWorkoutStretches);
+        TextView txtOpenWorkoutStretches = view.findViewById(R.id.txtOpenWorkoutStretches);
+        TextView txtGoToStretches = view.findViewById(R.id.txtGoToStretches);
+        TextView txtOpenStretches = view.findViewById(R.id.txtOpenStretches);
+        TextView txtGoToWarmupStretches = view.findViewById(R.id.txtGoToWarmupStretches);
+        TextView txtOpenWarmupStretches = view.findViewById(R.id.txtOpenWarmupStretches);
+        TextView txtGoToWarmup = view.findViewById(R.id.txtGoToWarmup);
+        TextView txtOpenWarmup = view.findViewById(R.id.txtOpenWarmup);
+
+        //warmup stretches pages onclick
+        btnGoToWorkoutStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutStretches = txtGoToWorkoutStretches.getText().toString();
+                t1.speak(txtHolderGoToWorkoutStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutStretches = txtOpenWorkoutStretches.getText().toString();
+                t1.speak(txtHolderOpenWorkoutStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToStretches = txtGoToStretches.getText().toString();
+                t1.speak(txtHolderGoToStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenStretches = txtOpenStretches.getText().toString();
+                t1.speak(txtHolderOpenStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupStretches = txtGoToWarmupStretches.getText().toString();
+                t1.speak(txtHolderGoToWarmupStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupStretches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupStretches = txtOpenWarmupStretches.getText().toString();
+                t1.speak(txtHolderOpenWarmupStretches, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmup = txtGoToWarmup.getText().toString();
+                t1.speak(txtHolderGoToWarmup, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmup = txtOpenWarmup.getText().toString();
+                t1.speak(txtHolderOpenWarmup, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
 
         return view;
     }

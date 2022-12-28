@@ -80,7 +80,7 @@
             android:layout_marginRight="24dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="12sp"
-            android:text="Exercise Pages"
+            android:text="Commands for Exercise Pages"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -842,12 +841,12 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="12sp"
-            android:text="Settings Pages"
+            android:text="Commands for Settings Pages"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -861,7 +860,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4">
@@ -1189,22 +1187,1404 @@
 
         </HorizontalScrollView>
 
-    <!--<TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="12sp"
-        android:text=" • Go to settings\n • Go to exercise\n • Go to meal plan\n • Go to workout tracker\n • Go to workout stretches\n • Go to reminders"
-        android:textColor="#595959"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="12sp"
+            android:text="Commands for Workout Tracker Pages"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <!---Tracker PAGES-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView21"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutTracker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Workout Tracker"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutTracker"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView22"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView21"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutTracker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Tracker"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutTracker"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView23"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView22"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToTracker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Tracker"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToTracker"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView24"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView23"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenTracker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Tracker"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenTracker"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView25"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView24"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Workout History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView26"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView25"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView27"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView26"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToTrackerHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Tracker History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToTrackerHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView28"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView27"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenTrackerHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Tracker History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenTrackerHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="12sp"
+            android:text="Commands for Meal Plan Pages"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <!---Tracker PAGES-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView29"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToMealPlan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Meal Plan"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToMealPlan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView30"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView29"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenMealPlan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Meal Plan"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenMealPlan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView31"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView30"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToMeal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Meal"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToMeal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView32"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView31"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenMeal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Meal"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenMeal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="12sp"
+            android:text="Commands for Reminder Pages"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <!---Reminder PAGES-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView33"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutReminders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Workout Reminders"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutReminders"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView34"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView33"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutReminders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Reminders"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutReminders"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView35"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView34"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToReminders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Reminders"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToReminders"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView36"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView35"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenReminders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Reminders"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenReminders"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="12sp"
+            android:text="Commands for Warmup Stretches Pages"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView5" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <!---Warmup Stretches PAGES-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView37"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Workout Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView38"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView37"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView39"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView38"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView40"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView39"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView41"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView40"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Warmup Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView42"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView41"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupStretches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warmup Stretches"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupStretches"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView43"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView42"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to Warmup"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmup"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView44"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView43"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warmup"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmup"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </HorizontalScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

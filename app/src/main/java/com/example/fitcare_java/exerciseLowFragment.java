@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,16 +79,26 @@ public class exerciseLowFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         uid = user.getUid();
 
-        //back onclick
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        //to send video to history
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-
+            public void run() {
                 dateToday = ft.format(dNow).trim();
                 currentTime = formatter.format(java.time.LocalTime.now()).trim();
                 title = txtTitle.getText().toString().trim();
 
                 videoUpload();
+            }
+        }, 5000);
+
+        //back onclick
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment exerciseLevelFrag = new exerciseLevelFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
             }
         });
         return view;
@@ -101,10 +113,5 @@ public class exerciseLowFragment extends Fragment {
         upload.put("date", dateToday);
         upload.put("time", currentTime);
         databaseReference.child(uid).child("watchedVideos").push().setValue(upload);
-
-        Fragment exerciseLevelFrag = new exerciseLevelFragment();
-        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-        fm.replace(R.id.frameLayout, exerciseLevelFrag, null).addToBackStack(null).commit();
-
     }
 }
