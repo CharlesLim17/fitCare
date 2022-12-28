@@ -141,7 +141,7 @@ public class indexActivity extends AppCompatActivity {
             }
 
             //voice command to navigate to meal plan
-            if (arrayList.get(0).toString().equals("go to meal plan") || arrayList.get(0).toString().equals("open meal plan")) {
+            if (arrayList.get(0).toString().equals("go to meal plan") || arrayList.get(0).toString().equals("open meal plan") || arrayList.get(0).toString().equals("go to meal") || arrayList.get(0).toString().equals("open meal")) {
                 Fragment mealPlanFrag = new mealPlanFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, mealPlanFrag).commit();
@@ -152,6 +152,13 @@ public class indexActivity extends AppCompatActivity {
                 Fragment trackerFrag = new trackerFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, trackerFrag).commit();
+            }
+
+            //voice command to navigate to tracker history
+            if (arrayList.get(0).toString().equals("go to workout history") || arrayList.get(0).toString().equals("open workout history") || arrayList.get(0).toString().equals("go to tracker history") || arrayList.get(0).toString().equals("open tracker history")) {
+                Fragment trackerHistoryFrag = new trackerWorkoutHistoryFragment();
+                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, trackerHistoryFrag).commit();
             }
 
             //voice command to navigate to stretches page

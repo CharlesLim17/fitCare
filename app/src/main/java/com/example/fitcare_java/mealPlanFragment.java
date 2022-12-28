@@ -1,6 +1,7 @@
 package com.example.fitcare_java;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +62,11 @@ public class mealPlanFragment extends Fragment {
         etSearch = view.findViewById(R.id.etSearch);
         recycleViewMeal = view.findViewById(R.id.recycleViewMeal);
         etSearch.clearFocus();
+
+        //set color for search view
+        SpannableString hintText = new SpannableString("Search...");
+        hintText.setSpan(new ForegroundColorSpan(Color.BLACK), 0, hintText.length(), 0);
+        etSearch.setQueryHint(hintText);
 
         //initiate loading dialog
         LoadingDialog loadingDialog = new LoadingDialog(getActivity());
