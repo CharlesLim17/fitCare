@@ -48,17 +48,19 @@ public class reminderAddFragment extends Fragment {
 
     //declaring NotificationHelper class
     private NotificationHelper notificationHelper;
+    private AlarmManager alarmManager = null;
 
     //storing hour/min/am_pm values to respective variables
     static int hour = Calendar.getInstance().get(Calendar.HOUR);
     static int min = Calendar.getInstance().get(Calendar.MINUTE);
     static int am_pm;
-    final int id = (int) System.currentTimeMillis();
+    static int id;
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reminder_add, container, false);
 
@@ -142,7 +144,7 @@ public class reminderAddFragment extends Fragment {
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
                     setAlarmTime(hour, min);
                     taskAlarmUpload();
-                }
+               }
             }
         });
         return view;
@@ -151,7 +153,7 @@ public class reminderAddFragment extends Fragment {
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR, hour);
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
@@ -177,7 +179,7 @@ public class reminderAddFragment extends Fragment {
         String message = "Task: " + etTaskName.getText().toString() + " at " + time;
 
         //for displaying in Workout Reminder
-        String taskName = "Task: " + etTaskName.getText().toString();
+        String taskName = etTaskName.getText().toString();
 
         setTitle(title);
         setMessage(message);
@@ -188,14 +190,25 @@ public class reminderAddFragment extends Fragment {
 
     // starting alarm
     private void startAlarm(Calendar cal) {
-        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_MUTABLE);
+        id = (int) System.currentTimeMillis();
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
     }
+
+//    public void cancelAlarm() {
+//        Intent intent = new Intent(getActivity(), AlertReceiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        if (alarmManager == null) {
+//            alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+//        }
+//        alarmManager.cancel(pendingIntent);
+//    }
 
     //to upload task reminder
     private void taskAlarmUpload() {
@@ -203,6 +216,8 @@ public class reminderAddFragment extends Fragment {
 
         upload.put("taskName", taskName);
         upload.put("time", time);
+        upload.put("id", id);
+
         databaseReference.child(uid).child("alarms").push().setValue(upload);
     }
 

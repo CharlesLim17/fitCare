@@ -1,16 +1,18 @@
 package com.example.fitcare_java;
 
-public class AlarmHistory implements Comparable<AlarmHistory> {
+public class AlarmHistory {
     String taskName;
     String time;
+    int id;
 
     public AlarmHistory(){
 
     }
 
-    public AlarmHistory(String taskName, String time) {
+    public AlarmHistory(String taskName, String time, int id) {
         this.taskName = taskName;
         this.time = time;
+        this.id = id;
     }
 
     public String getTaskName() {
@@ -29,8 +31,12 @@ public class AlarmHistory implements Comparable<AlarmHistory> {
         this.time = time;
     }
 
-    @Override
-    public int compareTo(AlarmHistory alarmHistory) {
-        return 0;
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
