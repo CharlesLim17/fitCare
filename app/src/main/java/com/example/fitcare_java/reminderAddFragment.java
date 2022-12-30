@@ -39,8 +39,7 @@ public class reminderAddFragment extends Fragment {
     private EditText etTaskName;
     private ImageView btnBack;
     private TextView btnAdd;
-    static String title, message;
-    private static String taskName, time;
+    private String title, message, taskName, time;
 
     //firebase
     DatabaseReference databaseReference;
@@ -48,16 +47,15 @@ public class reminderAddFragment extends Fragment {
     FirebaseUser user;
     String uid;
 
-    //declaring NotificationHelper class
+    //declaring NotificationHelper and AlarmManager class
     private NotificationHelper notificationHelper;
     private AlarmManager alarmManager = null;
-    private FragmentActivity reminderAddFrag = null;
 
     //storing hour/min/am_pm values to respective variables
-    static int hour = Calendar.getInstance().get(Calendar.HOUR);
-    static int min = Calendar.getInstance().get(Calendar.MINUTE);
-    static int am_pm;
-    static int id;
+    private int hour = Calendar.getInstance().get(Calendar.HOUR);
+    private int min = Calendar.getInstance().get(Calendar.MINUTE);
+    private int am_pm = Calendar.getInstance().get(Calendar.AM_PM);
+    private int id;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -122,7 +120,7 @@ public class reminderAddFragment extends Fragment {
         numPickerAm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, (int) min, NumPicker.getNumPickerList().get(i1).getName()));
+                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
                 am_pm = i1;
             }
         });
@@ -146,7 +144,6 @@ public class reminderAddFragment extends Fragment {
                     FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
                     setAlarmTime(hour, min);
-                    taskAlarmUpload();
                }
             }
         });
@@ -156,7 +153,7 @@ public class reminderAddFragment extends Fragment {
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
@@ -164,6 +161,7 @@ public class reminderAddFragment extends Fragment {
         toastTimeText(calendar);
         setAlarmTitleMessage(calendar);
         startAlarm(calendar);
+        taskAlarmUpload();
     }
 
     // toast message
@@ -175,28 +173,23 @@ public class reminderAddFragment extends Fragment {
 
     // alarm Notification Title and Message
     private void setAlarmTitleMessage(Calendar cal) {
-        String time = DateFormat.getTimeInstance(DateFormat.SHORT).format(cal.getTime());
+        //for displaying in Workout Reminder
+        taskName = etTaskName.getText().toString();
+        time = DateFormat.getTimeInstance(DateFormat.SHORT).format(cal.getTime());
 
         //for notification
-        String title = "Workout Reminder";
-        String message = "Task: " + etTaskName.getText().toString() + " at " + time;
-
-        //for displaying in Workout Reminder
-        String taskName = etTaskName.getText().toString();
-
-        setTitle(title);
-        setMessage(message);
-
-        setTaskName(taskName);
-        setTime(time);
+        title = "Workout Reminder";
+        message = "Task: " + etTaskName.getText().toString() + " at " + time;
     }
 
     // starting alarm
     private void startAlarm(Calendar cal) {
         alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
+
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
+
         id = (int) System.currentTimeMillis();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
@@ -209,6 +202,9 @@ public class reminderAddFragment extends Fragment {
         upload.put("taskName", taskName);
         upload.put("time", time);
         upload.put("id", id);
+        upload.put("hour", hour);
+        upload.put("minute", min);
+        upload.put("am_pm", am_pm);
 
         databaseReference.child(uid).child("alarms").push().setValue(upload);
     }
@@ -217,9 +213,6 @@ public class reminderAddFragment extends Fragment {
     private boolean checkInputAlarmFields() {
         if (etTaskName.getText().length() == 0) {
             Toast.makeText(getActivity(), "Please Enter a Workout Task", Toast.LENGTH_SHORT).show();
-            return false;
-        } else if(hour == 0 && min == 0) {
-            Toast.makeText(getActivity(), "Please Set an Alarm time for you Workout", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -231,38 +224,5 @@ public class reminderAddFragment extends Fragment {
             alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         }
         return alarmManager;
-    }
-
-    // setter and getter method for notification title, message, and time
-    public static void setTitle(String title) {
-        reminderAddFragment.title = title;
-    }
-
-    public static void setMessage(String message) {
-        reminderAddFragment.message = message;
-    }
-
-    public static String getTitle() {
-        return title;
-    }
-
-    public static String getMessage() {
-        return message;
-    }
-
-    public static String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public static String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 }

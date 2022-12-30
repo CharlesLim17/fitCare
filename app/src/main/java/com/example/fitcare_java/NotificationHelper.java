@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper{
 
-    public static final String channel1ID = "Workout Reminder Channel";
+    public static final String channel1ID = "Workout Reminder";
     private NotificationManager notificationManager;
 
     public NotificationHelper(Context base) {
