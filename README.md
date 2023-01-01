@@ -1,6 +1,8 @@
 # FitCare Client Project
 
 # FitCare Functionality Demo
+https://user-images.githubusercontent.com/99405936/210180702-fef1ab66-8a58-4974-bdd5-615aa98eaa91.mp4
+
 
 
 ## Programming Languages and Technology Used
