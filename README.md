@@ -12,3 +12,8 @@
 - Text To Speech
 - Voice Command Navigation
 - CRUD Operation
+- BMI Calculation
+- Exercise and Stretcbes Videos
+
+# User Interface
+
