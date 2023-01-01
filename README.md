@@ -1,5 +1,8 @@
 # FitCare Client Project
 
+# FitCare Functionality Demo
+
+
 ## Programming Languages and Technology Used
 - Java
 - XML
@@ -14,8 +17,6 @@
 - CRUD Operation
 - BMI Calculation
 - Exercise and Stretcbes Videos
-
-# FitCare Functionality Demo
 
 
 # User Interface
