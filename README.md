@@ -40,7 +40,10 @@
 
 
 ## Bottom Navigation Pages
-![page7 1](https://user-images.githubusercontent.com/99405936/210179419-40f55a8b-233c-4e73-a019-3802970b2107.png) ![page7 2](https://user-images.githubusercontent.com/99405936/210179421-2036574d-a493-4547-b151-1151170a7273.png)
+![page7 1](https://user-images.githubusercontent.com/99405936/210179419-40f55a8b-233c-4e73-a019-3802970b2107.png) 
+
+
+![page7 2](https://user-images.githubusercontent.com/99405936/210179421-2036574d-a493-4547-b151-1151170a7273.png)
 
 
 ![page7 3](https://user-images.githubusercontent.com/99405936/210179423-7b28717a-73a9-441f-bbc1-0c99ad5b680b.png)
@@ -84,10 +87,46 @@
 
 
 ## Workout Tracker Pages
+![page16 1](https://user-images.githubusercontent.com/99405936/210179566-5f770d22-a016-448b-8756-1924a455a88a.png)
+
+
+![page16 2](https://user-images.githubusercontent.com/99405936/210179569-ec670e10-6380-4f13-b162-adfae4a5b8e6.png)
+
+
+![page16 3](https://user-images.githubusercontent.com/99405936/210179571-34e6b947-3aa3-4a89-898b-f94656b6909c.png)
+
+
+![page16 4](https://user-images.githubusercontent.com/99405936/210179576-1f1f0575-41f9-4503-858e-aa2e774815a3.png)
+
+
+![page16 5](https://user-images.githubusercontent.com/99405936/210179578-4faabb14-a67f-4ff1-96fc-592ebc45dc6e.png)
+
+
 
 ## Meal Plan Pages
+![page17 1](https://user-images.githubusercontent.com/99405936/210179583-bfcf1d56-2d2a-4c26-9e57-3e625df0b537.png)
+
+
+![page17 2](https://user-images.githubusercontent.com/99405936/210179584-ffd3e046-96ca-4dda-9aab-31e7354867e9.png)
+
+
+![page17 3](https://user-images.githubusercontent.com/99405936/210179585-9cb3ce41-c5d1-4cdb-a751-ce60c35df054.png)
+
+
 
 ## Workout Reminders Pages
+![page18 1](https://user-images.githubusercontent.com/99405936/210179597-80d04c08-48d9-4bc8-87cc-3c5abd8c3356.png)
+
+
+![Page18 2](https://user-images.githubusercontent.com/99405936/210179599-c3de5c4f-aed2-4827-b89a-d3881230fde0.png)
+
+
+![page18 3](https://user-images.githubusercontent.com/99405936/210179600-bd877295-8317-4b1f-9132-a229ce4943cc.png)
+
+
+## Voice Command App Navigation
+![page19](https://user-images.githubusercontent.com/99405936/210179612-7c766b28-e666-4f54-b140-1d8d7a525303.png)
+
 
 
 
