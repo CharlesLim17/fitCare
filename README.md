@@ -1,4 +1,5 @@
 # FitCare Client Project
+This is the project that I have done for the clients that hired me. This serve as their academic requirement for their research.
 
 # FitCare Functionality Demo
 https://user-images.githubusercontent.com/99405936/210180702-fef1ab66-8a58-4974-bdd5-615aa98eaa91.mp4
@@ -58,7 +59,7 @@ https://user-images.githubusercontent.com/99405936/210180702-fef1ab66-8a58-4974-
 
 
 ## Meal Plan Pages
-![mealplan](https://user-images.githubusercontent.com/99405936/210229154-e26152bc-158d-42bc-9ca0-9b5c546d0667.png)
+![mealplan](https://user-images.githubusercontent.com/99405936/210229408-dcd3f6a3-5947-40e8-a787-47fa5966a1dc.png)
 
 
 
@@ -72,9 +73,4 @@ https://user-images.githubusercontent.com/99405936/210180702-fef1ab66-8a58-4974-
 
 
 
-
-
-
-
-
-
+# Conclusion
