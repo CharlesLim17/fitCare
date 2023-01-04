@@ -3,21 +3,23 @@ package com.example.fitcare_java;
 import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.content.Context;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,15 +36,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.nio.BufferUnderflowException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Objects;
+import java.util.List;
 
-
-public class reminderFragment extends Fragment  implements RecyclerViewInterface{
+public class reminderFragment extends Fragment  implements RecyclerViewInterface {
 
     //declaring variables
     ImageView btnAdd, btnBack;
@@ -50,6 +49,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     RecyclerView alarmRecyclerView;
     AlarmAdapter alarmAdapter;
     ArrayList<AlarmHistory> alarms;
+    SharedViewModel viewModel;
 
     //firebase
     DatabaseReference databaseReference;
@@ -58,7 +58,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     String uid;
 
     private String taskName, time;
-    private int id, hour, min, am_pm;
+    private int id;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -78,6 +78,21 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         btnBack = view.findViewById(R.id.btnBack);
         btnAdd = view.findViewById(R.id.btnAdd);
 
+        //initiate loading dialog
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+
+        //Start Loading Dialog
+        loadingDialog.startLoadingDialog();
+
+        //End Load Dialog
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2500);
+
         //firebase
         auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -94,7 +109,6 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         alarmRecyclerView.setAdapter(alarmAdapter);
 
         readAlarmHistory();
-        //alarmIsTriggered();
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -121,13 +135,14 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     // retrieve alarms
     private void readAlarmHistory() {
         databaseReference.child(uid).child("alarms").addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     AlarmHistory alarmHistory = dataSnapshot.getValue(AlarmHistory.class);
                     alarms.add(alarmHistory);
                 }
-                    alarmAdapter.notifyDataSetChanged();
+                alarmAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -141,26 +156,9 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     @Override
     public void onItemClick(int position) {
         Fragment reminderEditFrag = new reminderEditFragment();
-
-        taskName = alarms.get(position).getTaskName();
-        time = alarms.get(position).getTime();
-        id = alarms.get(position).getId();
-        hour = alarms.get(position).getHour();
-        min = alarms.get(position).getMinute();
-        am_pm = alarms.get(position).getAm_pm();
-
-        Bundle bundle = new Bundle();
-        bundle.putString("taskName", taskName);
-        bundle.putString("time", time);
-        bundle.putInt("id", id);
-        bundle.putInt("hour", hour);
-        bundle.putInt("min", min);
-        bundle.putInt("am_pm", am_pm);
-        reminderEditFrag.setArguments(bundle);
-
-
         FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
         fm.replace(R.id.frameLayout, reminderEditFrag).commit();
+        passValues(reminderEditFrag, fm, position);
     }
 
     // delete data in recyclerview and in database
@@ -180,7 +178,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
                 alarmAdapter.notifyItemRemoved(position);
                 cancelAlarm(id);
 
-            databaseReference.child(uid).child("alarms").orderByChild("taskName").equalTo(taskName).addListenerForSingleValueEvent(new ValueEventListener() {
+                databaseReference.child(uid).child("alarms").orderByChild("taskName").equalTo(taskName).addListenerForSingleValueEvent(new ValueEventListener() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -190,6 +188,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
                         alarmAdapter.notifyDataSetChanged();
                         Toast.makeText(getActivity(), "Alarm Removed", Toast.LENGTH_SHORT).show();
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Log.e(TAG, "onCancelled", error.toException());
@@ -214,32 +213,27 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        if(reminderAddFrag != null) {
+        if (reminderAddFrag != null) {
             reminderAddFrag.getAlarmManager().cancel(pendingIntent);
         }
         pendingIntent.cancel();
     }
 
-    @SuppressLint("SetTextI18n")
-    public void alarmIsTriggered() {
-        Calendar cal = Calendar.getInstance();
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("h:mm a");
-        String curTime = format.format(cal.getTime());
-
-        for (int i = 0; i < alarms.size(); i++) {
-            if(Objects.equals(alarms.get(i).getTime(), curTime)) {
-                txtRetrieveTime.setText(curTime + " (Done)");
-            }
-        }
-    }
-
-    public void sendData() {
-        reminderEditFragment reminderEditFrag = new reminderEditFragment();
+    public void passValues(Fragment reminderEditFrag, FragmentTransaction fm, int position) {
+        String taskName = alarms.get(position).getTaskName();
+        String time = alarms.get(position).getTime();
+        int id = alarms.get(position).getId();
+        int hour = alarms.get(position).getHour();
+        int min = alarms.get(position).getMinute();
+        int am_pm = alarms.get(position).getAm_pm();
 
         Bundle bundle = new Bundle();
-        bundle.putString("TASKNAME", taskName);
-        bundle.putString("TIME", time);
-        bundle.putInt("ID", id);
+        bundle.putString("taskName", taskName);
+        bundle.putString("time", time);
+        bundle.putInt("id", id);
+        bundle.putInt("hour", hour);
+        bundle.putInt("min", min);
+        bundle.putInt("am_pm", am_pm);
         reminderEditFrag.setArguments(bundle);
     }
 }

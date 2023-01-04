@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".reminderFragment"
     android:background="#EFEFEF"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:id="@+id/reminder_frag">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

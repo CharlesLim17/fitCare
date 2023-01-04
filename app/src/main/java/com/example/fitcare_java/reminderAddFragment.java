@@ -86,12 +86,12 @@ public class reminderAddFragment extends Fragment {
         //setting numpicker for hour
         numPickerHour.setMinValue(0);
         numPickerHour.setMaxValue(12);
-        numPickerHour.setValue(Calendar.getInstance().get(Calendar.HOUR));
+        numPickerHour.setValue(hour);
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
-        numPickerMin.setValue(Calendar.getInstance().get(Calendar.MINUTE));
+        numPickerMin.setValue(min);
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -153,15 +153,29 @@ public class reminderAddFragment extends Fragment {
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR, hour);
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
-        toastTimeText(calendar);
-        setAlarmTitleMessage(calendar);
-        startAlarm(calendar);
-        taskAlarmUpload();
+        Calendar calendarForTom = Calendar.getInstance();
+        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
+            calendarForTom.set(Calendar.HOUR, hour);
+            calendarForTom.set(Calendar.MINUTE, minute);
+            calendarForTom.set(Calendar.SECOND, 0);
+            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
+
+            calendarForTom.add(calendarForTom.DATE, 1);
+            toastTimeText(calendarForTom);
+            setAlarmTitleMessage(calendarForTom);
+            startAlarm(calendarForTom);
+            taskAlarmUpload();
+        } else {
+            toastTimeText(calendar);
+            setAlarmTitleMessage(calendar);
+            startAlarm(calendar);
+            taskAlarmUpload();
+        }
     }
 
     // toast message
