@@ -176,7 +176,18 @@ public class trackerEditFragment extends Fragment {
             Toast.makeText(getActivity(), "Please enter new goal", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etNewWeight.getText().toString().matches("[0-9]*\\.?[0-9]+") || !etNewWeight.getText().toString().matches("[0-9]+")){
+            Toast.makeText(getActivity(), "Please enter a valid weight", Toast.LENGTH_LONG).show();
+            return  false;
+        }
+        else if (!etNewPrevWeight.getText().toString().matches("[0-9]*\\.?[0-9]+") || !etNewPrevWeight.getText().toString().matches("[0-9]+")){
+            Toast.makeText(getActivity(), "Please enter a valid weight", Toast.LENGTH_LONG).show();
+            return  false;
+        }
+        else if (!etNewGoal.getText().toString().matches("[0-9]*\\.?[0-9]+") || !etNewGoal.getText().toString().matches("[0-9]+")){
+            Toast.makeText(getActivity(), "Please enter a valid weight", Toast.LENGTH_LONG).show();
+            return  false;
+        }
         return true;
     }
-
 }

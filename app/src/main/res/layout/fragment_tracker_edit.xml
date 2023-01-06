@@ -230,7 +230,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Update"
-        android:textColor="@color/black"
+        android:textColor="#FEFED3"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

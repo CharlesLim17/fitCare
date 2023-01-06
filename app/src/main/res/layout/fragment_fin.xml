@@ -106,7 +106,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView1"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -137,10 +137,12 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToExercise"
                             app:layout_constraintTop_toTopOf="parent">
 
                             <ImageButton
@@ -158,7 +160,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView2"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -189,9 +191,11 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenExercise"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
@@ -210,7 +214,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView3"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -241,8 +245,10 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToExerciseLow"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -262,7 +268,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView4"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -293,8 +299,10 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToLowExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -314,7 +322,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView5"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -345,8 +353,10 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenExerciseLow"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -366,7 +376,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView6"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -397,8 +407,10 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenLowExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -418,7 +430,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView7"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -449,8 +461,10 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToExerciseModerate"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -470,7 +484,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView8"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -503,6 +517,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToModerateExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -522,7 +538,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView9"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -555,6 +571,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenExerciseModerate"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -574,7 +592,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView10"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -607,6 +625,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenModerateExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -626,7 +646,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView11"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -659,6 +679,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToExerciseVigorous"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -678,7 +700,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView12"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -711,6 +733,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToVigorousExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -730,7 +754,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView13"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -763,6 +787,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenExerciseVigorous"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -782,7 +808,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView14"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -803,7 +829,7 @@
                             android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif"
                             android:lineSpacingExtra="12sp"
-                            android:text="Open Vigorous Exercise "
+                            android:text="Open Vigorous Exercise"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -815,6 +841,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenVigorousExercise"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -872,7 +900,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView15"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -905,6 +933,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToSettings"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -924,7 +954,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView16"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -957,6 +987,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenSettings"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -976,7 +1008,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView17"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1009,6 +1041,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToAbout"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1028,7 +1062,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView18"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1061,6 +1095,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenAbout"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1080,7 +1116,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView19"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1113,6 +1149,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToPrivacy"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1132,7 +1170,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView20"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1153,7 +1191,7 @@
                             android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif"
                             android:lineSpacingExtra="12sp"
-                            android:text="OpenPrivacy"
+                            android:text="Open Privacy"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -1165,6 +1203,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenPrivacy"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1222,7 +1262,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView21"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1255,6 +1295,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutTracker"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1274,7 +1316,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView22"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1307,6 +1349,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutTracker"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1326,7 +1370,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView23"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1359,6 +1403,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToTracker"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1378,7 +1424,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView24"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1411,6 +1457,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenTracker"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1430,7 +1478,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView25"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1463,6 +1511,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutHistory"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1482,7 +1532,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView26"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1515,6 +1565,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutHistory"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1534,7 +1586,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView27"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1567,6 +1619,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToTrackerHistory"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1586,7 +1640,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView28"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1619,6 +1673,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenTrackerHistory"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1636,6 +1692,113 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView28"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go to History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToHistory"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView45"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open History"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenHistory"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1676,7 +1839,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView29"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1709,6 +1872,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToMealPlan"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1728,7 +1893,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView30"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1761,6 +1926,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenMealPlan"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1780,7 +1947,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView31"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1813,6 +1980,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToMeal"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1832,7 +2001,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView32"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1865,6 +2034,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenMeal"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1921,7 +2092,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView33"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -1954,6 +2125,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutReminders"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -1973,7 +2146,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView34"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2006,6 +2179,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutReminders"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2025,7 +2200,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView35"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2058,6 +2233,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToReminders"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2077,7 +2254,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView36"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2110,6 +2287,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenReminders"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2154,7 +2333,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="160dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -2168,7 +2347,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView37"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2201,6 +2380,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2220,7 +2401,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView38"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2253,6 +2434,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2272,7 +2455,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView39"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2305,6 +2488,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2324,7 +2509,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView40"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2357,6 +2542,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2376,7 +2563,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView41"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2397,7 +2584,7 @@
                             android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif"
                             android:lineSpacingExtra="12sp"
-                            android:text="Go to Warmup Stretches"
+                            android:text="Go to Warm up Stretches"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -2409,6 +2596,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2428,7 +2617,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView42"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2449,7 +2638,7 @@
                             android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif"
                             android:lineSpacingExtra="12sp"
-                            android:text="Open Warmup Stretches"
+                            android:text="Open Warm up Stretches"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -2461,6 +2650,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupStretches"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2480,7 +2671,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView43"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2501,7 +2692,7 @@
                             android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif"
                             android:lineSpacingExtra="12sp"
-                            android:text="Go to Warmup"
+                            android:text="Go to Warm up"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -2513,6 +2704,8 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmup"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -2532,7 +2725,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView44"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="12dp"
                     android:elevation="12dp"
@@ -2565,12 +2758,1310 @@
                             android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmup"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
                             <ImageButton
                                 android:id="@+id/btnOpenWarmup"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView44"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Workout Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView47"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView49"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView48"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView49"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView50"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView51"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupStretchesLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warm up Stretches Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupStretchesLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupStretchesLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView53"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView52"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView54"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView53"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warmup Low"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupLow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupLow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView54"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Workout Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView55"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView56"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView57"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView59"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView58"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView59"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupStretchesModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warm up Stretches Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupStretchesModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupStretchesModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView60"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView61"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupModerate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warmup Moderate"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupModerate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupModerate"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView62"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWorkoutStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Workout Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWorkoutStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWorkoutStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView63"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWorkoutStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Workout Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWorkoutStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWorkoutStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView64"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView65"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView67"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView66"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView68"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView67"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupStretchesVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warm up Stretches Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupStretchesVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupStretchesVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView69"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView68"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtGoToWarmupVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Go To Warm up Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtGoToWarmupVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnGoToWarmupVigorous"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/ateneo_blue"
+                                android:src="@drawable/speaker" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="12dp"
+                    android:elevation="12dp"
+                    app:cardBackgroundColor="#DCF6FA"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView69"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtOpenWarmupVigorous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="12sp"
+                            android:text="Open Warmup Vigorous"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/txtOpenWarmupVigorous"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageButton
+                                android:id="@+id/btnOpenWarmupVigorous"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@color/ateneo_blue"

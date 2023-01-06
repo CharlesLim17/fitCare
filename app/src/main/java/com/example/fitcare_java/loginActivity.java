@@ -47,7 +47,7 @@ public class loginActivity extends AppCompatActivity {
     //initiate loading dialog
     private final LoadingDialog loadingDialog = new LoadingDialog(loginActivity.this);
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +104,9 @@ public class loginActivity extends AppCompatActivity {
                 if (checkFields()){
                     logIn();
                 }
+                else {
+                    loadingDialog.dismissDialog();
+                }
             }
         });
 
@@ -135,8 +138,6 @@ public class loginActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 
     //login
@@ -156,7 +157,8 @@ public class loginActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(loginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(loginActivity.this, "Please check email or password", Toast.LENGTH_LONG).show();
+                loadingDialog.dismissDialog();
             }
         });
     }

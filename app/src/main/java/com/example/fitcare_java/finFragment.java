@@ -263,6 +263,8 @@ public class finFragment extends Fragment {
         ImageButton btnOpenWorkoutHistory = view.findViewById(R.id.btnOpenWorkoutHistory);
         ImageButton btnGoToTrackerHistory = view.findViewById(R.id.btnGoToTrackerHistory);
         ImageButton btnOpenTrackerHistory = view.findViewById(R.id.btnOpenTrackerHistory);
+        ImageButton btnGoToHistory = view.findViewById(R.id.btnGoToHistory);
+        ImageButton btnOpenHistory = view.findViewById(R.id.btnOpenHistory);
 
         TextView txtGoToWorkoutTracker = view.findViewById(R.id.txtGoToWorkoutTracker);
         TextView txtOpenWorkoutTracker = view.findViewById(R.id.txtOpenWorkoutTracker);
@@ -272,6 +274,8 @@ public class finFragment extends Fragment {
         TextView txtOpenWorkoutHistory = view.findViewById(R.id.txtOpenWorkoutHistory);
         TextView txtGoToTrackerHistory = view.findViewById(R.id.txtGoToTrackerHistory);
         TextView txtOpenTrackerHistory = view.findViewById(R.id.txtOpenTrackerHistory);
+        TextView txtGoToHistory = view.findViewById(R.id.txtGoToHistory);
+        TextView txtOpenHistory = view.findViewById(R.id.txtOpenHistory);
 
         //tracker page onclick
         btnGoToWorkoutTracker.setOnClickListener(new View.OnClickListener() {
@@ -336,6 +340,22 @@ public class finFragment extends Fragment {
             public void onClick(View view) {
                 String txtHolderOpenTrackerHistory = txtOpenTrackerHistory.getText().toString();
                 t1.speak(txtHolderOpenTrackerHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToHistory = txtGoToHistory.getText().toString();
+                t1.speak(txtHolderGoToHistory, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenHistory = txtOpenHistory.getText().toString();
+                t1.speak(txtHolderOpenHistory, TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -443,6 +463,38 @@ public class finFragment extends Fragment {
         ImageButton btnGoToWarmup = view.findViewById(R.id.btnGoToWarmup);
         ImageButton btnOpenWarmup = view.findViewById(R.id.btnOpenWarmup);
 
+        //low
+        ImageButton btnGoToWorkoutStretchesLow = view.findViewById(R.id.btnGoToWorkoutStretchesLow);
+        ImageButton btnOpenWorkoutStretchesLow = view.findViewById(R.id.btnOpenWorkoutStretchesLow);
+        ImageButton btnGoToStretchesLow = view.findViewById(R.id.btnGoToStretchesLow);
+        ImageButton btnOpenStretchesLow = view.findViewById(R.id.btnOpenStretchesLow);
+        ImageButton btnGoToWarmupStretchesLow = view.findViewById(R.id.btnGoToWarmupStretchesLow);
+        ImageButton btnOpenWarmupStretchesLow = view.findViewById(R.id.btnOpenWarmupStretchesLow);
+        ImageButton btnGoToWarmupLow = view.findViewById(R.id.btnGoToWarmupLow);
+        ImageButton btnOpenWarmupLow = view.findViewById(R.id.btnOpenWarmupLow);
+
+        //moderate
+        ImageButton btnGoToWorkoutStretchesModerate = view.findViewById(R.id.btnGoToWorkoutStretchesModerate);
+        ImageButton btnOpenWorkoutStretchesModerate = view.findViewById(R.id.btnOpenWorkoutStretchesModerate);
+        ImageButton btnGoToStretchesModerate = view.findViewById(R.id.btnGoToStretchesModerate);
+        ImageButton btnOpenStretchesModerate = view.findViewById(R.id.btnOpenStretchesModerate);
+        ImageButton btnGoToWarmupStretchesModerate = view.findViewById(R.id.btnGoToWarmupStretchesModerate);
+        ImageButton btnOpenWarmupStretchesModerate = view.findViewById(R.id.btnOpenWarmupStretchesModerate);
+        ImageButton btnGoToWarmupModerate = view.findViewById(R.id.btnGoToWarmupModerate);
+        ImageButton btnOpenWarmupModerate= view.findViewById(R.id.btnOpenWarmupModerate);
+
+        //vigorous
+        ImageButton btnGoToWorkoutStretchesVigorous = view.findViewById(R.id.btnGoToWorkoutStretchesVigorous);
+        ImageButton btnOpenWorkoutStretchesVigorous = view.findViewById(R.id.btnOpenWorkoutStretchesVigorous);
+        ImageButton btnGoToStretchesVigorous = view.findViewById(R.id.btnGoToStretchesVigorous);
+        ImageButton btnOpenStretchesVigorous = view.findViewById(R.id.btnOpenStretchesVigorous);
+        ImageButton btnGoToWarmupStretchesVigorous = view.findViewById(R.id.btnGoToWarmupStretchesVigorous);
+        ImageButton btnOpenWarmupStretchesVigorous = view.findViewById(R.id.btnOpenWarmupStretchesVigorous);
+        ImageButton btnGoToWarmupVigorous = view.findViewById(R.id.btnGoToWarmupVigorous);
+        ImageButton btnOpenWarmupVigorous= view.findViewById(R.id.btnOpenWarmupVigorous);
+
+
+        //txt views
         TextView txtGoToWorkoutStretches = view.findViewById(R.id.txtGoToWorkoutStretches);
         TextView txtOpenWorkoutStretches = view.findViewById(R.id.txtOpenWorkoutStretches);
         TextView txtGoToStretches = view.findViewById(R.id.txtGoToStretches);
@@ -451,6 +503,36 @@ public class finFragment extends Fragment {
         TextView txtOpenWarmupStretches = view.findViewById(R.id.txtOpenWarmupStretches);
         TextView txtGoToWarmup = view.findViewById(R.id.txtGoToWarmup);
         TextView txtOpenWarmup = view.findViewById(R.id.txtOpenWarmup);
+
+        //low
+        TextView txtGoToWorkoutStretchesLow = view.findViewById(R.id.txtGoToWorkoutStretchesLow);
+        TextView txtOpenWorkoutStretchesLow = view.findViewById(R.id.txtOpenWorkoutStretchesLow);
+        TextView txtGoToStretchesLow = view.findViewById(R.id.txtGoToStretchesLow);
+        TextView txtOpenStretchesLow = view.findViewById(R.id.txtOpenStretchesLow);
+        TextView txtGoToWarmupStretchesLow = view.findViewById(R.id.txtGoToWarmupStretchesLow);
+        TextView txtOpenWarmupStretchesLow = view.findViewById(R.id.txtOpenWarmupStretchesLow);
+        TextView txtGoToWarmupLow = view.findViewById(R.id.txtGoToWarmupLow);
+        TextView txtOpenWarmupLow = view.findViewById(R.id.txtOpenWarmupLow);
+
+        //moderate
+        TextView txtGoToWorkoutStretchesModerate = view.findViewById(R.id.txtGoToWorkoutStretchesModerate);
+        TextView txtOpenWorkoutStretchesModerate = view.findViewById(R.id.txtOpenWorkoutStretchesModerate);
+        TextView txtGoToStretchesModerate = view.findViewById(R.id.txtGoToStretchesModerate);
+        TextView txtOpenStretchesModerate = view.findViewById(R.id.txtOpenStretchesModerate);
+        TextView txtGoToWarmupStretchesModerate = view.findViewById(R.id.txtGoToWarmupStretchesModerate);
+        TextView txtOpenWarmupStretchesModerate = view.findViewById(R.id.txtOpenWarmupStretchesModerate);
+        TextView txtGoToWarmupModerate = view.findViewById(R.id.txtGoToWarmupModerate);
+        TextView txtOpenWarmupModerate = view.findViewById(R.id.txtOpenWarmupModerate);
+
+        //vigorous
+        TextView txtGoToWorkoutStretchesVigorous = view.findViewById(R.id.txtGoToWorkoutStretchesVigorous);
+        TextView txtOpenWorkoutStretchesVigorous = view.findViewById(R.id.txtOpenWorkoutStretchesVigorous);
+        TextView txtGoToStretchesVigorous = view.findViewById(R.id.txtGoToStretchesVigorous);
+        TextView txtOpenStretchesVigorous = view.findViewById(R.id.txtOpenStretchesVigorous);
+        TextView txtGoToWarmupStretchesVigorous = view.findViewById(R.id.txtGoToWarmupStretchesVigorous);
+        TextView txtOpenWarmupStretchesVigorous = view.findViewById(R.id.txtOpenWarmupStretchesVigorous);
+        TextView txtGoToWarmupVigorous = view.findViewById(R.id.txtGoToWarmupVigorous);
+        TextView txtOpenWarmupVigorous = view.findViewById(R.id.txtOpenWarmupVigorous);
 
         //warmup stretches pages onclick
         btnGoToWorkoutStretches.setOnClickListener(new View.OnClickListener() {
@@ -514,6 +596,201 @@ public class finFragment extends Fragment {
             public void onClick(View view) {
                 String txtHolderOpenWarmup = txtOpenWarmup.getText().toString();
                 t1.speak(txtHolderOpenWarmup, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //Low warm up stretches
+        btnGoToWorkoutStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutStretchesLow = txtGoToWorkoutStretchesLow.getText().toString();
+                t1.speak(txtHolderGoToWorkoutStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutStretchesLow = txtOpenWorkoutStretchesLow.getText().toString();
+                t1.speak(txtHolderOpenWorkoutStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToStretchesLow = txtGoToStretchesLow.getText().toString();
+                t1.speak(txtHolderGoToStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenStretchesLow = txtOpenStretchesLow.getText().toString();
+                t1.speak(txtHolderOpenStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupStretchesLow = txtGoToWarmupStretchesLow.getText().toString();
+                t1.speak(txtHolderGoToWarmupStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupStretchesLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupStretchesLow = txtOpenWarmupStretchesLow.getText().toString();
+                t1.speak(txtHolderOpenWarmupStretchesLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupLow = txtGoToWarmupLow.getText().toString();
+                t1.speak(txtHolderGoToWarmupLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupLow = txtOpenWarmupLow.getText().toString();
+                t1.speak(txtHolderOpenWarmupLow, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //moderate warm up
+        btnGoToWorkoutStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutStretchesModerate = txtGoToWorkoutStretchesModerate.getText().toString();
+                t1.speak(txtHolderGoToWorkoutStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutStretchesModerate = txtOpenWorkoutStretchesModerate.getText().toString();
+                t1.speak(txtHolderOpenWorkoutStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToStretchesModerate = txtGoToStretchesModerate.getText().toString();
+                t1.speak(txtHolderGoToStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenStretchesModerate = txtOpenStretchesModerate.getText().toString();
+                t1.speak(txtHolderOpenStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupStretchesModerate = txtGoToWarmupStretchesModerate.getText().toString();
+                t1.speak(txtHolderGoToWarmupStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupStretchesModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupStretchesModerate = txtOpenWarmupStretchesModerate.getText().toString();
+                t1.speak(txtHolderOpenWarmupStretchesModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupModerate = txtGoToWarmupModerate.getText().toString();
+                t1.speak(txtHolderGoToWarmupModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupModerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupModerate = txtOpenWarmupModerate.getText().toString();
+                t1.speak(txtHolderOpenWarmupModerate, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //vigorous warm up
+        btnGoToWorkoutStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWorkoutStretchesVigorous = txtGoToWorkoutStretchesVigorous.getText().toString();
+                t1.speak(txtHolderGoToWorkoutStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWorkoutStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWorkoutStretchesVigorous = txtOpenWorkoutStretchesVigorous.getText().toString();
+                t1.speak(txtHolderOpenWorkoutStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToStretchesVigorous = txtGoToStretchesVigorous.getText().toString();
+                t1.speak(txtHolderGoToStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenStretchesVigorous = txtOpenStretchesVigorous.getText().toString();
+                t1.speak(txtHolderOpenStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupStretchesVigorous = txtGoToWarmupStretchesVigorous.getText().toString();
+                t1.speak(txtHolderGoToWarmupStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupStretchesVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupStretchesVigorous = txtOpenWarmupStretchesVigorous.getText().toString();
+                t1.speak(txtHolderOpenWarmupStretchesVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoToWarmupVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToWarmupVigorous = txtGoToWarmupVigorous.getText().toString();
+                t1.speak(txtHolderGoToWarmupVigorous, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenWarmupVigorous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenWarmupVigorous = txtOpenWarmupVigorous.getText().toString();
+                t1.speak(txtHolderOpenWarmupVigorous, TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
