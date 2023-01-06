@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,7 @@ public class settingsFragment extends Fragment {
     TextView txtGreet, txtRetrieveWeight, txtRetrieveHeight, txtRetrieveBMI, txtRetrieveBMIResult;
     TextView btnAbout;
     TextView btnPrivacy;
+    ImageView btnEdit;
 
     //used for logout
     Activity context;
@@ -55,6 +57,7 @@ public class settingsFragment extends Fragment {
         txtRetrieveBMIResult = view.findViewById(R.id.txtRetrieveBmiResult);
         btnAbout = view.findViewById(R.id.btnAbout);
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
+        btnEdit = view.findViewById(R.id.btnEdit);
         context = getActivity();
 
         //initiate loading dialog
@@ -80,6 +83,16 @@ public class settingsFragment extends Fragment {
 
         //retrieve data
         readData();
+
+        //Edit onclick
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment settingsEditFrag = new settingsEditFragment();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, settingsEditFrag, null).addToBackStack(null).commit();
+            }
+        });
 
         //Privacy onclick
         btnPrivacy.setOnClickListener(new View.OnClickListener() {

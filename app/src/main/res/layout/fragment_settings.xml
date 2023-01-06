@@ -70,6 +70,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
         <TextView
             android:id="@+id/txtWeight"
             android:layout_width="150dp"
