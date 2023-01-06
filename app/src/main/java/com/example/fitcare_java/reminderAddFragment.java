@@ -47,13 +47,13 @@ public class reminderAddFragment extends Fragment {
     private AlarmManager alarmManager = null;
 
     //variables for alarm
-    private int hour;
-    private int min;
+    private int hour = Calendar.getInstance().get(Calendar.HOUR);
+    private int min = Calendar.getInstance().get(Calendar.MINUTE);
     private int am_pm;
     private int id;
     private String title, message, taskName, time;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "DefaultLocale"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,12 +79,26 @@ public class reminderAddFragment extends Fragment {
         //setting numpicker for hour
         numPickerHour.setMinValue(1);
         numPickerHour.setMaxValue(12);
-        numPickerHour.setValue(Calendar.getInstance().get(Calendar.HOUR));
+        numPickerHour.setValue(hour);
+        numPickerHour.setFormatter(new NumberPicker.Formatter() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public String format(int i) {
+                return String.format("%02d", i);
+            }
+        });
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
-        numPickerMin.setValue(Calendar.getInstance().get(Calendar.MINUTE));
+        numPickerMin.setValue(min);
+        numPickerMin.setFormatter(new NumberPicker.Formatter() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public String format(int i) {
+                return String.format("%02d", i);
+            }
+        });
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -92,28 +106,31 @@ public class reminderAddFragment extends Fragment {
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
 
-        txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", Calendar.getInstance().get(Calendar.HOUR), Calendar.getInstance().get(Calendar.MINUTE), NumPicker.getNumPickerList().get(am_pm).getName()));
+        txtDisplayTimeAdd.setText(String.format("Time: %02d : %02d %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
 
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", i1, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+                txtDisplayTimeAdd.setText(String.format("Time: %02d : %02d %s", i1, min, NumPicker.getNumPickerList().get(am_pm).getName()));
                 hour = i1;
             }
         });
 
         numPickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, i1, NumPicker.getNumPickerList().get(am_pm).getName()));
+                txtDisplayTimeAdd.setText(String.format("Time: %02d : %02d %s", hour, i1, NumPicker.getNumPickerList().get(am_pm).getName()));
                 min = i1;
             }
         });
 
         numPickerAm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
+                txtDisplayTimeAdd.setText(String.format("Time: %02d : %02d %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
                 am_pm = i1;
             }
         });
@@ -151,28 +168,24 @@ public class reminderAddFragment extends Fragment {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
-//        Calendar calendarForTom = Calendar.getInstance();
-//        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
-//            calendarForTom.set(Calendar.HOUR, hour);
-//            calendarForTom.set(Calendar.MINUTE, minute);
-//            calendarForTom.set(Calendar.SECOND, 0);
-//            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
-//
-//            calendarForTom.add(calendarForTom.DATE, 1);
-//            toastTimeText(calendarForTom);
-//            setAlarmTitleMessage(calendarForTom);
-//            startAlarm(calendarForTom);
-//            taskAlarmUpload();
-//        } else {
-//            toastTimeText(calendar);
-//            setAlarmTitleMessage(calendar);
-//            startAlarm(calendar);
-//            taskAlarmUpload();
-//        }
-        toastTimeText(calendar);
-        setAlarmTitleMessage(calendar);
-        startAlarm(calendar);
-        taskAlarmUpload();
+        Calendar calendarForTom = Calendar.getInstance();
+        if (calendar.get(Calendar.HOUR) <= calendarForTom.get(Calendar.HOUR)) {
+            calendarForTom.set(Calendar.HOUR, hour);
+            calendarForTom.set(Calendar.MINUTE, minute);
+            calendarForTom.set(Calendar.SECOND, 0);
+            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
+
+            calendarForTom.add(calendarForTom.DATE, 1);
+            toastTimeText(calendarForTom);
+            setAlarmTitleMessage(calendarForTom);
+            startAlarm(calendarForTom);
+            taskAlarmUpload();
+        } else {
+            toastTimeText(calendar);
+            setAlarmTitleMessage(calendar);
+            startAlarm(calendar);
+            taskAlarmUpload();
+        }
     }
 
     // toast message
