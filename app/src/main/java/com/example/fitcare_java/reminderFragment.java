@@ -5,7 +5,6 @@ import static android.content.ContentValues.TAG;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,8 +57,23 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     FirebaseUser user;
     String uid;
 
-    private String taskName, time;
+    private String taskName;
     private int id;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        viewModel.getItems().observe(this, new Observer<List<AlarmHistory>>() {
+            @Override
+            public void onChanged(List<AlarmHistory> items) {
+                alarms.clear();
+                alarms.addAll(items);
+                alarmAdapter.notifyDataSetChanged();
+            }
+        });
+        alarms = new ArrayList<>();
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -103,12 +118,12 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         dateDisplay.setText(currentDate);
 
         // display multiple alarms
-        alarms = new ArrayList<>();
+        //alarms = new ArrayList<>();
         alarmRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         alarmAdapter = new AlarmAdapter(getActivity(), alarms, this);
         alarmRecyclerView.setAdapter(alarmAdapter);
 
-        readAlarmHistory();
+        //readAlarmHistory();
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +180,6 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     @Override
     public void onItemLongClick(int position) {
         taskName = alarms.get(position).getTaskName();
-        time = alarms.get(position).getTime();
         id = alarms.get(position).getId();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

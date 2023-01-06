@@ -12,7 +12,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -34,7 +33,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -46,9 +44,7 @@ public class reminderEditFragment extends Fragment{
     ImageView btnBack;
     TextView btnUpdate;
     EditText etTaskNameEdit;
-    AlarmAdapter alarmAdapter;
     RecyclerView alarmRecyclerView;
-    ArrayList<AlarmHistory> alarms;
 
     //firebase
     DatabaseReference databaseReference;
@@ -97,12 +93,12 @@ public class reminderEditFragment extends Fragment{
         //setting numpicker for hour
         numPickerHour.setMinValue(0);
         numPickerHour.setMaxValue(12);
-        numPickerHour.setValue(hour);
+        //numPickerHour.setValue(hour);
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
-        numPickerMin.setValue(min);
+        //numPickerMin.setValue(min);
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -168,27 +164,32 @@ public class reminderEditFragment extends Fragment{
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(newAm_pm).getId());
 
-        Calendar calendarForTom = Calendar.getInstance();
-        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
-            calendarForTom.set(Calendar.HOUR, hour);
-            calendarForTom.set(Calendar.MINUTE, minute);
-            calendarForTom.set(Calendar.SECOND, 0);
-            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(newAm_pm).getId());
-
-            calendarForTom.add(calendarForTom.DATE, 1);
-            toastTimeText(calendarForTom);
-            setAlarmTitleMessage(calendarForTom);
-            startAlarm(calendarForTom);
-        } else {
-            toastTimeText(calendar);
-            setAlarmTitleMessage(calendar);
-            startAlarm(calendar);
-        }
+//        Calendar calendarForTom = Calendar.getInstance();
+//        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
+//            calendarForTom.set(Calendar.HOUR, hour);
+//            calendarForTom.set(Calendar.MINUTE, minute);
+//            calendarForTom.set(Calendar.SECOND, 0);
+//            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(newAm_pm).getId());
+//
+//            calendarForTom.add(calendarForTom.DATE, 1);
+//            toastTimeText(calendarForTom);
+//            setAlarmTitleMessage(calendarForTom);
+//            startAlarm(calendarForTom);
+//            taskAlarmUpdate();
+//        } else {
+//            toastTimeText(calendar);
+//            setAlarmTitleMessage(calendar);
+//            startAlarm(calendar);
+//            taskAlarmUpdate();
+//        }
+        toastTimeText(calendar);
+        setAlarmTitleMessage(calendar);
+        startAlarm(calendar);
         taskAlarmUpdate();
     }
 
@@ -224,7 +225,7 @@ public class reminderEditFragment extends Fragment{
 
     //to update task reminder
     private void taskAlarmUpdate() {
-        HashMap<String, Object> update = new HashMap();
+        HashMap<String, Object> update = new HashMap<String, Object>();
 
         update.put("taskName", newTaskName);
         update.put("time", newTime);

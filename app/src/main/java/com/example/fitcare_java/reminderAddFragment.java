@@ -5,11 +5,9 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -30,7 +28,6 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-
 public class reminderAddFragment extends Fragment {
 
     //declaring variables
@@ -39,7 +36,6 @@ public class reminderAddFragment extends Fragment {
     private EditText etTaskName;
     private ImageView btnBack;
     private TextView btnAdd;
-    private String title, message, taskName, time;
 
     //firebase
     DatabaseReference databaseReference;
@@ -47,15 +43,15 @@ public class reminderAddFragment extends Fragment {
     FirebaseUser user;
     String uid;
 
-    //declaring NotificationHelper and AlarmManager class
-    private NotificationHelper notificationHelper;
+    //declaring AlarmManager class (for reminder Workout)
     private AlarmManager alarmManager = null;
 
-    //storing hour/min/am_pm values to respective variables
-    private int hour = Calendar.getInstance().get(Calendar.HOUR);
-    private int min = Calendar.getInstance().get(Calendar.MINUTE);
-    private int am_pm = Calendar.getInstance().get(Calendar.AM_PM);
+    //variables for alarm
+    private int hour;
+    private int min;
+    private int am_pm;
     private int id;
+    private String title, message, taskName, time;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -64,9 +60,6 @@ public class reminderAddFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reminder_add, container, false);
-
-        // instantiate NotificationHelper class
-        notificationHelper = new NotificationHelper(getActivity());
 
         //setting variables
         numPickerHour = view.findViewById(R.id.numPickerHour);
@@ -84,14 +77,14 @@ public class reminderAddFragment extends Fragment {
         uid = user.getUid();
 
         //setting numpicker for hour
-        numPickerHour.setMinValue(0);
+        numPickerHour.setMinValue(1);
         numPickerHour.setMaxValue(12);
-        numPickerHour.setValue(hour);
+        numPickerHour.setValue(Calendar.getInstance().get(Calendar.HOUR));
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
-        numPickerMin.setValue(min);
+        numPickerMin.setValue(Calendar.getInstance().get(Calendar.MINUTE));
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -99,7 +92,7 @@ public class reminderAddFragment extends Fragment {
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
 
-        txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+        txtDisplayTimeAdd.setText(String.format("Time: %s : %s %s", Calendar.getInstance().get(Calendar.HOUR), Calendar.getInstance().get(Calendar.MINUTE), NumPicker.getNumPickerList().get(am_pm).getName()));
 
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
@@ -130,7 +123,7 @@ public class reminderAddFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment reminderFrag = new reminderFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, reminderFrag).commit();
             }
         });
@@ -141,7 +134,7 @@ public class reminderAddFragment extends Fragment {
             public void onClick(View view) {
                 if (checkInputAlarmFields()) {
                     Fragment reminderFrag = new reminderFragment();
-                    FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
                     setAlarmTime(hour, min);
                }
@@ -153,29 +146,33 @@ public class reminderAddFragment extends Fragment {
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
-        Calendar calendarForTom = Calendar.getInstance();
-        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
-            calendarForTom.set(Calendar.HOUR, hour);
-            calendarForTom.set(Calendar.MINUTE, minute);
-            calendarForTom.set(Calendar.SECOND, 0);
-            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
-
-            calendarForTom.add(calendarForTom.DATE, 1);
-            toastTimeText(calendarForTom);
-            setAlarmTitleMessage(calendarForTom);
-            startAlarm(calendarForTom);
-            taskAlarmUpload();
-        } else {
-            toastTimeText(calendar);
-            setAlarmTitleMessage(calendar);
-            startAlarm(calendar);
-            taskAlarmUpload();
-        }
+//        Calendar calendarForTom = Calendar.getInstance();
+//        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
+//            calendarForTom.set(Calendar.HOUR, hour);
+//            calendarForTom.set(Calendar.MINUTE, minute);
+//            calendarForTom.set(Calendar.SECOND, 0);
+//            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
+//
+//            calendarForTom.add(calendarForTom.DATE, 1);
+//            toastTimeText(calendarForTom);
+//            setAlarmTitleMessage(calendarForTom);
+//            startAlarm(calendarForTom);
+//            taskAlarmUpload();
+//        } else {
+//            toastTimeText(calendar);
+//            setAlarmTitleMessage(calendar);
+//            startAlarm(calendar);
+//            taskAlarmUpload();
+//        }
+        toastTimeText(calendar);
+        setAlarmTitleMessage(calendar);
+        startAlarm(calendar);
+        taskAlarmUpload();
     }
 
     // toast message
@@ -198,20 +195,20 @@ public class reminderAddFragment extends Fragment {
 
     // starting alarm
     private void startAlarm(Calendar cal) {
-        alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
 
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
 
         id = (int) System.currentTimeMillis();
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
     }
 
     //to upload task reminder
     private void taskAlarmUpload() {
-        HashMap upload = new HashMap();
+        HashMap<String, java.io.Serializable> upload = new HashMap<String, java.io.Serializable>();
 
         upload.put("taskName", taskName);
         upload.put("time", time);
@@ -235,7 +232,7 @@ public class reminderAddFragment extends Fragment {
     // check and get alarm manager
     public AlarmManager getAlarmManager() {
         if (alarmManager == null) {
-            alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+            alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
         }
         return alarmManager;
     }
