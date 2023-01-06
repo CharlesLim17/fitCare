@@ -44,12 +44,12 @@ import java.util.List;
 public class reminderFragment extends Fragment  implements RecyclerViewInterface {
 
     //declaring variables
-    ImageView btnAdd, btnBack;
-    TextView dateDisplay, txtRetrieveTime;
-    RecyclerView alarmRecyclerView;
-    AlarmAdapter alarmAdapter;
-    ArrayList<AlarmHistory> alarms;
-    SharedViewModel viewModel;
+    private ImageView btnAdd, btnBack;
+    private TextView dateDisplay, txtRetrieveTime;
+    private RecyclerView alarmRecyclerView;
+    private AlarmAdapter alarmAdapter;
+    private ArrayList<AlarmHistory> alarms;
+    private SharedViewModel viewModel;
 
     //firebase
     DatabaseReference databaseReference;
@@ -60,11 +60,13 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     private String taskName;
     private int id;
 
+    //live retrieving/updating alarms in recycler view
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         viewModel.getItems().observe(this, new Observer<List<AlarmHistory>>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChanged(List<AlarmHistory> items) {
                 alarms.clear();
@@ -118,12 +120,9 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         dateDisplay.setText(currentDate);
 
         // display multiple alarms
-        //alarms = new ArrayList<>();
         alarmRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         alarmAdapter = new AlarmAdapter(getActivity(), alarms, this);
         alarmRecyclerView.setAdapter(alarmAdapter);
-
-        //readAlarmHistory();
 
         //back onclick
         btnBack.setOnClickListener(new View.OnClickListener() {

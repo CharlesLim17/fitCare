@@ -117,6 +117,7 @@ public class reminderEditFragment extends Fragment{
         numPickerAm.setMaxValue(NumPicker.getNumPickerList().size() - 1);
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
+        numPickerAm.setValue(am_pm);
 
         txtDisplayTimeEdit.setText(String.format("Time: %02d : %02d %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
 
@@ -139,7 +140,7 @@ public class reminderEditFragment extends Fragment{
         numPickerAm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
+                txtDisplayTimeEdit.setText(String.format("Time: %02d : %02d %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
                 am_pm = i1;
             }
         });
@@ -178,24 +179,15 @@ public class reminderEditFragment extends Fragment{
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
-        Calendar calendarForTom = Calendar.getInstance();
-        if (calendar.get(Calendar.HOUR) <= calendarForTom.get(Calendar.HOUR)) {
-            calendarForTom.set(Calendar.HOUR, hour);
-            calendarForTom.set(Calendar.MINUTE, minute);
-            calendarForTom.set(Calendar.SECOND, 0);
-            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
-
-            calendarForTom.add(calendarForTom.DATE, 1);
-            toastTimeText(calendarForTom);
-            setAlarmTitleMessage(calendarForTom);
-            startAlarm(calendarForTom);
-            taskAlarmUpdate();
-        } else {
-            toastTimeText(calendar);
-            setAlarmTitleMessage(calendar);
-            startAlarm(calendar);
-            taskAlarmUpdate();
+        if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
+            // Add one day to the selected time
+            calendar.add(Calendar.DATE, 1);
         }
+
+        toastTimeText(calendar);
+        setAlarmTitleMessage(calendar);
+        startAlarm(calendar);
+        taskAlarmUpdate();
     }
 
     // toast message
@@ -224,7 +216,7 @@ public class reminderEditFragment extends Fragment{
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
         
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
     }
 

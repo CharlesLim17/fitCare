@@ -6,8 +6,6 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-import com.google.firebase.installations.time.SystemClock;
-
 public class AlertReceiver extends BroadcastReceiver {
     String title, message;
 

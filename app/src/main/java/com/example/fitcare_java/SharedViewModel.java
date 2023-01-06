@@ -70,11 +70,4 @@ public class SharedViewModel extends AndroidViewModel {
         return mItems;
     }
 
-    public void setItems(List<AlarmHistory> newItems) {
-        mItems.setValue(newItems);
-    }
-
-    private void loadItems() {
-
-    }
 }
