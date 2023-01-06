@@ -1,5 +1,6 @@
 package com.example.fitcare_java;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SharedViewModel extends AndroidViewModel {
+public class MealPlanViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<AlarmHistory>> mItems;
+    private MutableLiveData<List<HistoryMeal>> mItems;
 
     //firebase
     DatabaseReference databaseReference;
@@ -28,7 +29,7 @@ public class SharedViewModel extends AndroidViewModel {
     FirebaseUser user;
     String uid;
 
-    public SharedViewModel(@NonNull Application application) {
+    public MealPlanViewModel(@NonNull Application application) {
         super(application);
         auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -36,13 +37,13 @@ public class SharedViewModel extends AndroidViewModel {
         uid = user.getUid();
         mItems = new MutableLiveData<>();
 
-        databaseReference.child(uid).child("alarms").addValueEventListener(new ValueEventListener() {
+        databaseReference.child(uid).child("mealPlan").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<AlarmHistory> items = new ArrayList<>();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    AlarmHistory alarmHistory = dataSnapshot.getValue(AlarmHistory.class);
-                    items.add(alarmHistory);
+                List<HistoryMeal> items = new ArrayList<>();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    HistoryMeal historyMeal = dataSnapshot.getValue(HistoryMeal.class);
+                    items.add(historyMeal);
                 }
                 mItems.setValue(items);
             }
@@ -52,7 +53,7 @@ public class SharedViewModel extends AndroidViewModel {
 
             }
         });
-        }
+    }
 
     @Override
     protected void onCleared() {
@@ -66,8 +67,11 @@ public class SharedViewModel extends AndroidViewModel {
         });
     }
 
-    public LiveData<List<AlarmHistory>> getItems() {
+    public LiveData<List<HistoryMeal>> getItems() {
         return mItems;
     }
 
+    public void setItems(List<HistoryMeal> newItems) {
+        mItems.setValue(newItems);
+    }
 }

@@ -1,16 +1,19 @@
 package com.example.fitcare_java;
 
 public class HistoryMeal {
-    public String foodDate;
-    public String foodNameMorning1;
-    public String foodNameMorning2;
-    public String foodNameMorning3;
-    public String foodNameAfternoon1;
-    public String foodNameAfternoon2;
-    public String foodNameAfternoon3;
-    public String foodNameEvening1;
-    public String foodNameEvening2;
-    public String foodNameEvening3;
+    private int year;
+    private int month;
+    private int day;
+    private String foodDate;
+    private String foodNameMorning1;
+    private String foodNameMorning2;
+    private String foodNameMorning3;
+    private String foodNameAfternoon1;
+    private String foodNameAfternoon2;
+    private String foodNameAfternoon3;
+    private String foodNameEvening1;
+    private String foodNameEvening2;
+    private String foodNameEvening3;
 
     public HistoryMeal() {
     }
@@ -106,5 +109,29 @@ public class HistoryMeal {
 
     public void setFoodNameEvening3(String foodNameEvening3) {
         this.foodNameEvening3 = foodNameEvening3;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 }

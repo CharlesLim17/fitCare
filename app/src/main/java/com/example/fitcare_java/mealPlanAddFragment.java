@@ -41,7 +41,9 @@ public class mealPlanAddFragment extends Fragment {
 
     //input holders
     String foodDate, foodNameMorning1, foodNameMorning2, foodNameMorning3, foodNameAfternoon1, foodNameAfternoon2, foodNameAfternoon3, foodNameEvening1, foodNameEvening2, foodNameEvening3;
-
+    int year;
+    int month;
+    int day;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -114,8 +116,6 @@ public class mealPlanAddFragment extends Fragment {
                 }
             }
         });
-
-
         return view;
     }
 
@@ -133,11 +133,15 @@ public class mealPlanAddFragment extends Fragment {
     //initialize date picker
     private void initDatePicker(){
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 String date = makeDateString(day, month, year);
                 btnDatePicker.setText(date);
+                setYear(year);
+                setMonth(month);
+                setDay(day);
             }
         };
 
@@ -193,11 +197,13 @@ public class mealPlanAddFragment extends Fragment {
         return "Jan";
     }
 
-
     //to upload food
     private void addFood() {
-        HashMap<String, String> upload = new HashMap<>();
+        HashMap<String, java.io.Serializable> upload = new HashMap<>();
 
+        upload.put("year", getYear());
+        upload.put("month", getMonth());
+        upload.put("day", getDay());
         upload.put("foodDate", foodDate);
         upload.put("foodNameMorning1", foodNameMorning1);
         upload.put("foodNameMorning2", foodNameMorning2);
@@ -257,4 +263,27 @@ public class mealPlanAddFragment extends Fragment {
         return true;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
 }

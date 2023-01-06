@@ -1,25 +1,29 @@
 package com.example.fitcare_java;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,9 +34,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-public class mealPlanFragment extends Fragment {
+public class mealPlanFragment extends Fragment{
 
     //firebase
     DatabaseReference databaseReference;
@@ -44,10 +48,27 @@ public class mealPlanFragment extends Fragment {
     RecyclerView recycleViewMeal;
     ArrayList<HistoryMeal> meals;
     AdapterMeal adapter;
+    MealPlanViewModel viewModel;
 
-    //
+    //search
     androidx.appcompat.widget.SearchView etSearch;
 
+    //live retrieving/updating meals in recycler view
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(MealPlanViewModel.class);
+        viewModel.getItems().observe(this, new Observer<List<HistoryMeal>>() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onChanged(List<HistoryMeal> items) {
+                meals.clear();
+                meals.addAll(items);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        meals = new ArrayList<>();
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -90,12 +111,9 @@ public class mealPlanFragment extends Fragment {
         uid = user.getUid();
 
         //setup recyclerview
-        meals = new ArrayList<>();
         recycleViewMeal.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new AdapterMeal(getActivity(), meals);
+        adapter = new AdapterMeal(getActivity(), meals, getActivity());
         recycleViewMeal.setAdapter(adapter);
-
-        readMealHistory();
 
         //search on change text
         etSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -130,19 +148,16 @@ public class mealPlanFragment extends Fragment {
                 fm.replace(R.id.frameLayout, mealPlanAddFrag, null).addToBackStack(null).commit();
             }
         });
-
-
         return view;
     }
 
     //function to read meal history
     private void readMealHistory() {
         databaseReference.child(uid).child("mealPlan").addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-
                     HistoryMeal historyMeal = dataSnapshot.getValue(HistoryMeal.class);
                     meals.add(historyMeal);
                 }
@@ -165,10 +180,8 @@ public class mealPlanFragment extends Fragment {
             || historyMeal.getFoodNameAfternoon1().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameAfternoon2().toLowerCase().contains(text.toLowerCase())
             || historyMeal.getFoodNameAfternoon3().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameEvening1().toLowerCase().contains(text.toLowerCase())
             || historyMeal.getFoodNameEvening2().toLowerCase().contains(text.toLowerCase()) || historyMeal.getFoodNameEvening3().toLowerCase().contains(text.toLowerCase())){
-
                 searchMeals.add(historyMeal);
             }
-
             adapter.searchDataMeal(searchMeals);
         }
     }

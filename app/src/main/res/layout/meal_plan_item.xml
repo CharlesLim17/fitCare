@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#EFEFEF"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="16dp"
+    android:clickable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:background="#EFEFEF">
+
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/edit"
+            android:clickable="true"
+            app:layout_constraintStart_toEndOf="@+id/txtFoodDate"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtFoodDate"

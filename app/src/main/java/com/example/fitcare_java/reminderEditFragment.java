@@ -44,7 +44,6 @@ public class reminderEditFragment extends Fragment{
     ImageView btnBack;
     TextView btnUpdate;
     EditText etTaskNameEdit;
-    RecyclerView alarmRecyclerView;
 
     //firebase
     DatabaseReference databaseReference;
@@ -78,7 +77,6 @@ public class reminderEditFragment extends Fragment{
         etTaskNameEdit = view.findViewById(R.id.etTaskNameEdit);
         btnBack = view.findViewById(R.id.btnBack);
         btnUpdate = view.findViewById(R.id.btnUpdate);
-        alarmRecyclerView = view.findViewById(R.id.alarmRecyclerView);
 
         //firebase
         auth = FirebaseAuth.getInstance();
