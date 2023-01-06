@@ -151,7 +151,7 @@
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Stand with your feet at a shoulder width \ndistance apart. Bend your knees and do a squat \nposition. Jump so that the feet would be a few \ninches off the floor and immediately repeat the \nsteps upon landing."
+                        android:text="Stand with your feet at a shoulder width \ndistance apart. Bend your knees and do a \nsquat position. Jump so that the feet would be \na few inches off the floor and immediately\n repeat the steps upon landing."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -180,7 +180,7 @@
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Perform the position, one forearm on the floor \nand a foot supporting your body facing \nsidewards. Keep the body straight. Hold this \nposition for the allotted time. Perform the \nposition, face down with your forearms on the \nfloor and your feet apart. Keep the body \nstraight. Hold this position for the allotted time."
+                        android:text="Perform the position, one forearm on the \nfloor and a foot supporting your body facing \nsidewards. Keep the body straight. Hold this \nposition for the allotted time. Perform the \nposition, face down with your forearms on the \nfloor and your feet apart. Keep the body \nstraight. Hold this position for the allotted \ntime."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -209,7 +209,7 @@
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Sit and lift the feet from the floor, keep the knees \nbent. Straighten the upper body at a 45-degree \nangle from the floor. Clasp your hands together \nand twist to one side then the other, keep \nalternating."
+                        android:text="Sit and lift the feet from the floor, keep the \nknees bent. Straighten the upper body at a \n45-degree angle from the floor. Clasp your\n hands together and twist to one side then \nthe other, keep alternating."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -223,7 +223,7 @@
                         android:id="@+id/legRaise"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="60dp"
                         android:text="Leg Raise"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -234,11 +234,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="60dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Lie on your back with your legs together and \nstraight. Lift them up until they point to the \nceiling and lower them back down."
+                        android:text="Lie on your back with your legs together \nand straight. Lift them up until they point to \nthe ceiling and lower them back down."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -252,7 +252,7 @@
                         android:id="@+id/mountainClimb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="50dp"
                         android:text="Mountain Climb"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -263,7 +263,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="50dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
@@ -281,7 +281,7 @@
                         android:id="@+id/triceps"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="40dp"
                         android:text="Triceps"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -292,11 +292,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="40dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Sit on the bench with your hands next to your \nsides. Extend your legs and lift your body off the \nbench using your arms. Lower your body down \nand push back up through your palms."
+                        android:text="Sit on the bench with your hands next to \nyour sides. Extend your legs and lift your body\n off the bench using your arms. Lower your \nbody down and push back up through your \npalms."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -310,7 +310,7 @@
                         android:id="@+id/pushups"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="40dp"
                         android:text="Push-ups"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -321,11 +321,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="40dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Begin in an all-fours position and straighten \nyour legs. Bend the elbows backward, lowering \nyour chest close to the floor. Push your body \nback up and repeat."
+                        android:text="Begin in an all-fours position and straighten \nyour legs. Bend the elbows backward, \nlowering your chest close to the floor. Push \nyour body back up and repeat."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -339,7 +339,7 @@
                         android:id="@+id/burpee"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="50dp"
                         android:text="Burpee"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -350,11 +350,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="50dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Stand with feet shoulder-width apart and hands \nby your sides. Squat down and place your palms \non the floor. Jump your legs out behind you. "
+                        android:text="Stand with feet shoulder-width apart and \nhands by your sides. Squat down and place \nyour palms on the floor. Jump your legs out \nbehind you. "
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -368,7 +368,7 @@
                         android:id="@+id/jumpingJacks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="65dp"
                         android:text="Jumping Jacks"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -379,11 +379,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="65dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Stand straight with your arms by your sides then \njump and spread your legs while stretching your \narms out over your head. Jump back to the \nstarting position."
+                        android:text="Stand straight with your arms by your sides \nthen jump and spread your legs while \nstretching your arms out over your head. \nJump back to the starting position."
                         android:textColor="#595959" />
 
                 </LinearLayout>
@@ -397,7 +397,8 @@
                         android:id="@+id/calfRaise"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginEnd="35dp"
                         android:text="Calf Raise"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="20dp"
@@ -407,18 +408,18 @@
                         android:id="@+id/descCalfRaise"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginEnd="35dp"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
                         android:textSize="16sp"
-                        android:text="Stand straight with your arms by your sides and \npush your heel up then lower them slowly."
+                        android:text="Stand straight with your arms by your sides \nand push your heel up then lower them \nslowly."
                         android:textColor="#595959" />
 
                 </LinearLayout>
 
             </LinearLayout>
-
         </HorizontalScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
