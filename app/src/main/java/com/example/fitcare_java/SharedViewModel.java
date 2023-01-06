@@ -1,11 +1,6 @@
 package com.example.fitcare_java;
 
-import static android.content.ContentValues.TAG;
-
-import android.annotation.SuppressLint;
 import android.app.Application;
-import android.content.ClipData;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -73,5 +68,13 @@ public class SharedViewModel extends AndroidViewModel {
 
     public LiveData<List<AlarmHistory>> getItems() {
         return mItems;
+    }
+
+    public void setItems(List<AlarmHistory> newItems) {
+        mItems.setValue(newItems);
+    }
+
+    private void loadItems() {
+
     }
 }

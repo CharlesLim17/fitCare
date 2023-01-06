@@ -12,7 +12,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -34,7 +33,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -46,9 +44,7 @@ public class reminderEditFragment extends Fragment{
     ImageView btnBack;
     TextView btnUpdate;
     EditText etTaskNameEdit;
-    AlarmAdapter alarmAdapter;
     RecyclerView alarmRecyclerView;
-    ArrayList<AlarmHistory> alarms;
 
     //firebase
     DatabaseReference databaseReference;
@@ -62,14 +58,12 @@ public class reminderEditFragment extends Fragment{
 
     //storing hour/min/am_pm values to respective variables
     private int id, hour, min, am_pm;
-    private int newHour;
-    private int newMin;
-    private int newAm_pm;
-    private String title, message, taskName, time;
-    private String newTaskName;
-    private String newTime;
+    private String title;
+    private String message;
+    private String taskName;
+    private String time;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "DefaultLocale"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -95,14 +89,28 @@ public class reminderEditFragment extends Fragment{
         retrieveSpecificAlarm();
 
         //setting numpicker for hour
-        numPickerHour.setMinValue(0);
+        numPickerHour.setMinValue(1);
         numPickerHour.setMaxValue(12);
         numPickerHour.setValue(hour);
+        numPickerHour.setFormatter(new NumberPicker.Formatter() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public String format(int i) {
+                return String.format("%02d", i);
+            }
+        });
 
         //setting numpicker for min
         numPickerMin.setMinValue(0);
         numPickerMin.setMaxValue(59);
         numPickerMin.setValue(min);
+        numPickerMin.setFormatter(new NumberPicker.Formatter() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public String format(int i) {
+                return String.format("%02d", i);
+            }
+        });
 
         //setting am pm
         NumPicker.initNumPicker();
@@ -110,23 +118,21 @@ public class reminderEditFragment extends Fragment{
         numPickerAm.setMinValue(0);
         numPickerAm.setDisplayedValues(NumPicker.numPickerNames());
 
-        txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+        txtDisplayTimeEdit.setText(String.format("Time: %02d : %02d %s", hour, min, NumPicker.getNumPickerList().get(am_pm).getName()));
 
         numPickerHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", i1, min, NumPicker.getNumPickerList().get(am_pm).getName()));
+                txtDisplayTimeEdit.setText(String.format("Time: %02d : %02d %s", i1, min, NumPicker.getNumPickerList().get(am_pm).getName()));
                 hour = i1;
-                newHour = i1;
             }
         });
 
         numPickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", hour, i1, NumPicker.getNumPickerList().get(am_pm).getName()));
+                txtDisplayTimeEdit.setText(String.format("Time: %02d : %02d %s", hour, i1, NumPicker.getNumPickerList().get(am_pm).getName()));
                 min = i1;
-                newMin = i1;
             }
         });
 
@@ -135,7 +141,6 @@ public class reminderEditFragment extends Fragment{
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
                 txtDisplayTimeEdit.setText(String.format("Time: %s : %s %s", hour, min, NumPicker.getNumPickerList().get(i1).getName()));
                 am_pm = i1;
-                newAm_pm = i1;
             }
         });
 
@@ -144,7 +149,7 @@ public class reminderEditFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Fragment reminderFrag = new reminderFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, reminderFrag).commit();
             }
         });
@@ -155,9 +160,9 @@ public class reminderEditFragment extends Fragment{
             public void onClick(View view) {
                 if(checkInputAlarmFields()) {
                     Fragment reminderFrag = new reminderFragment();
-                    FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
-                    setAlarmTime(newHour, newMin);
+                    setAlarmTime(hour, min);
                 }
             }
         });
@@ -168,28 +173,29 @@ public class reminderEditFragment extends Fragment{
     // setting alarm time
     private void setAlarmTime(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(newAm_pm).getId());
+        calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
         Calendar calendarForTom = Calendar.getInstance();
-        if (calendar.get(Calendar.HOUR_OF_DAY) <= calendarForTom.get(Calendar.HOUR)) {
+        if (calendar.get(Calendar.HOUR) <= calendarForTom.get(Calendar.HOUR)) {
             calendarForTom.set(Calendar.HOUR, hour);
             calendarForTom.set(Calendar.MINUTE, minute);
             calendarForTom.set(Calendar.SECOND, 0);
-            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(newAm_pm).getId());
+            calendarForTom.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
             calendarForTom.add(calendarForTom.DATE, 1);
             toastTimeText(calendarForTom);
             setAlarmTitleMessage(calendarForTom);
             startAlarm(calendarForTom);
+            taskAlarmUpdate();
         } else {
             toastTimeText(calendar);
             setAlarmTitleMessage(calendar);
             startAlarm(calendar);
+            taskAlarmUpdate();
         }
-        taskAlarmUpdate();
     }
 
     // toast message
@@ -202,36 +208,36 @@ public class reminderEditFragment extends Fragment{
     // alarm Notification Title and Message
     private void setAlarmTitleMessage(Calendar cal) {
         //for displaying in Workout Reminder
-        newTaskName = etTaskNameEdit.getText().toString();
-        newTime = DateFormat.getTimeInstance(DateFormat.SHORT).format(cal.getTime());
+        taskName = etTaskNameEdit.getText().toString();
+        time = DateFormat.getTimeInstance(DateFormat.SHORT).format(cal.getTime());
 
         //for notification
         title = "Workout Reminder";
-        message = "Task: " + etTaskNameEdit.getText().toString() + " at " + newTime;
+        message = "Task: " + etTaskNameEdit.getText().toString() + " at " + time;
     }
 
     // starting alarm
     private void startAlarm(Calendar cal) {
-        alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlertReceiver.class);
 
         intent.putExtra("TITLE", title);
         intent.putExtra("MESSAGE", message);
         
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
     }
 
     //to update task reminder
     private void taskAlarmUpdate() {
-        HashMap<String, Object> update = new HashMap();
+        HashMap<String, Object> update = new HashMap<String, Object>();
 
-        update.put("taskName", newTaskName);
-        update.put("time", newTime);
+        update.put("taskName", taskName);
+        update.put("time", time);
         update.put("id", id);
-        update.put("hour", newHour);
-        update.put("minute", newMin);
-        update.put("am_pm", newAm_pm);
+        update.put("hour", hour);
+        update.put("minute", min);
+        update.put("am_pm", am_pm);
 
         databaseReference.child(uid).child("alarms").orderByChild("id").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -260,6 +266,7 @@ public class reminderEditFragment extends Fragment{
 
     public void retrieveSpecificAlarm() {
         Bundle bundle = getArguments();
+
         if(bundle == null) {
             taskName = null;
             time = null;
