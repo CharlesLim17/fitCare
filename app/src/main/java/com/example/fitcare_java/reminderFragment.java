@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +48,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     private RecyclerView alarmRecyclerView;
     private AlarmAdapter alarmAdapter;
     private ArrayList<AlarmHistory> alarms;
-    private SharedViewModel viewModel;
+    private WorkoutReminderViewModel viewModel;
 
     //firebase
     DatabaseReference databaseReference;
@@ -64,7 +63,7 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        viewModel = new ViewModelProvider(this).get(WorkoutReminderViewModel.class);
         viewModel.getItems().observe(this, new Observer<List<AlarmHistory>>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
