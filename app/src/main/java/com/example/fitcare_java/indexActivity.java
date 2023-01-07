@@ -167,23 +167,20 @@ public class indexActivity extends AppCompatActivity {
 
             //voice command to navigate to stretches low
             if (arrayList.get(0).toString().equals("go to workout stretches low") || arrayList.get(0).toString().equals("open workout stretches low") || arrayList.get(0).toString().equals("go to stretches low") || arrayList.get(0).toString().equals("open stretches low") || arrayList.get(0).toString().equals("go to warm up stretches low") || arrayList.get(0).toString().equals("open warm up stretches low") || arrayList.get(0).toString().equals("go to warm up low") || arrayList.get(0).toString().equals("open warm up low")) {
-                Fragment warmupLowFrag = new warmupLowFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupLowFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, warmupLow.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to stretches moderate
             if (arrayList.get(0).toString().equals("go to workout stretches moderate") || arrayList.get(0).toString().equals("open workout stretches moderate") || arrayList.get(0).toString().equals("go to stretches moderate") || arrayList.get(0).toString().equals("open stretches moderate") || arrayList.get(0).toString().equals("go to warm up stretches moderate") || arrayList.get(0).toString().equals("open warm up stretches moderate") || arrayList.get(0).toString().equals("go to warm up moderate") || arrayList.get(0).toString().equals("open warm up moderate")) {
-                Fragment warmupModerateFrag = new warmupModerateFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupModerateFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, warmupModerate.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to stretches vigorous
             if (arrayList.get(0).toString().equals("go to workout stretches vigorous") || arrayList.get(0).toString().equals("open workout stretches vigorous") || arrayList.get(0).toString().equals("go to stretches vigorous") || arrayList.get(0).toString().equals("open stretches vigorous") || arrayList.get(0).toString().equals("go to warm up stretches vigorous") || arrayList.get(0).toString().equals("open warm up stretches vigorous") || arrayList.get(0).toString().equals("go to warm up vigorous") || arrayList.get(0).toString().equals("open warm up vigorous")) {
-                Fragment warmupVigorousFrag = new warmupVigorousFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupVigorousFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, warmupVigorous.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to reminders page

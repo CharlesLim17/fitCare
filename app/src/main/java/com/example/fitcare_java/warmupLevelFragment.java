@@ -58,9 +58,8 @@ public class warmupLevelFragment extends Fragment {
         btnLow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment warmupLowFrag = new warmupLowFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupLowFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), warmupLow.class);
+                startActivity(intent);
             }
         });
 
@@ -68,9 +67,8 @@ public class warmupLevelFragment extends Fragment {
         btnModerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment warmupModerateFrag = new warmupModerateFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupModerateFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), warmupModerate.class);
+                startActivity(intent);
             }
         });
 
@@ -78,9 +76,8 @@ public class warmupLevelFragment extends Fragment {
         btnVigorous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment warmupVigorousFrag = new warmupVigorousFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, warmupVigorousFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), warmupVigorous.class);
+                startActivity(intent);
             }
         });
 
