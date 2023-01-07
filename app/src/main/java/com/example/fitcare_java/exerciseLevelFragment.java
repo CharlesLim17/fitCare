@@ -59,9 +59,8 @@ public class exerciseLevelFragment extends Fragment {
         btnLow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment exerciseLowFrag = new exerciseLowFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLowFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), exerciseLow.class);
+                startActivity(intent);
             }
         });
 
@@ -69,9 +68,8 @@ public class exerciseLevelFragment extends Fragment {
         btnModerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment exerciseModerateFrag = new exerciseModerateFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseModerateFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), exerciseModerate.class);
+                startActivity(intent);
             }
         });
 
@@ -79,9 +77,8 @@ public class exerciseLevelFragment extends Fragment {
         btnVigorous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment exerciseVigorousFrag = new exerciseVigorousFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseVigorousFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), exerciseVigorous.class);
+                startActivity(intent);
             }
         });
 

@@ -18,6 +18,7 @@ public class finFragment extends Fragment {
     //declare text to speech variable
     private TextToSpeech t1;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +34,11 @@ public class finFragment extends Fragment {
                     t1.setLanguage(Locale.ENGLISH);
             }
         });
+
+        //setting visibility of FAB to gone
+        indexActivity.btnMic.setVisibility(View.GONE);
+
+
 
         //==========================================================================================
 
@@ -795,6 +801,12 @@ public class finFragment extends Fragment {
         });
 
         return view;
+
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        indexActivity.btnMic.setVisibility(View.VISIBLE);
+    }
 }

@@ -18,4 +18,9 @@
     <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
         <item name="android:textColorPrimary">@android:color/black</item>
     </style>
+
+    <!--Video Style-->
+    <style parent="ThemeOverlay.AppCompat.Dialog.Alert" name="TrackSelectionDialogThemeOverLay">
+        <item name="windowNoTitle">false</item>
+    </style>
 </resources>

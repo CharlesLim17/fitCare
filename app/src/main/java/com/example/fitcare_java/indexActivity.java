@@ -21,7 +21,7 @@ public class indexActivity extends AppCompatActivity {
 
     //view binding
     ActivityIndexBinding binding;
-    FloatingActionButton btnMic;
+    static FloatingActionButton btnMic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,23 +100,20 @@ public class indexActivity extends AppCompatActivity {
 
             //voice command to navigate to exercise low
             if (arrayList.get(0).toString().equals("go to exercise low") || arrayList.get(0).toString().equals("open exercise low") || arrayList.get(0).toString().equals("open low exercise") || arrayList.get(0).toString().equals("go to low exercise")) {
-                Fragment exerciseLowFrag = new exerciseLowFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseLowFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, exerciseLow.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to exercise moderate
             if (arrayList.get(0).toString().equals("go to exercise moderate") || arrayList.get(0).toString().equals("open exercise moderate") || arrayList.get(0).toString().equals("open moderate exercise") || arrayList.get(0).toString().equals("go to moderate exercise")) {
-                Fragment exerciseModerateFrag = new exerciseModerateFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseModerateFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, exerciseModerate.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to exercise vigorous
             if (arrayList.get(0).toString().equals("go to exercise vigorous") || arrayList.get(0).toString().equals("open exercise vigorous") || arrayList.get(0).toString().equals("open vigorous exercise") || arrayList.get(0).toString().equals("go to vigorous exercise")) {
-                Fragment exerciseVigorousFrag = new exerciseVigorousFragment();
-                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.frameLayout, exerciseVigorousFrag, null).addToBackStack(null).commit();
+                Intent intent = new Intent(this, exerciseVigorous.class);
+                startActivity(intent);
             }
 
             //voice command to navigate to settings
