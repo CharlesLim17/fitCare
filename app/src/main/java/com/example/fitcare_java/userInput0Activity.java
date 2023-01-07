@@ -26,7 +26,7 @@ public class userInput0Activity extends AppCompatActivity {
     //password visibility
     boolean passwordVisible;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,6 +138,10 @@ public class userInput0Activity extends AppCompatActivity {
         }
         else if (!etConPass.getText().toString().equals(etPassword.getText().toString())) {
             Toast.makeText(userInput0Activity.this, "Password does not match", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etPassword.getText().toString().length() < 6){
+            Toast.makeText(userInput0Activity.this, "Password must be 6 characters long", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

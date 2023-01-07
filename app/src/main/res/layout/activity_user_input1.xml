@@ -168,11 +168,10 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="16dp"
-        android:hint="Select Gender"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,9 +180,11 @@
         <AutoCompleteTextView
             android:id="@+id/ddlGender"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:background="@drawable/custom_edittxt"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:inputType="none"
+            android:text="Male"
+            android:background="@drawable/custom_edittxt"
             android:textColor="@color/black"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>

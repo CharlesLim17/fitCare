@@ -96,20 +96,22 @@ public class userInput2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //convert to string
-                email = userInput0Activity.etEmail.getText().toString();
-                password = userInput0Activity.etPassword.getText().toString();
-                firstName = userInput1Activity.etFirstName.getText().toString();
-                lastName = userInput1Activity.etLastName.getText().toString();
-                age = Integer.parseInt(userInput1Activity.etAge.getText().toString());
-                gender = userInput1Activity.ddlGender.getText().toString();
-                curWeight = Float.parseFloat(etWeight.getText().toString());
-                prevWeight = Float.parseFloat(etWeight.getText().toString());
-                height = Integer.parseInt(etHeight.getText().toString());
-                goal = Float.parseFloat(etGoal.getText().toString());
-
                 //validation of fields
                 if (checkFieldsSubmit()){
+
+                    //convert to string
+                    email = userInput0Activity.etEmail.getText().toString();
+                    password = userInput0Activity.etPassword.getText().toString();
+                    firstName = userInput1Activity.etFirstName.getText().toString();
+                    lastName = userInput1Activity.etLastName.getText().toString();
+                    age = Integer.parseInt(userInput1Activity.etAge.getText().toString());
+                    gender = userInput1Activity.ddlGender.getText().toString();
+                    curWeight = Float.parseFloat(etWeight.getText().toString());
+                    prevWeight = Float.parseFloat(etWeight.getText().toString());
+                    height = Integer.parseInt(etHeight.getText().toString());
+                    goal = Float.parseFloat(etGoal.getText().toString());
+
+                    //sign up
                     signUp();
                 }
             }
@@ -154,10 +156,19 @@ public class userInput2Activity extends AppCompatActivity {
             Toast.makeText(userInput2Activity.this, "Please input weight", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etWeight.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput2Activity.this, "Please input valid weight", Toast.LENGTH_LONG).show();
+            return false;
+        }
         else if (etHeight.getText().toString().length() == 0){
             Toast.makeText(userInput2Activity.this, "Please input height", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etHeight.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput2Activity.this, "Please input valid height", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
         return true;
     }
 
@@ -168,12 +179,24 @@ public class userInput2Activity extends AppCompatActivity {
             Toast.makeText(userInput2Activity.this, "Please input weight", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etWeight.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput2Activity.this, "Please input valid weight", Toast.LENGTH_LONG).show();
+            return false;
+        }
         else if (etHeight.getText().toString().length() == 0){
             Toast.makeText(userInput2Activity.this, "Please input height", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etHeight.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput2Activity.this, "Please input valid height", Toast.LENGTH_LONG).show();
+            return false;
+        }
         else if (etGoal.getText().toString().length() == 0){
             Toast.makeText(userInput2Activity.this, "Please input weight goal", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (!etGoal.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput2Activity.this, "Please input valid goal", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

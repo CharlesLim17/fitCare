@@ -94,8 +94,12 @@ public class userInput1Activity extends AppCompatActivity {
             Toast.makeText(userInput1Activity.this, "Please input age", Toast.LENGTH_LONG).show();
             return false;
         }
+        else if (!etAge.getText().toString().matches("[0-9]*\\.?[0-9]+")){
+            Toast.makeText(userInput1Activity.this, "Please input an integer as age", Toast.LENGTH_LONG).show();
+            return false;
+        }
         else if (ddlGender.getText().toString().length() == 0){
-            Toast.makeText(userInput1Activity.this, "Please Gender", Toast.LENGTH_LONG).show();
+            Toast.makeText(userInput1Activity.this, "Please Select Gender", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
