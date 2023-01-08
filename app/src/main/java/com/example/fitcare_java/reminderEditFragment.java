@@ -161,7 +161,7 @@ public class reminderEditFragment extends Fragment{
                     Fragment reminderFrag = new reminderFragment();
                     FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
-                    setAlarmTime(hour, min);
+                    setAlarmTime(hour, min, am_pm);
                 }
             }
         });
@@ -170,7 +170,11 @@ public class reminderEditFragment extends Fragment{
     }
 
     // setting alarm time
-    private void setAlarmTime(int hour, int minute) {
+    private void setAlarmTime(int hour, int minute, int am_pm) {
+        if(hour == 12) {
+            hour = 0;
+        }
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);

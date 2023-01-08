@@ -76,6 +76,10 @@ public class reminderAddFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
         uid = user.getUid();
 
+        if(hour == 0){
+            hour = 12;
+        }
+
         //setting numpicker for hour
         numPickerHour.setMinValue(1);
         numPickerHour.setMaxValue(12);
@@ -151,7 +155,7 @@ public class reminderAddFragment extends Fragment {
                     Fragment reminderFrag = new reminderFragment();
                     FragmentTransaction fm = requireActivity().getSupportFragmentManager().beginTransaction();
                     fm.replace(R.id.frameLayout, reminderFrag).commit();
-                    setAlarmTime(hour, min);
+                    setAlarmTime(hour, min, am_pm);
                }
             }
         });
@@ -159,7 +163,11 @@ public class reminderAddFragment extends Fragment {
     }
 
     // setting alarm time
-    private void setAlarmTime(int hour, int minute) {
+    private void setAlarmTime(int hour, int minute, int am_pm) {
+        if (hour == 12) {
+            hour = 0;
+        }
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR, hour);
         calendar.set(Calendar.MINUTE, minute);
@@ -167,7 +175,6 @@ public class reminderAddFragment extends Fragment {
         calendar.set(Calendar.AM_PM, NumPicker.getNumPickerList().get(am_pm).getId());
 
         if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
-            // Add one day to the selected time
             calendar.add(Calendar.DATE, 1);
         }
 
