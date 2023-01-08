@@ -1,18 +1,29 @@
 package com.example.fitcare_java;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fitcare_java.databinding.ActivityIndexBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -22,6 +33,21 @@ public class indexActivity extends AppCompatActivity {
     //view binding
     ActivityIndexBinding binding;
     static FloatingActionButton btnMic;
+    private TextToSpeech t1;
+
+    //firebase
+    FirebaseUser user;
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    String uid;
+
+    //holders
+    String holderHeight, holderCurWeight, holderPrevWeight, holderGoal, holderToAchieveGoal, holderCurVsPrev, holderBMI;
+
+    //speech
+    String speechHeight, speechCurWeight, speechPrevWeight, speechGoal, speechToAchieveGoal, speechCurVsPrev;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +65,22 @@ public class indexActivity extends AppCompatActivity {
 
         //setting variables
         btnMic = findViewById(R.id.btnMic);
+
+        //firebase instance
+        auth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
+        uid = user.getUid();
+
+
+        //initialize text to speech
+        t1 = new TextToSpeech(indexActivity.this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i != TextToSpeech.ERROR)
+                    t1.setLanguage(Locale.ENGLISH);
+            }
+        });
 
         //mic onclick
         btnMic.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +231,219 @@ public class indexActivity extends AppCompatActivity {
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, remindersFrag, null).addToBackStack(null).commit();
             }
+
+            //voice command to say statistics
+            if (arrayList.get(0).toString().equals("check my statistics") || arrayList.get(0).toString().equals("check statistics") || arrayList.get(0).toString().equals("my statistics")) {
+                //retrieve data
+                readStatistics();
+
+            }
+
+            //voice command for goal weight
+            if (arrayList.get(0).toString().equals("check my goal") || arrayList.get(0).toString().equals("check goal") || arrayList.get(0).toString().equals("my goal")) {
+                //retrieve data
+                readGoal();
+            }
+
+            //voice command for cur vs prev weight
+            if (arrayList.get(0).toString().equals("check my weight") || arrayList.get(0).toString().equals("check weight") || arrayList.get(0).toString().equals("my weight")) {
+                //retrieve data
+                readCurVsPrev();
+            }
+
+            //voice command for cur vs prev weight
+            if (arrayList.get(0).toString().equals("who am i")){
+                //retrieve data
+                readWhoAmI();
+            }
         }
     }
+
+    //function to read and say statistics
+    private void readStatistics() {
+        databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user !=null) {
+                    float height = user.height;
+                    float curWeight = user.curWeight;
+                    float goal = user.goal;
+
+                    holderHeight = height + "";
+                    holderCurWeight = curWeight + "";
+                    holderGoal = goal + "";
+
+                    //Attaching variables to speech
+                    speechHeight = holderHeight;
+                    speechCurWeight = holderCurWeight;
+                    speechGoal = holderGoal;
+
+                    //String speech
+                    String speechStatistics = "Your statistics is" + speechHeight + " centimeters in height, " + speechCurWeight +
+                            " kilograms in weight, and your goal is " + speechGoal + " kilograms.";
+
+                    t1.speak(speechStatistics, TextToSpeech.QUEUE_FLUSH, null);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(indexActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    //function to read and say goal
+    private void readGoal(){
+        databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user !=null) {
+                    float curWeight = user.curWeight;
+                    float goal = user.goal;
+
+                    holderCurWeight = curWeight + "";
+                    holderGoal = goal + "";
+
+                    //To achieve Goal
+                    float toAchieveGoal;
+                    if (goal > curWeight){
+                        toAchieveGoal = goal - curWeight;
+
+                        //retrieve 2 decimal places for to achieve goal
+                        @SuppressLint("DefaultLocale") String formattedString2 = String.format("%.02f", toAchieveGoal);
+                        holderToAchieveGoal = "You need to gain "+formattedString2 + " kilograms.";
+                    }
+                    else if(goal < curWeight){
+                        toAchieveGoal = curWeight - goal;
+
+                        //retrieve 2 decimal places for to achieve goal
+                        @SuppressLint("DefaultLocale") String formattedString2 = String.format("%.02f", toAchieveGoal);
+                        holderToAchieveGoal = "You need to lose " + formattedString2 + " kilograms.";
+                    }
+                    else {
+                        holderToAchieveGoal = "You have already achieved your goal!";
+                    }
+
+                    //Attaching variables to speech
+                    speechCurWeight = holderCurWeight;
+                    speechGoal = holderGoal;
+                    speechToAchieveGoal = holderToAchieveGoal;
+
+                    //String speech
+                    String speechOverallGoal = "Your goal is, " + speechGoal + " kilograms, " + speechToAchieveGoal;
+
+                    t1.speak(speechOverallGoal, TextToSpeech.QUEUE_FLUSH, null);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(indexActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    //function for cur vs prev weight
+    private void readCurVsPrev(){
+        databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user !=null) {
+                    float curWeight = user.curWeight;
+                    float prevWeight = user.prevWeight;
+
+                    holderCurWeight = curWeight + "";
+                    holderPrevWeight = prevWeight + "";
+
+                    //Current weight vs Previous Weight
+                    float curVSprev;
+                    String descVS;
+                    if (curWeight > prevWeight) {
+                        curVSprev = curWeight - prevWeight;
+                        descVS = "You gained ";
+
+                        //retrieve 2 decimal places for curVsPrev
+                        @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
+                        holderCurVsPrev = descVS + formattedString1 + " kilograms.";
+                    }
+                    else if (curWeight < prevWeight){
+                        curVSprev = prevWeight - curWeight;
+                        descVS = "You lost ";
+
+                        //retrieve 2 decimal places for curVsPrev
+                        @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
+                        holderCurVsPrev = descVS + formattedString1 + " kilograms.";
+                    }
+                    else{
+                        curVSprev = curWeight - prevWeight;
+                        descVS = "There is no difference in weight ";
+
+                        //retrieve 2 decimal places for curVsPrev
+                        @SuppressLint("DefaultLocale") String formattedString1 = String.format("%.02f", curVSprev);
+                        holderCurVsPrev = descVS + formattedString1 + " kilograms.";
+                    }
+
+                    //Attaching variables to speech
+                    speechCurWeight = holderCurWeight;
+                    speechPrevWeight = holderPrevWeight;
+                    speechCurVsPrev = holderCurVsPrev;
+
+                    //String speech
+                    String speechOverallVS = "Your current weight is " + speechCurWeight + " kilograms, and your previous weight is " + speechPrevWeight + "kilograms. " + speechCurVsPrev;
+                    t1.speak(speechOverallVS, TextToSpeech.QUEUE_FLUSH, null);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(indexActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    //function to read and say who am i
+    private void readWhoAmI() {
+        databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user !=null) {
+                    String firstName = user.firstName;
+                    String lastName = user.lastName;
+                    String gender = user.gender;
+                    String fullName = firstName + " " + lastName;
+
+                    //set greeting based on gender
+                    String speechGreeting;
+                    if (gender.equals("Male")) {
+                        speechGreeting = "You're the handsome " + fullName;
+                    }
+                    else if (gender.equals("Female")) {
+                        speechGreeting = "You're the pretty " + fullName;
+                    }
+                    else {
+                        speechGreeting = "You're my bestfriend " + fullName;
+                    }
+
+                    t1.speak(speechGreeting, TextToSpeech.QUEUE_FLUSH, null);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(indexActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 }
