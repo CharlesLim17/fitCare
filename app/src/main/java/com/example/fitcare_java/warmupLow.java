@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 public class warmupLow extends AppCompatActivity {
@@ -93,6 +94,7 @@ public class warmupLow extends AppCompatActivity {
                             .getDrawable(getApplicationContext(), R.drawable.ic_baseline_fullscreen));
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                     playerView.setLayoutParams(originalLayoutParams);
+                    playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
                 }
                 isFullScreen = !isFullScreen;
 
