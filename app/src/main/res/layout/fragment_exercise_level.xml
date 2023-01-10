@@ -40,7 +40,7 @@
         android:layout_marginRight="34dp"
         android:fontFamily="sans-serif-medium"
         android:lineSpacingExtra="10sp"
-        android:text="Exercise - Select Level"
+        android:text="Exercise  |  Select Level"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"

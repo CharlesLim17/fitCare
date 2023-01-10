@@ -45,7 +45,7 @@
             android:layout_marginRight="24dp"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="10sp"
-            android:text="Warm up - Low"
+            android:text="Warm-Up |  Low"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
