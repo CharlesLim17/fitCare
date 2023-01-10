@@ -39,8 +39,58 @@ public class finFragment extends Fragment {
         indexActivity.btnMic.setVisibility(View.GONE);
 
 
+        //=====================================Command Shortcuts====================================
+        //declaring and setting variables statistics
+        ImageButton btnCheckMyStatistics = view.findViewById(R.id.btnCheckMyStatistics);
+        TextView txtCheckMyStatistics = view.findViewById(R.id.txtCheckMyStatistics);
+        //Statistics on click
+        btnCheckMyStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderCheckMyStatistics = txtCheckMyStatistics.getText().toString();
+                t1.speak(txtHolderCheckMyStatistics, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
 
-        //==========================================================================================
+        //declaring and setting variables goal
+        ImageButton btnCheckMyGoal = view.findViewById(R.id.btnCheckMyGoal);
+        TextView txtCheckMyGoal = view.findViewById(R.id.txtCheckMyGoal);
+
+        //Statistics on click
+        btnCheckMyGoal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderCheckMyGoal = txtCheckMyGoal.getText().toString();
+                t1.speak(txtHolderCheckMyGoal, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //declaring and setting variables Weight
+        ImageButton btnCheckMyWeight = view.findViewById(R.id.btnCheckMyWeight);
+        TextView txtCheckMyWeight = view.findViewById(R.id.txtCheckMyWeight);
+
+        //Weight on click
+        btnCheckMyWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderCheckMyWeight = txtCheckMyWeight.getText().toString();
+                t1.speak(txtHolderCheckMyWeight, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //declaring setting variable who am i
+        ImageButton btnWhoAmI = view.findViewById(R.id.btnWhoAmI);
+        TextView txtWhoAmI = view.findViewById(R.id.txtWhoAmI);
+
+        btnWhoAmI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderWhoAmI = txtWhoAmI.getText().toString();
+                t1.speak(txtHolderWhoAmI, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //======================================App Navigation=====================================
 
         //declaring and setting variables exercise
         ImageButton btnGoToExercise = view.findViewById(R.id.btnGoToExercise);
