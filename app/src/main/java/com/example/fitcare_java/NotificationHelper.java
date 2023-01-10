@@ -1,12 +1,10 @@
 package com.example.fitcare_java;
 
-import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
@@ -20,7 +18,6 @@ public class NotificationHelper extends ContextWrapper{
         createNotificationChannels();
     }
 
-    @TargetApi(Build.VERSION_CODES.O)
     public void createNotificationChannels() {
         NotificationChannel channel1 = new NotificationChannel(
                 channel1ID,
