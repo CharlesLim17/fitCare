@@ -228,6 +228,9 @@ public class reminderFragment extends Fragment  implements RecyclerViewInterface
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_IMMUTABLE);
 
+        } else {
+            pendingIntent = PendingIntent.getBroadcast(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         }
 
         if (reminderAddFrag != null) {
