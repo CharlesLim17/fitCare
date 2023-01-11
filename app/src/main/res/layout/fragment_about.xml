@@ -84,35 +84,20 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="100dp"
             android:layout_marginRight="24dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="8sp"
-            android:text="FitCare is offline non-equipment-based-based exercise application that comes with an AI voice guide that helps users, particularly Gen X elders struggling with app navigation, operate the app effectively for practicing exercises."
+            android:text="FitCare is offline non-equipment-based-based exercise application that comes with an AI voice guide that helps users, particularly Gen X elders struggling with app navigation, operate the app effectively for practicing exercises. \n\nSimilar to other fitness applications, FitCare also provides a span of visually presented exercise of different levels (low, moderate, and vigorous) and other fitness-related features that assist users in exercising. These other similar features include meal plans, warm-up and stretching routines, and workout tracking."
             android:textColor="#595959"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:fontFamily="sans-serif"
-            android:lineSpacingExtra="8sp"
-            android:text="Similar to other fitness applications, FitCare also provides a span of visually presented exercise of different levels (low, moderate, and vigorous) and other fitness-related features that assist users in exercising. These other similar features include meal plans, warm-up and stretching routines, and workout tracking."
-            android:textColor="#595959"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

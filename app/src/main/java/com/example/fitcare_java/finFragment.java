@@ -35,9 +35,6 @@ public class finFragment extends Fragment {
             }
         });
 
-        //setting visibility of FAB to gone
-        indexActivity.btnMic.setVisibility(View.GONE);
-
 
         //=====================================Command Shortcuts====================================
         //declaring and setting variables statistics
@@ -855,8 +852,16 @@ public class finFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStart() {
+        super.onStart();
+        //setting visibility of FAB to gone
+        indexActivity.btnMic.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        //show FAB when out of fin fragment
         indexActivity.btnMic.setVisibility(View.VISIBLE);
     }
 }
