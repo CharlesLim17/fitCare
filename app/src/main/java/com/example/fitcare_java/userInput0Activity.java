@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class userInput0Activity extends AppCompatActivity {
     //password visibility
     boolean passwordVisible;
 
-    @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +71,7 @@ public class userInput0Activity extends AppCompatActivity {
         etPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
                 final int right=2;
-
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
                     if(motionEvent.getRawX()>=etPassword.getRight()-etPassword.getCompoundDrawables()[right].getBounds().width()){
                         int selection=etPassword.getSelectionEnd();
@@ -99,9 +98,7 @@ public class userInput0Activity extends AppCompatActivity {
         etConPass.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
                 final int right=2;
-
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
                     if(motionEvent.getRawX()>=etConPass.getRight()-etConPass.getCompoundDrawables()[right].getBounds().width()){
                         int selection=etPassword.getSelectionEnd();
@@ -130,6 +127,10 @@ public class userInput0Activity extends AppCompatActivity {
     private boolean error() {
         if (etEmail.getText().toString().length() == 0){
             Toast.makeText(userInput0Activity.this, "Please enter email", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()) {
+            Toast.makeText(userInput0Activity.this, "Please enter a valid email", Toast.LENGTH_LONG).show();
             return false;
         }
         else if (etPassword.getText().toString().length() == 0){

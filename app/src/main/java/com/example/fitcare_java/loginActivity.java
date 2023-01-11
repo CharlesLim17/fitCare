@@ -47,7 +47,7 @@ public class loginActivity extends AppCompatActivity {
     //initiate loading dialog
     private final LoadingDialog loadingDialog = new LoadingDialog(loginActivity.this);
 
-    @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
