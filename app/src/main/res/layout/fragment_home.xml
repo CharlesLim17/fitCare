@@ -84,7 +84,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:text="Warm-Up\nStretches"
+                android:text="Warm Up\nStretches"
                 android:lineSpacingExtra="6dp"
                 android:textColor="@color/white"
                 android:textSize="24sp" />

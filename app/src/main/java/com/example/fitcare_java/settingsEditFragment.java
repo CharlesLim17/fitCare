@@ -63,11 +63,11 @@ public class settingsEditFragment extends Fragment {
         btnTrackerEdit = view.findViewById(R.id.btnTrackerEdit);
 
         //spanning string in front end
-        SpannableStringBuilder spannable = new SpannableStringBuilder("Note: To edit weight and goal weight. Click here.");
+        SpannableStringBuilder spannable = new SpannableStringBuilder("Note: To edit weight and goal weight. Tap here.");
         spannable.setSpan(
                 new ForegroundColorSpan(Color.rgb(51,153,255)),
                 38, // start
-                49, // end
+                47, // end
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         );
 
