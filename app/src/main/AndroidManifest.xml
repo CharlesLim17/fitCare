@@ -19,8 +19,7 @@
         <activity
             android:name=".warmupVigorous"
             android:exported="false"
-            android:configChanges="orientation|screenSize|screenLayout"
-            android:screenOrientation="fullSensor">
+            android:configChanges="orientation|screenSize|screenLayout">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -28,8 +27,7 @@
         <activity
             android:name=".warmupModerate"
             android:exported="false"
-            android:configChanges="orientation|screenSize|screenLayout"
-            android:screenOrientation="fullSensor">
+            android:configChanges="orientation|screenSize|screenLayout">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -46,7 +44,6 @@
         <activity
             android:name=".exerciseVigorous"
             android:configChanges="orientation|screenSize|screenLayout"
-            android:screenOrientation="fullSensor"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,7 +52,6 @@
         <activity
             android:name=".exerciseModerate"
             android:configChanges="orientation|screenSize|screenLayout"
-            android:screenOrientation="fullSensor"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -64,7 +60,6 @@
         <activity
             android:name=".exerciseLow"
             android:configChanges="orientation|screenSize|screenLayout"
-            android:screenOrientation="fullSensor"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
