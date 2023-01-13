@@ -31,6 +31,7 @@ public class settingsFragment extends Fragment {
     TextView txtGreet, txtRetrieveWeight, txtRetrieveHeight, txtRetrieveBMI, txtRetrieveBMIResult;
     TextView btnAbout;
     TextView btnPrivacy;
+    TextView btnExit;
     ImageView btnEdit;
 
     //used for logout
@@ -58,6 +59,7 @@ public class settingsFragment extends Fragment {
         btnAbout = view.findViewById(R.id.btnAbout);
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
+        btnExit = view.findViewById(R.id.btnExit);
         context = getActivity();
 
         //initiate loading dialog
@@ -111,6 +113,14 @@ public class settingsFragment extends Fragment {
                 Fragment aboutFrag = new aboutFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, aboutFrag, null).addToBackStack(null).commit();
+            }
+        });
+
+        //Exit onclick
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
             }
         });
 

@@ -176,7 +176,6 @@
             android:layout_marginTop="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
-            android:layout_marginBottom="100dp"
             android:background="@drawable/custom_setting_btn"
             android:elevation="12dp"
             android:fontFamily="sans-serif-medium"
@@ -185,10 +184,30 @@
             android:text="Logout"
             android:textColor="#FEFED3"
             android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPrivacy" />
+
+        <TextView
+            android:id="@+id/btnExit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/custom_setting_btn"
+            android:elevation="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingLeft="62dp"
+            android:text="Exit Application"
+            android:textColor="#FEFED3"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -219,6 +238,16 @@
             android:src="@drawable/logout_outline"
             app:layout_constraintStart_toStartOf="@+id/btnLogout"
             app:layout_constraintTop_toTopOf="@+id/btnLogout" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:elevation="12dp"
+            android:src="@drawable/exit"
+            app:layout_constraintStart_toStartOf="@+id/btnExit"
+            app:layout_constraintTop_toTopOf="@+id/btnExit" />
 
         <TextView
             android:id="@+id/txtRetrieveWeight"
