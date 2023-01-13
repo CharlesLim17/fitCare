@@ -32,6 +32,7 @@ public class settingsFragment extends Fragment {
     TextView btnAbout;
     TextView btnPrivacy;
     TextView btnExit;
+    TextView btnEditAccount;
     ImageView btnEdit;
 
     //used for logout
@@ -60,6 +61,7 @@ public class settingsFragment extends Fragment {
         btnPrivacy = view.findViewById(R.id.btnPrivacy);
         btnEdit = view.findViewById(R.id.btnEdit);
         btnExit = view.findViewById(R.id.btnExit);
+        btnEditAccount = view.findViewById(R.id.btnEditAccount);
         context = getActivity();
 
         //initiate loading dialog
@@ -93,6 +95,16 @@ public class settingsFragment extends Fragment {
                 Fragment settingsEditFrag = new settingsEditFragment();
                 FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, settingsEditFrag, null).addToBackStack(null).commit();
+            }
+        });
+
+        //Edit accoutn onclick
+        btnEditAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment settingsExtendedFrag = new settingsUserEdit();
+                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, settingsExtendedFrag, null).addToBackStack(null).commit();
             }
         });
 
