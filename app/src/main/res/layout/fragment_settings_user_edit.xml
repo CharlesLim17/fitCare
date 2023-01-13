@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFEFEF"
-    tools:context=".settingsEditFragment">
+    tools:context=".settingsUserEdit">
 
     <TextView
         android:id="@+id/appBar"
@@ -30,7 +30,7 @@
         android:layout_marginRight="24dp"
         android:fontFamily="sans-serif-medium"
         android:lineSpacingExtra="10sp"
-        android:text="Edit Statistics"
+        android:text="Edit Your Profile"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -62,37 +62,20 @@
         app:srcCompat="@drawable/fitcare_line" />
 
     <TextView
-        android:id="@+id/btnTrackerEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="12dp"
-        android:text=""
-        android:lineSpacingExtra="12dp"
-        android:fontFamily="sans-serif"
-        android:textColor="#303030"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginTop="34dp"
-        android:text="Height"
+        android:layout_marginTop="30dp"
+        android:text="First Name"
         android:fontFamily="sans-serif-medium"
         android:textColor="#303030"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTrackerEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/etHeight"

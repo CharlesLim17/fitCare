@@ -70,7 +70,7 @@
         android:layout_marginRight="24dp"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
-        android:text="Your privacy is important and our Privacy Policy details how we use and protect your information. As a practice of the Republic Act 10173 - Data Privacy Act of 2012, FitCare ensures that the data you input in our application will only be used only inside the app."
+        android:text="Your privacy is important and our Privacy Policy details how we use and protect your information. \n\nIn accordance of RA 10173 or the Data Privacy Act of 2012, all personal and/or sensitive information solicited and disclosed in this application shall be only used for the application alone. Rest assured that your information in this application will be kept confidential. Thank you for using FitCare. "
         android:textColor="#595959"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
