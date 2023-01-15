@@ -134,7 +134,7 @@ public class indexActivity extends AppCompatActivity {
             ArrayList<String> arrayList=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
             //voice command to navigate to home page
-            if (arrayList.get(0).toString().equals("go to home") || arrayList.get(0).toString().equals("go home")) {
+            if (arrayList.get(0).toString().equals("go to home") || arrayList.get(0).toString().equals("go home") || arrayList.get(0).toString().equals("open home")) {
                 Fragment homeFrag = new homeFragment();
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
                 fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();

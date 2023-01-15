@@ -37,9 +37,11 @@ public class finFragment extends Fragment {
 
 
         //=====================================Command Shortcuts====================================
+
         //declaring and setting variables statistics
         ImageButton btnCheckMyStatistics = view.findViewById(R.id.btnCheckMyStatistics);
         TextView txtCheckMyStatistics = view.findViewById(R.id.txtCheckMyStatistics);
+
         //Statistics on click
         btnCheckMyStatistics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +89,65 @@ public class finFragment extends Fragment {
             }
         });
 
+        //declaring setting variable closing application
+        ImageButton btnCloseTheApp = view.findViewById(R.id.btnCloseTheApp);
+        TextView txtCloseTheApp = view.findViewById(R.id.txtCloseTheApp);
+        ImageButton btnExitTheApp = view.findViewById(R.id.btnExitTheApp);
+        TextView txtExitTheApp = view.findViewById(R.id.txtExitTheApp);
+
+        btnCloseTheApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderCloseTheApp = txtCloseTheApp.getText().toString();
+                t1.speak(txtHolderCloseTheApp, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnExitTheApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderExitTheApp = txtExitTheApp.getText().toString();
+                t1.speak(txtHolderExitTheApp, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
         //======================================App Navigation=====================================
+
+        //declaring and setting variables for home page
+        ImageButton btnGoToHome = view.findViewById(R.id.btnGoToHome);
+        ImageButton btnGoHome = view.findViewById(R.id.btnGoHome);
+        ImageButton btnOpenHome = view.findViewById(R.id.btnOpenHome);
+
+        TextView txtGoToHome = view.findViewById(R.id.txtGoToHome);
+        TextView txtGoHome = view.findViewById(R.id.txtGoHome);
+        TextView txtOpenHome = view.findViewById(R.id.txtOpenHome);
+
+        //Home page onclick
+        btnGoToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoToHome = txtGoToHome.getText().toString();
+                t1.speak(txtHolderGoToHome, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnGoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderGoHome = txtGoHome.getText().toString();
+                t1.speak(txtHolderGoHome, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        btnOpenHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtHolderOpenHome = txtOpenHome.getText().toString();
+                t1.speak(txtHolderOpenHome, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        //=========================================================================================
 
         //declaring and setting variables exercise
         ImageButton btnGoToExercise = view.findViewById(R.id.btnGoToExercise);
@@ -513,8 +573,8 @@ public class finFragment extends Fragment {
         ImageButton btnOpenStretches = view.findViewById(R.id.btnOpenStretches);
         ImageButton btnGoToWarmupStretches = view.findViewById(R.id.btnGoToWarmupStretches);
         ImageButton btnOpenWarmupStretches = view.findViewById(R.id.btnOpenWarmupStretches);
-        ImageButton btnGoToWarmup = view.findViewById(R.id.btnGoToWarmup);
-        ImageButton btnOpenWarmup = view.findViewById(R.id.btnOpenWarmup);
+//        ImageButton btnGoToWarmup = view.findViewById(R.id.btnGoToWarmup);
+//        ImageButton btnOpenWarmup = view.findViewById(R.id.btnOpenWarmup);
 
         //low
         ImageButton btnGoToWorkoutStretchesLow = view.findViewById(R.id.btnGoToWorkoutStretchesLow);
@@ -554,8 +614,8 @@ public class finFragment extends Fragment {
         TextView txtOpenStretches = view.findViewById(R.id.txtOpenStretches);
         TextView txtGoToWarmupStretches = view.findViewById(R.id.txtGoToWarmupStretches);
         TextView txtOpenWarmupStretches = view.findViewById(R.id.txtOpenWarmupStretches);
-        TextView txtGoToWarmup = view.findViewById(R.id.txtGoToWarmup);
-        TextView txtOpenWarmup = view.findViewById(R.id.txtOpenWarmup);
+//        TextView txtGoToWarmup = view.findViewById(R.id.txtGoToWarmup);
+//        TextView txtOpenWarmup = view.findViewById(R.id.txtOpenWarmup);
 
         //low
         TextView txtGoToWorkoutStretchesLow = view.findViewById(R.id.txtGoToWorkoutStretchesLow);
@@ -636,21 +696,21 @@ public class finFragment extends Fragment {
             }
         });
 
-        btnGoToWarmup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String txtHolderGoToWarmup = txtGoToWarmup.getText().toString();
-                t1.speak(txtHolderGoToWarmup, TextToSpeech.QUEUE_FLUSH, null);
-            }
-        });
-
-        btnOpenWarmup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String txtHolderOpenWarmup = txtOpenWarmup.getText().toString();
-                t1.speak(txtHolderOpenWarmup, TextToSpeech.QUEUE_FLUSH, null);
-            }
-        });
+//        btnGoToWarmup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String txtHolderGoToWarmup = txtGoToWarmup.getText().toString();
+//                t1.speak(txtHolderGoToWarmup, TextToSpeech.QUEUE_FLUSH, null);
+//            }
+//        });
+//
+//        btnOpenWarmup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String txtHolderOpenWarmup = txtOpenWarmup.getText().toString();
+//                t1.speak(txtHolderOpenWarmup, TextToSpeech.QUEUE_FLUSH, null);
+//            }
+//        });
 
         //Low warm up stretches
         btnGoToWorkoutStretchesLow.setOnClickListener(new View.OnClickListener() {
