@@ -133,6 +133,13 @@ public class indexActivity extends AppCompatActivity {
 
             ArrayList<String> arrayList=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
+            //voice command to navigate to home page
+            if (arrayList.get(0).toString().equals("go to home") || arrayList.get(0).toString().equals("go home")) {
+                Fragment homeFrag = new homeFragment();
+                FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
+                fm.replace(R.id.frameLayout, homeFrag, null).addToBackStack(null).commit();
+            }
+
             //voice command to navigate to exercise page
             if (arrayList.get(0).toString().equals("go to exercise") || arrayList.get(0).toString().equals("open exercise")) {
                 Fragment exerciseLevelFrag = new exerciseLevelFragment();
@@ -255,6 +262,11 @@ public class indexActivity extends AppCompatActivity {
             if (arrayList.get(0).toString().equals("who am i")){
                 //retrieve data
                 readWhoAmI();
+            }
+
+            //exit the application
+            if (arrayList.get(0).toString().equals("close the app") || arrayList.get(0).toString().equals("exit the app") || arrayList.get(0).toString().equals("close") || arrayList.get(0).toString().equals("exit")){
+                finish();
             }
         }
     }
