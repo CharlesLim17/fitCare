@@ -22,12 +22,17 @@
             android:layout_marginStart="16dp"
             android:fontFamily="sans-serif"
             android:gravity="center_vertical"
+            android:maxLines="2"
+            android:singleLine="false"
             android:text="Task Name"
             android:textColor="#303030"
             android:textSize="20dp"
+            android:maxWidth="200dp"
+            android:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.511" />
 
         <TextView
             android:id="@+id/txtRetrieveTime"
