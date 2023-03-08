@@ -1,5 +1,3 @@
-# FitCare Client Project
-This is the project that I have done for the clients that hired me. This serve as their academic requirement for their research.
 
 # FitCare Functionality Demo
 https://user-images.githubusercontent.com/99405936/210180702-fef1ab66-8a58-4974-bdd5-615aa98eaa91.mp4
